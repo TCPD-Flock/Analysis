@@ -1,0 +1,467 @@
+{
+  "overall": {
+    "total": 24333,
+    "late_night": 1922,
+    "weekend": 4984
+  },
+  "overall_late_pct": 7.898738338881355,
+  "overall_weekend_pct": 20.482472362635104,
+  "officer_rows": [
+    {
+      "name": "Jaqueline  Long",
+      "total": 151,
+      "late_pct": 19.205298013245034,
+      "weekend_pct": 37.74834437086093
+    },
+    {
+      "name": "John Downing",
+      "total": 2891,
+      "late_pct": 0.0,
+      "weekend_pct": 1.5565548253199584
+    },
+    {
+      "name": "Armando  Carranza",
+      "total": 252,
+      "late_pct": 0.0,
+      "weekend_pct": 33.730158730158735
+    },
+    {
+      "name": "Christopher Keys",
+      "total": 286,
+      "late_pct": 23.776223776223777,
+      "weekend_pct": 25.874125874125873
+    },
+    {
+      "name": "Maria Mccracken",
+      "total": 2095,
+      "late_pct": 0.1909307875894988,
+      "weekend_pct": 31.599045346062056
+    },
+    {
+      "name": "Austin Thompson",
+      "total": 507,
+      "late_pct": 38.06706114398422,
+      "weekend_pct": 43.786982248520715
+    },
+    {
+      "name": "Matthew  Winnett",
+      "total": 217,
+      "late_pct": 0.0,
+      "weekend_pct": 13.82488479262673
+    },
+    {
+      "name": "Salim Plumb",
+      "total": 353,
+      "late_pct": 0.0,
+      "weekend_pct": 30.878186968838527
+    },
+    {
+      "name": "KJ Arrington",
+      "total": 338,
+      "late_pct": 0.0,
+      "weekend_pct": 0.0
+    },
+    {
+      "name": "James  Barfield",
+      "total": 96,
+      "late_pct": 13.541666666666666,
+      "weekend_pct": 0.0
+    },
+    {
+      "name": "Hector D Garcia",
+      "total": 617,
+      "late_pct": 0.8103727714748784,
+      "weekend_pct": 2.755267423014587
+    },
+    {
+      "name": "Timothy  Rogers",
+      "total": 881,
+      "late_pct": 0.11350737797956867,
+      "weekend_pct": 0.5675368898978433
+    },
+    {
+      "name": "Kreig  Wallace",
+      "total": 1924,
+      "late_pct": 0.8835758835758836,
+      "weekend_pct": 2.9625779625779627
+    },
+    {
+      "name": "Stephanie Johnson",
+      "total": 621,
+      "late_pct": 0.0,
+      "weekend_pct": 0.0
+    },
+    {
+      "name": "Trevor Strong",
+      "total": 554,
+      "late_pct": 1.263537906137184,
+      "weekend_pct": 6.137184115523466
+    },
+    {
+      "name": "Trevor  Robinson",
+      "total": 86,
+      "late_pct": 24.418604651162788,
+      "weekend_pct": 23.25581395348837
+    },
+    {
+      "name": "Simon  Wilcock",
+      "total": 556,
+      "late_pct": 0.0,
+      "weekend_pct": 30.935251798561154
+    },
+    {
+      "name": "Steven Wheeler",
+      "total": 285,
+      "late_pct": 23.859649122807017,
+      "weekend_pct": 29.82456140350877
+    },
+    {
+      "name": "Christopher  Bell",
+      "total": 263,
+      "late_pct": 5.323193916349809,
+      "weekend_pct": 34.22053231939163
+    },
+    {
+      "name": "Jason Taylor",
+      "total": 80,
+      "late_pct": 0.0,
+      "weekend_pct": 15.0
+    },
+    {
+      "name": "Cody  Chittenden",
+      "total": 206,
+      "late_pct": 3.3980582524271843,
+      "weekend_pct": 0.0
+    },
+    {
+      "name": "Jason Stevens",
+      "total": 114,
+      "late_pct": 0.0,
+      "weekend_pct": 9.649122807017543
+    },
+    {
+      "name": "TJ  Vowell-Zundel",
+      "total": 81,
+      "late_pct": 20.98765432098765,
+      "weekend_pct": 44.44444444444444
+    },
+    {
+      "name": "John Perron",
+      "total": 67,
+      "late_pct": 0.0,
+      "weekend_pct": 43.28358208955223
+    },
+    {
+      "name": "Skylar Sillivent",
+      "total": 161,
+      "late_pct": 0.0,
+      "weekend_pct": 35.40372670807454
+    },
+    {
+      "name": "Christopher Jones",
+      "total": 136,
+      "late_pct": 34.55882352941176,
+      "weekend_pct": 33.088235294117645
+    },
+    {
+      "name": "Demeetron Burrell",
+      "total": 226,
+      "late_pct": 2.6548672566371683,
+      "weekend_pct": 23.451327433628318
+    },
+    {
+      "name": "Aaron Gillespie",
+      "total": 1104,
+      "late_pct": 0.0,
+      "weekend_pct": 5.52536231884058
+    },
+    {
+      "name": "Taylor Wolfe",
+      "total": 49,
+      "late_pct": 0.0,
+      "weekend_pct": 0.0
+    },
+    {
+      "name": "Tosha  Whitley",
+      "total": 769,
+      "late_pct": 27.0481144343303,
+      "weekend_pct": 35.50065019505852
+    },
+    {
+      "name": "Caleb  Ray",
+      "total": 106,
+      "late_pct": 0.0,
+      "weekend_pct": 4.716981132075472
+    },
+    {
+      "name": "Kevin Argueta",
+      "total": 161,
+      "late_pct": 15.527950310559005,
+      "weekend_pct": 49.06832298136646
+    },
+    {
+      "name": "Bill Cunningham",
+      "total": 122,
+      "late_pct": 0.0,
+      "weekend_pct": 25.40983606557377
+    },
+    {
+      "name": "James Farris",
+      "total": 74,
+      "late_pct": 0.0,
+      "weekend_pct": 0.0
+    },
+    {
+      "name": "Dale  Michaud",
+      "total": 197,
+      "late_pct": 0.0,
+      "weekend_pct": 20.304568527918782
+    },
+    {
+      "name": "Joel  Galvin",
+      "total": 1131,
+      "late_pct": 29.354553492484527,
+      "weekend_pct": 35.98585322723254
+    },
+    {
+      "name": "Bryan  Chavez",
+      "total": 267,
+      "late_pct": 27.715355805243448,
+      "weekend_pct": 31.835205992509362
+    },
+    {
+      "name": "Kevin Bell",
+      "total": 84,
+      "late_pct": 0.0,
+      "weekend_pct": 86.90476190476191
+    },
+    {
+      "name": "Brooke Berger",
+      "total": 224,
+      "late_pct": 0.0,
+      "weekend_pct": 46.875
+    },
+    {
+      "name": "Dillon Elvington",
+      "total": 250,
+      "late_pct": 0.0,
+      "weekend_pct": 0.0
+    },
+    {
+      "name": "Joaquin  Reyes",
+      "total": 151,
+      "late_pct": 7.28476821192053,
+      "weekend_pct": 33.77483443708609
+    },
+    {
+      "name": "Ceasar Montano",
+      "total": 291,
+      "late_pct": 8.24742268041237,
+      "weekend_pct": 37.11340206185567
+    },
+    {
+      "name": "Cassie Fears",
+      "total": 298,
+      "late_pct": 10.40268456375839,
+      "weekend_pct": 12.751677852348994
+    },
+    {
+      "name": "Marcus Maxie",
+      "total": 90,
+      "late_pct": 35.55555555555556,
+      "weekend_pct": 16.666666666666664
+    },
+    {
+      "name": "Kristopher Koiner",
+      "total": 55,
+      "late_pct": 14.545454545454545,
+      "weekend_pct": 0.0
+    },
+    {
+      "name": "Matthew  Brittain",
+      "total": 84,
+      "late_pct": 0.0,
+      "weekend_pct": 42.857142857142854
+    },
+    {
+      "name": "Craig  Stillwagon",
+      "total": 115,
+      "late_pct": 17.391304347826086,
+      "weekend_pct": 45.21739130434783
+    },
+    {
+      "name": "Payton Connatser",
+      "total": 157,
+      "late_pct": 30.573248407643312,
+      "weekend_pct": 22.29299363057325
+    },
+    {
+      "name": "Domingo Rios",
+      "total": 901,
+      "late_pct": 9.65593784683685,
+      "weekend_pct": 23.640399556048834
+    },
+    {
+      "name": "Eduardo Hernandez",
+      "total": 122,
+      "late_pct": 22.131147540983605,
+      "weekend_pct": 31.967213114754102
+    },
+    {
+      "name": "Ali  Abbas",
+      "total": 315,
+      "late_pct": 5.396825396825397,
+      "weekend_pct": 45.07936507936508
+    },
+    {
+      "name": "Edward Wilcox",
+      "total": 172,
+      "late_pct": 0.0,
+      "weekend_pct": 40.116279069767444
+    },
+    {
+      "name": "Lesley Huntsinger",
+      "total": 258,
+      "late_pct": 40.310077519379846,
+      "weekend_pct": 60.46511627906976
+    },
+    {
+      "name": "Andrea Jordan",
+      "total": 193,
+      "late_pct": 0.0,
+      "weekend_pct": 10.362694300518134
+    },
+    {
+      "name": "Madison O'neal",
+      "total": 36,
+      "late_pct": 0.0,
+      "weekend_pct": 47.22222222222222
+    },
+    {
+      "name": "Ryan Downs",
+      "total": 32,
+      "late_pct": 40.625,
+      "weekend_pct": 3.125
+    },
+    {
+      "name": "Cheyenne Anderson",
+      "total": 56,
+      "late_pct": 42.857142857142854,
+      "weekend_pct": 48.214285714285715
+    },
+    {
+      "name": "Travis Riddle",
+      "total": 223,
+      "late_pct": 1.345291479820628,
+      "weekend_pct": 16.143497757847534
+    },
+    {
+      "name": "Juston Knutson",
+      "total": 131,
+      "late_pct": 0.0,
+      "weekend_pct": 0.0
+    },
+    {
+      "name": "Anna  Varvil",
+      "total": 53,
+      "late_pct": 0.0,
+      "weekend_pct": 58.490566037735846
+    },
+    {
+      "name": "Dana  Barger",
+      "total": 68,
+      "late_pct": 20.588235294117645,
+      "weekend_pct": 30.88235294117647
+    },
+    {
+      "name": "Saxony Guerrero",
+      "total": 40,
+      "late_pct": 0.0,
+      "weekend_pct": 22.5
+    },
+    {
+      "name": "Eric  Zimmerman",
+      "total": 98,
+      "late_pct": 17.346938775510203,
+      "weekend_pct": 60.204081632653065
+    },
+    {
+      "name": "Destiny Ford",
+      "total": 50,
+      "late_pct": 0.0,
+      "weekend_pct": 38.0
+    },
+    {
+      "name": "N Bakker",
+      "total": 50,
+      "late_pct": 18.0,
+      "weekend_pct": 12.0
+    },
+    {
+      "name": "Carlos  Henderson",
+      "total": 38,
+      "late_pct": 0.0,
+      "weekend_pct": 0.0
+    },
+    {
+      "name": "Dewayne Kyle",
+      "total": 67,
+      "late_pct": 0.0,
+      "weekend_pct": 0.0
+    },
+    {
+      "name": "Justin  Poblete",
+      "total": 124,
+      "late_pct": 29.838709677419356,
+      "weekend_pct": 37.096774193548384
+    },
+    {
+      "name": "Auldon  Barker",
+      "total": 346,
+      "late_pct": 2.601156069364162,
+      "weekend_pct": 39.30635838150289
+    },
+    {
+      "name": "Mackenzie  Gill",
+      "total": 268,
+      "late_pct": 29.850746268656714,
+      "weekend_pct": 33.2089552238806
+    },
+    {
+      "name": "Ashlin Caver",
+      "total": 83,
+      "late_pct": 30.120481927710845,
+      "weekend_pct": 43.373493975903614
+    },
+    {
+      "name": "Megan  Ramirez",
+      "total": 42,
+      "late_pct": 47.61904761904761,
+      "weekend_pct": 11.904761904761903
+    },
+    {
+      "name": "Kendall  Robinson",
+      "total": 82,
+      "late_pct": 12.195121951219512,
+      "weekend_pct": 28.04878048780488
+    },
+    {
+      "name": "Trey  Salinas",
+      "total": 36,
+      "late_pct": 0.0,
+      "weekend_pct": 2.7777777777777777
+    },
+    {
+      "name": "Zachary  Woolston",
+      "total": 182,
+      "late_pct": 29.67032967032967,
+      "weekend_pct": 58.791208791208796
+    },
+    {
+      "name": "Brian  Baker",
+      "total": 32,
+      "late_pct": 0.0,
+      "weekend_pct": 62.5
+    }
+  ]
+}

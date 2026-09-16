@@ -1,0 +1,492 @@
+[
+  {
+    "officer": "Aaron Gillespie",
+    "plate_last4": "7998",
+    "count": 70,
+    "num_distinct_cases": 1,
+    "case_sample": [
+      "2024-17788"
+    ],
+    "first_date": "01/14/2025, 07:03:28 PM UTC",
+    "last_date": "12/29/2024, 10:19:16 PM UTC",
+    "num_files_spanned": 4,
+    "top_reasons": [
+      [
+        "theft",
+        65
+      ],
+      [
+        "burg",
+        3
+      ],
+      [
+        "theft.",
+        2
+      ]
+    ]
+  },
+  {
+    "officer": "Tosha  Whitley",
+    "plate_last4": "7745",
+    "count": 69,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "06/29/2025, 05:59:21 AM UTC",
+    "last_date": "06/30/2025, 02:01:26 AM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "2025-9309 susp veh",
+        60
+      ],
+      [
+        "2025-9309 suspect vehicle",
+        9
+      ]
+    ]
+  },
+  {
+    "officer": "Tosha  Whitley",
+    "plate_last4": "6634",
+    "count": 48,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "05/19/2025, 07:44:28 AM UTC",
+    "last_date": "05/28/2025, 02:39:49 AM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "2025-7070 theft of veh",
+        22
+      ],
+      [
+        "2025-7496 suspect",
+        18
+      ],
+      [
+        "2025-7185 welfare check",
+        5
+      ],
+      [
+        "2025-7067 poss suspect veh",
+        3
+      ]
+    ]
+  },
+  {
+    "officer": "Aaron Gillespie",
+    "plate_last4": "4781",
+    "count": 38,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "01/02/2025, 02:31:46 PM UTC",
+    "last_date": "12/30/2024, 09:46:42 PM UTC",
+    "num_files_spanned": 2,
+    "top_reasons": [
+      [
+        "theft",
+        22
+      ],
+      [
+        "burg",
+        14
+      ],
+      [
+        "burglary",
+        2
+      ]
+    ]
+  },
+  {
+    "officer": "James Farris",
+    "plate_last4": "8843",
+    "count": 32,
+    "num_distinct_cases": 2,
+    "case_sample": [
+      "2025-03160",
+      "25-3160"
+    ],
+    "first_date": "03/07/2025, 05:22:25 PM UTC",
+    "last_date": "03/07/2025, 05:51:07 PM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "trafficking investigation",
+        32
+      ]
+    ]
+  },
+  {
+    "officer": "Steven Wheeler",
+    "plate_last4": "2829",
+    "count": 29,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "04/20/2024, 01:35:30 AM UTC",
+    "last_date": "04/20/2024, 12:54:36 AM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "investigation",
+        29
+      ]
+    ]
+  },
+  {
+    "officer": "Timothy  Rogers",
+    "plate_last4": "9455",
+    "count": 29,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "04/28/2025, 01:26:53 PM UTC",
+    "last_date": "04/29/2025, 12:36:05 PM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "25-5178",
+        27
+      ],
+      [
+        "25-51",
+        1
+      ],
+      [
+        "25-5172",
+        1
+      ]
+    ]
+  },
+  {
+    "officer": "Bill Cunningham",
+    "plate_last4": "7905",
+    "count": 29,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "01/10/2025, 03:34:38 PM UTC",
+    "last_date": "12/27/2024, 05:03:06 PM UTC",
+    "num_files_spanned": 2,
+    "top_reasons": [
+      [
+        "hit & run",
+        9
+      ],
+      [
+        "accident",
+        5
+      ],
+      [
+        "accident inv",
+        4
+      ],
+      [
+        "hit and run",
+        4
+      ],
+      [
+        "missing person",
+        4
+      ]
+    ]
+  },
+  {
+    "officer": "Aaron Gillespie",
+    "plate_last4": "C863",
+    "count": 28,
+    "num_distinct_cases": 1,
+    "case_sample": [
+      "2025-1995"
+    ],
+    "first_date": "02/27/2025, 08:48:16 PM UTC",
+    "last_date": "03/04/2025, 04:29:45 PM UTC",
+    "num_files_spanned": 2,
+    "top_reasons": [
+      [
+        "theft",
+        28
+      ]
+    ]
+  },
+  {
+    "officer": "Marcus Maxie",
+    "plate_last4": "5291",
+    "count": 28,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "10/11/2024, 09:14:51 AM UTC",
+    "last_date": "10/11/2024, 10:30:57 AM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "investigation",
+        28
+      ]
+    ]
+  },
+  {
+    "officer": "Domingo Rios",
+    "plate_last4": "1561",
+    "count": 23,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "01/30/2025, 01:02:18 AM UTC",
+    "last_date": "01/30/2025, 12:53:40 AM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "investigation",
+        23
+      ]
+    ]
+  },
+  {
+    "officer": "Aaron Gillespie",
+    "plate_last4": "3969",
+    "count": 22,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "11/25/2024, 04:15:39 PM UTC",
+    "last_date": "12/13/2024, 06:09:44 PM UTC",
+    "num_files_spanned": 2,
+    "top_reasons": [
+      [
+        "theft",
+        22
+      ]
+    ]
+  },
+  {
+    "officer": "Skylar Sillivent",
+    "plate_last4": "7682",
+    "count": 21,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "04/02/2024, 06:58:54 PM UTC",
+    "last_date": "04/07/2024, 12:42:52 PM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "warrant",
+        21
+      ]
+    ]
+  },
+  {
+    "officer": "Jason Stevens",
+    "plate_last4": "9455",
+    "count": 20,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "04/28/2025, 03:41:02 PM UTC",
+    "last_date": "04/29/2025, 12:39:46 PM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "investigation",
+        20
+      ]
+    ]
+  },
+  {
+    "officer": "Payton Connatser",
+    "plate_last4": "4DV1",
+    "count": 20,
+    "num_distinct_cases": 1,
+    "case_sample": [
+      "2025-8044"
+    ],
+    "first_date": "06/06/2025, 04:47:00 AM UTC",
+    "last_date": "06/06/2025, 08:12:37 AM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "looking for suicdal subj",
+        20
+      ]
+    ]
+  },
+  {
+    "officer": "Ali  Abbas",
+    "plate_last4": "0683",
+    "count": 19,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "04/12/2025, 08:06:04 PM UTC",
+    "last_date": "04/12/2025, 09:37:12 PM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "theft",
+        19
+      ]
+    ]
+  },
+  {
+    "officer": "Armando  Carranza",
+    "plate_last4": "5325",
+    "count": 19,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "06/05/2025, 02:15:52 PM UTC",
+    "last_date": "06/05/2025, 03:16:42 PM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "stolen plates",
+        19
+      ]
+    ]
+  },
+  {
+    "officer": "Christopher  Bell",
+    "plate_last4": "1921",
+    "count": 18,
+    "num_distinct_cases": 2,
+    "case_sample": [
+      "2025-4151",
+      "2025-04151"
+    ],
+    "first_date": "03/24/2025, 02:06:59 AM UTC",
+    "last_date": "03/24/2025, 05:43:35 AM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "suspect vehicle",
+        16
+      ],
+      [
+        "stolen vehicle",
+        2
+      ]
+    ]
+  },
+  {
+    "officer": "Joel  Galvin",
+    "plate_last4": "8100",
+    "count": 17,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "12/15/2024, 01:28:09 AM UTC",
+    "last_date": "12/27/2024, 11:17:16 PM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        ".",
+        17
+      ]
+    ]
+  },
+  {
+    "officer": "Armando  Carranza",
+    "plate_last4": "7839",
+    "count": 17,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "02/09/2025, 02:49:21 PM UTC",
+    "last_date": "02/18/2025, 01:32:10 PM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "collision",
+        12
+      ],
+      [
+        "warrants",
+        3
+      ],
+      [
+        "abandoned",
+        2
+      ]
+    ]
+  },
+  {
+    "officer": "Simon  Wilcock",
+    "plate_last4": "4165",
+    "count": 17,
+    "num_distinct_cases": 1,
+    "case_sample": [
+      "2025-04361"
+    ],
+    "first_date": "03/27/2025, 08:41:11 PM UTC",
+    "last_date": "03/27/2025, 10:50:53 PM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "theft",
+        17
+      ]
+    ]
+  },
+  {
+    "officer": "Armando  Carranza",
+    "plate_last4": "1561",
+    "count": 16,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "01/30/2025, 12:11:29 AM UTC",
+    "last_date": "02/03/2025, 09:09:20 PM UTC",
+    "num_files_spanned": 2,
+    "top_reasons": [
+      [
+        "warrants",
+        15
+      ],
+      [
+        "warrant",
+        1
+      ]
+    ]
+  },
+  {
+    "officer": "Domingo Rios",
+    "plate_last4": "8157",
+    "count": 16,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "03/10/2025, 07:06:53 AM UTC",
+    "last_date": "03/10/2025, 07:30:21 AM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "investigation",
+        16
+      ]
+    ]
+  },
+  {
+    "officer": "Armando  Carranza",
+    "plate_last4": "2618",
+    "count": 16,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "03/09/2025, 04:33:14 PM UTC",
+    "last_date": "03/09/2025, 04:36:35 PM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        "stolen",
+        16
+      ]
+    ]
+  },
+  {
+    "officer": "Joel  Galvin",
+    "plate_last4": "0361",
+    "count": 16,
+    "num_distinct_cases": 0,
+    "case_sample": [],
+    "first_date": "10/02/2024, 03:58:45 AM UTC",
+    "last_date": "10/10/2024, 09:20:21 PM UTC",
+    "num_files_spanned": 1,
+    "top_reasons": [
+      [
+        ".",
+        15
+      ],
+      [
+        ",",
+        1
+      ]
+    ]
+  }
+]

@@ -1,0 +1,738 @@
+{
+ "all": {
+  "grand_total": 24333,
+  "late_total": 1922,
+  "weekend_total": 4984,
+  "officer_total_top10": [
+   [
+    "John Downing",
+    2891
+   ],
+   [
+    "Maria Mccracken",
+    2095
+   ],
+   [
+    "Kreig  Wallace",
+    1924
+   ],
+   [
+    "Joel  Galvin",
+    1131
+   ],
+   [
+    "Aaron Gillespie",
+    1104
+   ],
+   [
+    "Domingo Rios",
+    901
+   ],
+   [
+    "Timothy  Rogers",
+    881
+   ],
+   [
+    "Tosha  Whitley",
+    769
+   ],
+   [
+    "Stephanie Johnson",
+    621
+   ],
+   [
+    "Hector D Garcia",
+    617
+   ]
+  ],
+  "officer_vague_rate_top6": [
+   [
+    "Joel  Galvin",
+    66.2,
+    1131
+   ],
+   [
+    "Dewayne Kyle",
+    13.4,
+    67
+   ],
+   [
+    "Matthew  Winnett",
+    6.5,
+    217
+   ],
+   [
+    "Trevor  Robinson",
+    4.7,
+    86
+   ],
+   [
+    "N Bakker",
+    4.0,
+    50
+   ],
+   [
+    "Lesley Huntsinger",
+    3.5,
+    258
+   ]
+  ],
+  "officer_numeric_rate_top6": [
+   [
+    "Stephanie Johnson",
+    96.9,
+    621
+   ],
+   [
+    "James  Barfield",
+    84.4,
+    96
+   ],
+   [
+    "Caleb  Ray",
+    65.1,
+    106
+   ],
+   [
+    "Taylor Wolfe",
+    61.2,
+    49
+   ],
+   [
+    "John Downing",
+    59.7,
+    2891
+   ],
+   [
+    "Timothy  Rogers",
+    58.7,
+    881
+   ]
+  ],
+  "officer_late_rate_top6": [
+   [
+    "Megan  Ramirez",
+    47.6,
+    42
+   ],
+   [
+    "Cheyenne Anderson",
+    42.9,
+    56
+   ],
+   [
+    "Ryan Downs",
+    40.6,
+    32
+   ],
+   [
+    "Lesley Huntsinger",
+    40.3,
+    258
+   ],
+   [
+    "Austin Thompson",
+    38.1,
+    507
+   ],
+   [
+    "Marcus Maxie",
+    35.6,
+    90
+   ]
+  ],
+  "officer_weekend_rate_top6": [
+   [
+    "Kevin Bell",
+    86.9,
+    84
+   ],
+   [
+    "Brian  Baker",
+    62.5,
+    32
+   ],
+   [
+    "Lesley Huntsinger",
+    60.5,
+    258
+   ],
+   [
+    "Eric  Zimmerman",
+    60.2,
+    98
+   ],
+   [
+    "Zachary  Woolston",
+    58.8,
+    182
+   ],
+   [
+    "Anna  Varvil",
+    58.5,
+    53
+   ]
+  ],
+  "xtab": {
+   "day_total": 22411,
+   "weekday_total": 19349,
+   "day_bad": 735,
+   "weekend_total": 4984,
+   "weekend_bad": 347,
+   "late_total": 1922,
+   "late_bad": 215,
+   "weekday_bad": 603
+  }
+ },
+ "2024": {
+  "grand_total": 6178,
+  "late_total": 284,
+  "weekend_total": 1268,
+  "officer_total_top10": [
+   [
+    "John Downing",
+    1252
+   ],
+   [
+    "Stephanie Johnson",
+    621
+   ],
+   [
+    "Maria Mccracken",
+    416
+   ],
+   [
+    "Aaron Gillespie",
+    333
+   ],
+   [
+    "Joel  Galvin",
+    239
+   ],
+   [
+    "Steven Wheeler",
+    170
+   ],
+   [
+    "Skylar Sillivent",
+    161
+   ],
+   [
+    "Timothy  Rogers",
+    154
+   ],
+   [
+    "Simon  Wilcock",
+    147
+   ],
+   [
+    "Hector D Garcia",
+    137
+   ]
+  ],
+  "officer_vague_rate_top6": [
+   [
+    "Joel  Galvin",
+    67.8,
+    239
+   ],
+   [
+    "Trevor  Robinson",
+    21.1,
+    19
+   ],
+   [
+    "Matthew  Winnett",
+    14.7,
+    75
+   ],
+   [
+    "Christopher Keys",
+    6.6,
+    122
+   ],
+   [
+    "Maria Mccracken",
+    2.4,
+    416
+   ],
+   [
+    "Aaron Gillespie",
+    1.8,
+    333
+   ]
+  ],
+  "officer_numeric_rate_top6": [
+   [
+    "Taylor Wolfe",
+    100.0,
+    23
+   ],
+   [
+    "Miles Outon",
+    100.0,
+    15
+   ],
+   [
+    "Stephanie Johnson",
+    96.9,
+    621
+   ],
+   [
+    "James  Barfield",
+    94.2,
+    86
+   ],
+   [
+    "John Downing",
+    86.9,
+    1252
+   ],
+   [
+    "Timothy  Rogers",
+    84.4,
+    154
+   ]
+  ],
+  "officer_late_rate_top6": [
+   [
+    "Trevor  Robinson",
+    89.5,
+    19
+   ],
+   [
+    "Steven Wheeler",
+    40.0,
+    170
+   ],
+   [
+    "TJ  Vowell-Zundel",
+    37.0,
+    46
+   ],
+   [
+    "Tosha  Whitley",
+    31.0,
+    84
+   ],
+   [
+    "Marcus Maxie",
+    29.0,
+    69
+   ],
+   [
+    "Christopher  Bell",
+    28.6,
+    28
+   ]
+  ],
+  "officer_weekend_rate_top6": [
+   [
+    "Edward Wilcox",
+    100.0,
+    25
+   ],
+   [
+    "Kevin Argueta",
+    83.0,
+    47
+   ],
+   [
+    "Rena Laymon",
+    80.8,
+    26
+   ],
+   [
+    "Christopher Jones",
+    74.3,
+    35
+   ],
+   [
+    "Brooke Berger",
+    71.6,
+    102
+   ],
+   [
+    "Ali  Abbas",
+    71.4,
+    63
+   ]
+  ],
+  "xtab": {
+   "day_total": 5894,
+   "weekday_total": 4910,
+   "day_bad": 200,
+   "weekend_total": 1268,
+   "weekend_bad": 89,
+   "late_total": 284,
+   "late_bad": 24,
+   "weekday_bad": 135
+  }
+ },
+ "2025": {
+  "grand_total": 11628,
+  "late_total": 1006,
+  "weekend_total": 2367,
+  "officer_total_top10": [
+   [
+    "Kreig  Wallace",
+    1391
+   ],
+   [
+    "John Downing",
+    1177
+   ],
+   [
+    "Maria Mccracken",
+    1022
+   ],
+   [
+    "Joel  Galvin",
+    750
+   ],
+   [
+    "Timothy  Rogers",
+    683
+   ],
+   [
+    "Aaron Gillespie",
+    649
+   ],
+   [
+    "Tosha  Whitley",
+    589
+   ],
+   [
+    "Trevor Strong",
+    291
+   ],
+   [
+    "Hector D Garcia",
+    288
+   ],
+   [
+    "Simon  Wilcock",
+    258
+   ]
+  ],
+  "officer_vague_rate_top6": [
+   [
+    "Joel  Galvin",
+    78.3,
+    750
+   ],
+   [
+    "Dewayne Kyle",
+    18.8,
+    48
+   ],
+   [
+    "N Bakker",
+    8.0,
+    25
+   ],
+   [
+    "Lesley Huntsinger",
+    7.0,
+    129
+   ],
+   [
+    "John Downing",
+    5.6,
+    1177
+   ],
+   [
+    "Dispatcher E",
+    3.7,
+    27
+   ]
+  ],
+  "officer_numeric_rate_top6": [
+   [
+    "Ceasar Montano",
+    91.0,
+    166
+   ],
+   [
+    "Cheyenne Anderson",
+    72.7,
+    11
+   ],
+   [
+    "Taylor Wolfe",
+    70.0,
+    10
+   ],
+   [
+    "Salim Plumb",
+    69.0,
+    187
+   ],
+   [
+    "Cassie Fears",
+    57.8,
+    64
+   ],
+   [
+    "Timothy  Rogers",
+    56.7,
+    683
+   ]
+  ],
+  "officer_late_rate_top6": [
+   [
+    "Marcus Maxie",
+    75.0,
+    16
+   ],
+   [
+    "Megan  Ramirez",
+    59.1,
+    22
+   ],
+   [
+    "Eric  Zimmerman",
+    48.4,
+    31
+   ],
+   [
+    "Christopher Jones",
+    46.7,
+    92
+   ],
+   [
+    "Austin Thompson",
+    42.9,
+    91
+   ],
+   [
+    "Bryan  Chavez",
+    41.8,
+    146
+   ]
+  ],
+  "officer_weekend_rate_top6": [
+   [
+    "Brian  Baker",
+    94.1,
+    17
+   ],
+   [
+    "Eric  Zimmerman",
+    90.3,
+    31
+   ],
+   [
+    "Kevin Bell",
+    87.7,
+    81
+   ],
+   [
+    "Dispatcher E",
+    70.4,
+    27
+   ],
+   [
+    "Lesley Huntsinger",
+    69.8,
+    129
+   ],
+   [
+    "Craig  Stillwagon",
+    63.9,
+    36
+   ]
+  ],
+  "xtab": {
+   "day_total": 10622,
+   "day_bad": 535,
+   "weekday_total": 9261,
+   "weekday_bad": 468,
+   "late_total": 1006,
+   "late_bad": 191,
+   "weekend_total": 2367,
+   "weekend_bad": 258
+  }
+ },
+ "2026": {
+  "grand_total": 6527,
+  "late_total": 632,
+  "weekend_total": 1349,
+  "officer_total_top10": [
+   [
+    "Maria Mccracken",
+    657
+   ],
+   [
+    "Domingo Rios",
+    650
+   ],
+   [
+    "John Downing",
+    462
+   ],
+   [
+    "Kreig  Wallace",
+    449
+   ],
+   [
+    "Austin Thompson",
+    305
+   ],
+   [
+    "Cassie Fears",
+    213
+   ],
+   [
+    "Trevor Strong",
+    201
+   ],
+   [
+    "Hector D Garcia",
+    192
+   ],
+   [
+    "Auldon  Barker",
+    187
+   ],
+   [
+    "Andrea Jordan",
+    163
+   ]
+  ],
+  "officer_vague_rate_top6": [
+   [
+    "Farah  Al Ani",
+    0.0,
+    23
+   ],
+   [
+    "Maria Mccracken",
+    0.0,
+    657
+   ],
+   [
+    "Kreig  Wallace",
+    0.0,
+    449
+   ],
+   [
+    "Dillon Elvington",
+    0.0,
+    19
+   ],
+   [
+    "Trevor Strong",
+    0.0,
+    201
+   ],
+   [
+    "Christopher Keys",
+    0.0,
+    62
+   ]
+  ],
+  "officer_numeric_rate_top6": [
+   [
+    "Farah  Al Ani",
+    0.0,
+    23
+   ],
+   [
+    "Maria Mccracken",
+    0.0,
+    657
+   ],
+   [
+    "Kreig  Wallace",
+    0.0,
+    449
+   ],
+   [
+    "Dillon Elvington",
+    0.0,
+    19
+   ],
+   [
+    "Trevor Strong",
+    0.0,
+    201
+   ],
+   [
+    "Christopher Keys",
+    0.0,
+    62
+   ]
+  ],
+  "officer_late_rate_top6": [
+   [
+    "Ashley  Fulton",
+    72.7,
+    11
+   ],
+   [
+    "Joaquin  Reyes",
+    55.0,
+    20
+   ],
+   [
+    "Cheyenne Anderson",
+    54.5,
+    44
+   ],
+   [
+    "Lesley Huntsinger",
+    50.0,
+    110
+   ],
+   [
+    "Austin Thompson",
+    49.8,
+    305
+   ],
+   [
+    "Payton Connatser",
+    44.9,
+    49
+   ]
+  ],
+  "officer_weekend_rate_top6": [
+   [
+    "Robyn  Summers",
+    100.0,
+    16
+   ],
+   [
+    "Anna  Varvil",
+    73.0,
+    37
+   ],
+   [
+    "Ashley  Fulton",
+    72.7,
+    11
+   ],
+   [
+    "Auldon  Barker",
+    63.6,
+    187
+   ],
+   [
+    "Lesley Huntsinger",
+    59.1,
+    110
+   ],
+   [
+    "Cheyenne Anderson",
+    54.5,
+    44
+   ]
+  ],
+  "xtab": {
+   "day_total": 5895,
+   "weekday_total": 5178,
+   "late_total": 632,
+   "weekend_total": 1349
+  }
+ }
+}

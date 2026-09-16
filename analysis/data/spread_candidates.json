@@ -1,0 +1,3219 @@
+{
+  "all_long_spread": [
+    {
+      "officer": "Aaron Gillespie",
+      "plate_last4": "KNYT",
+      "count": 10,
+      "span_days": 471,
+      "num_distinct_cases": 2,
+      "vague_frac": 0.8,
+      "top_reasons": [
+        [
+          "test",
+          8
+        ],
+        [
+          "criminal motor vehicle offense (incl. road rage/reckless) - criminal mischief",
+          1
+        ],
+        [
+          "hnr",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 6,
+        "search": 4
+      },
+      "first": "2024-09-07T23:53:14",
+      "last": "2025-12-23T14:10:06"
+    },
+    {
+      "officer": "Domingo Rios",
+      "plate_last4": "2339",
+      "count": 7,
+      "span_days": 450,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.14,
+      "top_reasons": [
+        [
+          "investigation",
+          5
+        ],
+        [
+          "larceny/theft offenses",
+          1
+        ],
+        [
+          "test",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 2,
+        "search": 5
+      },
+      "first": "2025-01-22T03:53:10",
+      "last": "2026-04-17T19:42:34"
+    },
+    {
+      "officer": "Simon  Wilcock",
+      "plate_last4": "6251",
+      "count": 6,
+      "span_days": 345,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "flipped vin",
+          4
+        ],
+        [
+          "financial crime (embezzlement/fraud) - vin flip vehicle",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 2,
+        "search": 4
+      },
+      "first": "2025-05-07T13:47:50",
+      "last": "2026-04-17T17:52:31"
+    },
+    {
+      "officer": "Christopher Keys",
+      "plate_last4": "4431",
+      "count": 6,
+      "span_days": 317,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "research on wanted person.",
+          4
+        ],
+        [
+          "research on wanted person",
+          1
+        ],
+        [
+          "research",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 2,
+        "lookup": 4
+      },
+      "first": "2024-05-30T11:29:35",
+      "last": "2025-04-13T08:43:41"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "8215",
+      "count": 7,
+      "span_days": 309,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "warrants",
+          7
+        ]
+      ],
+      "search_types": {
+        "lookup": 7
+      },
+      "first": "2024-09-01T17:31:21",
+      "last": "2025-07-08T14:15:37"
+    },
+    {
+      "officer": "Lesley Huntsinger",
+      "plate_last4": "CUTE",
+      "count": 47,
+      "span_days": 297,
+      "num_distinct_cases": 1,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "larceny/theft offenses",
+          40
+        ],
+        [
+          "larceny/theft offenses - veh theft",
+          6
+        ],
+        [
+          "2025-10019 welfare concern",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 1,
+        "lookup": 46
+      },
+      "first": "2025-07-10T06:08:21",
+      "last": "2026-05-03T09:55:55"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "EX",
+      "count": 43,
+      "span_days": 288,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.02,
+      "top_reasons": [
+        [
+          "ar dealer",
+          32
+        ],
+        [
+          "motor vehicle theft/stolen",
+          6
+        ],
+        [
+          "traffic infraction",
+          2
+        ],
+        [
+          "dealer tags",
+          2
+        ],
+        [
+          "ar",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 21,
+        "lookup - Mobile": 22
+      },
+      "first": "2025-09-24T19:49:36",
+      "last": "2026-07-09T20:45:56"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "1216",
+      "count": 39,
+      "span_days": 274,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.28,
+      "top_reasons": [
+        [
+          "miller - jennifer adkins 12/16/1992",
+          28
+        ],
+        [
+          ".",
+          11
+        ]
+      ],
+      "search_types": {
+        "search": 7,
+        "lookup": 32
+      },
+      "first": "2025-02-24T07:51:29",
+      "last": "2025-11-26T02:28:34"
+    },
+    {
+      "officer": "Dillon Elvington",
+      "plate_last4": "5751",
+      "count": 73,
+      "span_days": 248,
+      "num_distinct_cases": 4,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "investigation",
+          68
+        ],
+        [
+          "welfare check",
+          5
+        ]
+      ],
+      "search_types": {
+        "lookup": 65,
+        "lookup - Mobile": 8
+      },
+      "first": "2025-08-15T18:18:30",
+      "last": "2026-04-21T14:54:42"
+    },
+    {
+      "officer": "Dillon Elvington",
+      "plate_last4": "9401",
+      "count": 9,
+      "span_days": 241,
+      "num_distinct_cases": 2,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "investigation",
+          7
+        ],
+        [
+          "welfare check",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 9
+      },
+      "first": "2025-08-22T15:29:52",
+      "last": "2026-04-21T14:55:25"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "6932",
+      "count": 45,
+      "span_days": 232,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "warrants",
+          42
+        ],
+        [
+          "narcs",
+          1
+        ],
+        [
+          "warrant",
+          1
+        ],
+        [
+          "narcotics",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 45
+      },
+      "first": "2024-06-07T18:57:13",
+      "last": "2025-01-26T14:26:21"
+    },
+    {
+      "officer": "Christopher Keys",
+      "plate_last4": "6790",
+      "count": 6,
+      "span_days": 228,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.67,
+      "top_reasons": [
+        [
+          "test",
+          4
+        ],
+        [
+          "research on wanted subject.",
+          1
+        ],
+        [
+          "research on suspect veh",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 6
+      },
+      "first": "2024-04-28T21:56:51",
+      "last": "2024-12-13T05:08:22"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "4799",
+      "count": 5,
+      "span_days": 220,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "motor vehicle theft/stolen",
+          2
+        ],
+        [
+          "traffic infraction",
+          2
+        ],
+        [
+          "registration",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 5
+      },
+      "first": "2026-01-02T22:50:44",
+      "last": "2026-08-11T18:15:28"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "4026",
+      "count": 18,
+      "span_days": 204,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "motor vehicle theft/stolen",
+          15
+        ],
+        [
+          "traffic infraction",
+          2
+        ],
+        [
+          "stolen property offenses",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 9,
+        "lookup": 9
+      },
+      "first": "2026-01-02T22:14:09",
+      "last": "2026-07-26T14:25:12"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "0889",
+      "count": 11,
+      "span_days": 203,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "motor vehicle theft/stolen",
+          4
+        ],
+        [
+          "vin switch",
+          4
+        ],
+        [
+          "vin swap",
+          2
+        ],
+        [
+          "ar dealer",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 8,
+        "lookup": 3
+      },
+      "first": "2025-09-01T21:11:59",
+      "last": "2026-03-24T01:57:20"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "0233",
+      "count": 5,
+      "span_days": 172,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          ".",
+          5
+        ]
+      ],
+      "search_types": {
+        "lookup": 3,
+        "search": 2
+      },
+      "first": "2024-10-01T20:36:35",
+      "last": "2025-03-23T02:56:15"
+    },
+    {
+      "officer": "Simon  Wilcock",
+      "plate_last4": "2398",
+      "count": 4,
+      "span_days": 167,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "hit and run",
+          2
+        ],
+        [
+          "dwi",
+          2
+        ]
+      ],
+      "search_types": {
+        "search": 4
+      },
+      "first": "2024-07-04T14:54:22",
+      "last": "2024-12-18T17:15:39"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "7103",
+      "count": 10,
+      "span_days": 166,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "ar dealer",
+          9
+        ],
+        [
+          "traffic infraction",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 7,
+        "lookup": 3
+      },
+      "first": "2025-09-25T15:34:28",
+      "last": "2026-03-11T03:23:36"
+    },
+    {
+      "officer": "Timothy  Rogers",
+      "plate_last4": "1347",
+      "count": 5,
+      "span_days": 163,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "25-4440",
+          4
+        ],
+        [
+          "2025-4440",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 5
+      },
+      "first": "2025-05-02T21:25:07",
+      "last": "2025-10-13T19:49:48"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "2233",
+      "count": 4,
+      "span_days": 151,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "dope",
+          3
+        ],
+        [
+          "drugs/narcotics - dope",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 4
+      },
+      "first": "2025-09-16T03:18:13",
+      "last": "2026-02-14T04:13:54"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "9617",
+      "count": 15,
+      "span_days": 150,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          ".",
+          13
+        ],
+        [
+          "n",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 4,
+        "lookup": 6,
+        "search": 5
+      },
+      "first": "2025-03-05T07:38:53",
+      "last": "2025-08-03T06:22:58"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "4781",
+      "count": 19,
+      "span_days": 150,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "warrants",
+          19
+        ]
+      ],
+      "search_types": {
+        "lookup": 19
+      },
+      "first": "2024-08-02T22:00:46",
+      "last": "2024-12-30T22:34:24"
+    },
+    {
+      "officer": "Hector D Garcia",
+      "plate_last4": "783M",
+      "count": 5,
+      "span_days": 139,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.2,
+      "top_reasons": [
+        [
+          "stolen",
+          2
+        ],
+        [
+          "s",
+          1
+        ],
+        [
+          "stolen plate",
+          1
+        ],
+        [
+          "stolen plates",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 5
+      },
+      "first": "2024-02-20T17:28:18",
+      "last": "2024-07-08T20:26:21"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "8797",
+      "count": 8,
+      "span_days": 139,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "motor vehicle theft/stolen",
+          8
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 6,
+        "lookup": 2
+      },
+      "first": "2026-03-20T21:32:41",
+      "last": "2026-08-07T16:45:05"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "1887",
+      "count": 4,
+      "span_days": 134,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.75,
+      "top_reasons": [
+        [
+          ".",
+          3
+        ],
+        [
+          "jase",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 3,
+        "search": 1
+      },
+      "first": "2024-12-15T08:10:14",
+      "last": "2025-04-29T00:32:21"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "6105",
+      "count": 8,
+      "span_days": 134,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.25,
+      "top_reasons": [
+        [
+          "fraud",
+          4
+        ],
+        [
+          "larceny/theft offenses",
+          2
+        ],
+        [
+          "13684",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 8
+      },
+      "first": "2025-09-23T11:29:21",
+      "last": "2026-02-04T19:06:23"
+    },
+    {
+      "officer": "Demeetron Burrell",
+      "plate_last4": "F632",
+      "count": 5,
+      "span_days": 131,
+      "num_distinct_cases": 1,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "stolen property offenses",
+          3
+        ],
+        [
+          "larceny/theft offenses",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 5
+      },
+      "first": "2026-02-24T17:29:09",
+      "last": "2026-07-06T15:56:23"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "9004",
+      "count": 12,
+      "span_days": 129,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          ".",
+          12
+        ]
+      ],
+      "search_types": {
+        "lookup": 4,
+        "search": 8
+      },
+      "first": "2025-03-14T10:11:51",
+      "last": "2025-07-22T08:53:43"
+    },
+    {
+      "officer": "Simon  Wilcock",
+      "plate_last4": "3308",
+      "count": 7,
+      "span_days": 125,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "hit and run",
+          5
+        ],
+        [
+          "hit  run",
+          2
+        ]
+      ],
+      "search_types": {
+        "search": 7
+      },
+      "first": "2024-05-28T19:27:00",
+      "last": "2024-10-01T11:38:21"
+    },
+    {
+      "officer": "Kreig  Wallace",
+      "plate_last4": "9931",
+      "count": 19,
+      "span_days": 113,
+      "num_distinct_cases": 3,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "larceny/theft offenses",
+          7
+        ],
+        [
+          "investigation",
+          7
+        ],
+        [
+          "larceny/theft offenses - invesigation",
+          4
+        ],
+        [
+          "larceny/theft offenses - investigation",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 19
+      },
+      "first": "2025-10-07T17:31:53",
+      "last": "2026-01-29T14:54:15"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "3270",
+      "count": 5,
+      "span_days": 102,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "motor vehicle theft/stolen",
+          4
+        ],
+        [
+          "traffic infraction",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 5
+      },
+      "first": "2026-01-08T19:22:26",
+      "last": "2026-04-21T19:05:00"
+    },
+    {
+      "officer": "Demeetron Burrell",
+      "plate_last4": "0939",
+      "count": 11,
+      "span_days": 100,
+      "num_distinct_cases": 1,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "mischief",
+          6
+        ],
+        [
+          "stalking",
+          5
+        ]
+      ],
+      "search_types": {
+        "lookup": 6,
+        "lookup - Mobile": 5
+      },
+      "first": "2025-07-14T20:05:33",
+      "last": "2025-10-23T17:44:26"
+    },
+    {
+      "officer": "Kreig  Wallace",
+      "plate_last4": "9289",
+      "count": 10,
+      "span_days": 100,
+      "num_distinct_cases": 2,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "investigation",
+          10
+        ]
+      ],
+      "search_types": {
+        "lookup": 10
+      },
+      "first": "2025-07-14T18:02:08",
+      "last": "2025-10-22T19:02:57"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "9708",
+      "count": 25,
+      "span_days": 98,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.36,
+      "top_reasons": [
+        [
+          "warrants",
+          16
+        ],
+        [
+          ".",
+          9
+        ]
+      ],
+      "search_types": {
+        "lookup": 23,
+        "search": 1,
+        "search - Mobile": 1
+      },
+      "first": "2025-04-05T23:33:01",
+      "last": "2025-07-13T23:31:53"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "2849",
+      "count": 6,
+      "span_days": 94,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "5617",
+          4
+        ],
+        [
+          "20245671",
+          1
+        ],
+        [
+          "test",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 5,
+        "lookup": 1
+      },
+      "first": "2024-04-17T12:48:05",
+      "last": "2024-07-20T16:21:22"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "0046",
+      "count": 4,
+      "span_days": 94,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "wanted person (arrest warrant/fugitive)",
+          2
+        ],
+        [
+          "traffic infraction",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 4
+      },
+      "first": "2026-01-21T15:44:48",
+      "last": "2026-04-25T17:33:37"
+    },
+    {
+      "officer": "Aaron Gillespie",
+      "plate_last4": "7998",
+      "count": 70,
+      "span_days": 91,
+      "num_distinct_cases": 1,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "theft",
+          65
+        ],
+        [
+          "burg",
+          3
+        ],
+        [
+          "theft.",
+          2
+        ]
+      ],
+      "search_types": {
+        "search": 70
+      },
+      "first": "2024-11-25T21:23:36",
+      "last": "2025-02-25T18:21:15"
+    },
+    {
+      "officer": "Auldon  Barker",
+      "plate_last4": "1364",
+      "count": 13,
+      "span_days": 89,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "traffic infraction",
+          13
+        ]
+      ],
+      "search_types": {
+        "lookup": 13
+      },
+      "first": "2025-12-29T20:54:25",
+      "last": "2026-03-28T22:02:15"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "5118",
+      "count": 27,
+      "span_days": 88,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.59,
+      "top_reasons": [
+        [
+          ".",
+          16
+        ],
+        [
+          "ashton",
+          10
+        ],
+        [
+          "jase",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 22,
+        "search": 5
+      },
+      "first": "2025-04-29T05:25:51",
+      "last": "2025-07-27T01:38:57"
+    },
+    {
+      "officer": "Austin Thompson",
+      "plate_last4": "8099",
+      "count": 129,
+      "span_days": 86,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "drugs/narcotics - investigation",
+          98
+        ],
+        [
+          "wanted person (arrest warrant/fugitive) - investigation",
+          22
+        ],
+        [
+          "drugs/narcotics",
+          9
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 113,
+        "lookup": 16
+      },
+      "first": "2026-01-03T08:30:17",
+      "last": "2026-03-31T04:24:58"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "6003",
+      "count": 14,
+      "span_days": 84,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "warrants",
+          7
+        ],
+        [
+          "narcotics",
+          4
+        ],
+        [
+          "narcs",
+          2
+        ],
+        [
+          "felony",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 14
+      },
+      "first": "2024-09-13T22:04:56",
+      "last": "2024-12-07T13:32:47"
+    },
+    {
+      "officer": "Simon  Wilcock",
+      "plate_last4": "9878",
+      "count": 4,
+      "span_days": 84,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "hit and un",
+          3
+        ],
+        [
+          "hit and run",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 4
+      },
+      "first": "2024-07-08T17:51:26",
+      "last": "2024-10-01T11:43:14"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "810M",
+      "count": 4,
+      "span_days": 83,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "trailer",
+          2
+        ],
+        [
+          "lp swap",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 4
+      },
+      "first": "2025-06-28T15:13:49",
+      "last": "2025-09-19T16:22:47"
+    },
+    {
+      "officer": "Eduardo Hernandez",
+      "plate_last4": "7732",
+      "count": 7,
+      "span_days": 83,
+      "num_distinct_cases": 1,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "stolen property offenses",
+          6
+        ],
+        [
+          "larceny/theft offenses - investigation",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 7
+      },
+      "first": "2026-03-20T21:45:53",
+      "last": "2026-06-12T17:38:54"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "2758",
+      "count": 9,
+      "span_days": 83,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "larceny/theft offenses",
+          6
+        ],
+        [
+          "larceny/theft offenses - wheel theft suspect vehicle, develop pc and id",
+          3
+        ]
+      ],
+      "search_types": {
+        "lookup": 8,
+        "lookup - Mobile": 1
+      },
+      "first": "2026-03-13T13:26:59",
+      "last": "2026-06-04T14:48:06"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "9E81",
+      "count": 4,
+      "span_days": 76,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "13898",
+          4
+        ]
+      ],
+      "search_types": {
+        "lookup": 4
+      },
+      "first": "2024-09-26T16:50:48",
+      "last": "2024-12-11T21:03:03"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "8540",
+      "count": 6,
+      "span_days": 76,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "ar dealer",
+          5
+        ],
+        [
+          "vin swap",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 5,
+        "lookup": 1
+      },
+      "first": "2025-09-01T21:16:19",
+      "last": "2025-11-17T20:11:03"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "1056",
+      "count": 37,
+      "span_days": 74,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "warrants",
+          33
+        ],
+        [
+          "narcotics",
+          2
+        ],
+        [
+          "narc",
+          1
+        ],
+        [
+          "warrant",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 37
+      },
+      "first": "2024-06-18T16:13:57",
+      "last": "2024-09-01T11:53:56"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "9458",
+      "count": 5,
+      "span_days": 70,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.6,
+      "top_reasons": [
+        [
+          ".",
+          3
+        ],
+        [
+          "other image search from alerts page associated with alert: nieman rush lsz9458 - 2025-07-26t07:20:01.715z",
+          1
+        ],
+        [
+          "nieman rush",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 3,
+        "search": 2
+      },
+      "first": "2025-05-16T23:44:13",
+      "last": "2025-07-26T07:20:02"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "TMP",
+      "count": 8,
+      "span_days": 69,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "traffic infraction",
+          7
+        ],
+        [
+          "city planning/traffic analysis",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 7,
+        "lookup - Mobile": 1
+      },
+      "first": "2026-03-23T19:05:05",
+      "last": "2026-06-01T18:26:02"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "6947",
+      "count": 5,
+      "span_days": 68,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.4,
+      "top_reasons": [
+        [
+          "drugs/narcotics - cocaine",
+          2
+        ],
+        [
+          ".",
+          2
+        ],
+        [
+          "drugs/narcotics",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 5
+      },
+      "first": "2025-11-06T09:58:54",
+      "last": "2026-01-14T09:06:28"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "9FLT",
+      "count": 5,
+      "span_days": 67,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "wanted person (arrest warrant/fugitive)",
+          3
+        ],
+        [
+          "assault/battery offenses (domestic)",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 5
+      },
+      "first": "2026-02-28T02:49:30",
+      "last": "2026-05-06T06:59:36"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "6796",
+      "count": 10,
+      "span_days": 66,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          ".",
+          10
+        ]
+      ],
+      "search_types": {
+        "lookup": 4,
+        "search": 6
+      },
+      "first": "2025-06-14T05:31:38",
+      "last": "2025-08-19T07:45:25"
+    },
+    {
+      "officer": "Demeetron Burrell",
+      "plate_last4": "263B",
+      "count": 5,
+      "span_days": 66,
+      "num_distinct_cases": 1,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "theft",
+          5
+        ]
+      ],
+      "search_types": {
+        "lookup": 3,
+        "search": 2
+      },
+      "first": "2025-05-23T13:32:54",
+      "last": "2025-07-28T17:57:35"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "4710",
+      "count": 12,
+      "span_days": 64,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.58,
+      "top_reasons": [
+        [
+          ".",
+          7
+        ],
+        [
+          "overdose",
+          5
+        ]
+      ],
+      "search_types": {
+        "search": 6,
+        "lookup": 6
+      },
+      "first": "2024-12-01T23:18:15",
+      "last": "2025-02-04T00:19:58"
+    },
+    {
+      "officer": "Domingo Rios",
+      "plate_last4": "3129",
+      "count": 13,
+      "span_days": 62,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "wanted person (arrest warrant/fugitive)",
+          13
+        ]
+      ],
+      "search_types": {
+        "lookup": 13
+      },
+      "first": "2026-05-03T00:39:52",
+      "last": "2026-07-04T21:19:49"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "4035",
+      "count": 4,
+      "span_days": 61,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.25,
+      "top_reasons": [
+        [
+          "wanted person (arrest warrant/fugitive)",
+          3
+        ],
+        [
+          ".",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 4
+      },
+      "first": "2025-11-06T09:29:09",
+      "last": "2026-01-07T02:19:59"
+    },
+    {
+      "officer": "Aaron Gillespie",
+      "plate_last4": "3393",
+      "count": 14,
+      "span_days": 60,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "narcotic",
+          10
+        ],
+        [
+          "pmr3393",
+          4
+        ]
+      ],
+      "search_types": {
+        "search": 12,
+        "lookup": 2
+      },
+      "first": "2024-03-24T17:54:12",
+      "last": "2024-05-24T01:03:49"
+    },
+    {
+      "officer": "Bill Cunningham",
+      "plate_last4": "7905",
+      "count": 30,
+      "span_days": 57,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.03,
+      "top_reasons": [
+        [
+          "hit & run",
+          9
+        ],
+        [
+          "accident",
+          5
+        ],
+        [
+          "accident inv",
+          4
+        ],
+        [
+          "hit and run",
+          4
+        ],
+        [
+          "missing person",
+          4
+        ]
+      ],
+      "search_types": {
+        "search": 29,
+        "lookup": 1
+      },
+      "first": "2024-12-12T03:43:11",
+      "last": "2025-02-07T18:35:17"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "5015",
+      "count": 4,
+      "span_days": 56,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.5,
+      "top_reasons": [
+        [
+          ".",
+          2
+        ],
+        [
+          "drugs - slay",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 4
+      },
+      "first": "2025-06-14T09:19:54",
+      "last": "2025-08-10T09:00:58"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "4039",
+      "count": 5,
+      "span_days": 54,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "traffic infraction",
+          4
+        ],
+        [
+          "motor vehicle theft/stolen",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 4,
+        "lookup": 1
+      },
+      "first": "2026-02-14T20:54:24",
+      "last": "2026-04-09T22:38:44"
+    },
+    {
+      "officer": "Kreig  Wallace",
+      "plate_last4": "1014",
+      "count": 126,
+      "span_days": 53,
+      "num_distinct_cases": 2,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "traffic infraction - sc26-34",
+          59
+        ],
+        [
+          "traffic infraction",
+          57
+        ],
+        [
+          "traffic infraction - sc26-35",
+          10
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 122,
+        "lookup": 4
+      },
+      "first": "2026-03-19T12:48:41",
+      "last": "2026-05-11T18:51:07"
+    },
+    {
+      "officer": "Christopher Keys",
+      "plate_last4": "9555",
+      "count": 14,
+      "span_days": 52,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "research on wanted person.",
+          12
+        ],
+        [
+          "investigation on wanted subject.",
+          1
+        ],
+        [
+          "research on hit and run suspect.",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 14
+      },
+      "first": "2024-04-03T13:12:45",
+      "last": "2024-05-26T12:54:41"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "3922",
+      "count": 4,
+      "span_days": 50,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.5,
+      "top_reasons": [
+        [
+          ".",
+          2
+        ],
+        [
+          "warants - melquesedic",
+          2
+        ]
+      ],
+      "search_types": {
+        "search": 2,
+        "lookup": 2
+      },
+      "first": "2025-04-20T07:34:44",
+      "last": "2025-06-09T23:50:05"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "7177",
+      "count": 20,
+      "span_days": 50,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "warrants",
+          18
+        ],
+        [
+          "warrant",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 18,
+        "search": 2
+      },
+      "first": "2024-12-06T16:20:11",
+      "last": "2025-01-26T13:59:33"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "8067",
+      "count": 7,
+      "span_days": 50,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "ar dealer",
+          7
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 6,
+        "lookup": 1
+      },
+      "first": "2025-09-25T15:38:33",
+      "last": "2025-11-15T03:00:26"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "7766",
+      "count": 6,
+      "span_days": 50,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "ar dealer",
+          6
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 5,
+        "lookup": 1
+      },
+      "first": "2025-09-25T15:38:50",
+      "last": "2025-11-15T02:59:42"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "7765",
+      "count": 6,
+      "span_days": 50,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "ar dealer",
+          6
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 5,
+        "lookup": 1
+      },
+      "first": "2025-09-25T15:39:54",
+      "last": "2025-11-15T02:59:14"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "4074",
+      "count": 6,
+      "span_days": 50,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "ar dealer",
+          6
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 5,
+        "lookup": 1
+      },
+      "first": "2025-09-25T15:40:12",
+      "last": "2025-11-15T02:57:53"
+    },
+    {
+      "officer": "Christopher Keys",
+      "plate_last4": "6970",
+      "count": 5,
+      "span_days": 49,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.4,
+      "top_reasons": [
+        [
+          "test",
+          2
+        ],
+        [
+          "research on hit and run suspect.",
+          2
+        ],
+        [
+          "research on wanted subject.",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 5
+      },
+      "first": "2024-04-28T21:54:38",
+      "last": "2024-06-17T19:12:15"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "6570",
+      "count": 14,
+      "span_days": 47,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "13898",
+          14
+        ]
+      ],
+      "search_types": {
+        "search": 8,
+        "lookup": 6
+      },
+      "first": "2024-10-25T12:57:42",
+      "last": "2024-12-11T13:15:29"
+    },
+    {
+      "officer": "Trevor Strong",
+      "plate_last4": "4631",
+      "count": 91,
+      "span_days": 47,
+      "num_distinct_cases": 2,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "narcotics",
+          90
+        ],
+        [
+          "sc25-29",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 50,
+        "lookup": 37,
+        "search": 4
+      },
+      "first": "2025-09-25T14:55:52",
+      "last": "2025-11-11T17:55:04"
+    },
+    {
+      "officer": "Stephanie Johnson",
+      "plate_last4": "0324",
+      "count": 6,
+      "span_days": 46,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "2024-9942",
+          6
+        ]
+      ],
+      "search_types": {
+        "search": 6
+      },
+      "first": "2024-07-25T13:12:00",
+      "last": "2024-09-09T16:24:08"
+    },
+    {
+      "officer": "Christopher Keys",
+      "plate_last4": "8130",
+      "count": 8,
+      "span_days": 46,
+      "num_distinct_cases": 1,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "wanted person (arrest warrant/fugitive) - research on wanted person vehicle",
+          4
+        ],
+        [
+          "wanted person (arrest warrant/fugitive)",
+          3
+        ],
+        [
+          "wanted person (arrest warrant/fugitive) - research on possible suspect vehicle",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 8
+      },
+      "first": "2026-03-13T09:01:18",
+      "last": "2026-04-28T09:19:24"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "2028",
+      "count": 5,
+      "span_days": 45,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.4,
+      "top_reasons": [
+        [
+          "james hibdon - warrants",
+          3
+        ],
+        [
+          ".",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 5
+      },
+      "first": "2025-04-29T09:27:08",
+      "last": "2025-06-14T04:04:45"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "0476",
+      "count": 5,
+      "span_days": 42,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "traffic infraction",
+          4
+        ],
+        [
+          "motor vehicle theft/stolen",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 5
+      },
+      "first": "2026-01-02T21:20:39",
+      "last": "2026-02-14T20:30:52"
+    },
+    {
+      "officer": "James  Barfield",
+      "plate_last4": "8661",
+      "count": 7,
+      "span_days": 41,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "2024-6151",
+          7
+        ]
+      ],
+      "search_types": {
+        "search": 7
+      },
+      "first": "2024-04-25T22:22:58",
+      "last": "2024-06-06T16:39:44"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "6653",
+      "count": 9,
+      "span_days": 41,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.78,
+      "top_reasons": [
+        [
+          "4612",
+          7
+        ],
+        [
+          "theft",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 1,
+        "lookup": 4,
+        "search": 4
+      },
+      "first": "2025-04-01T18:27:43",
+      "last": "2025-05-13T14:39:40"
+    },
+    {
+      "officer": "Skylar Sillivent",
+      "plate_last4": "9555",
+      "count": 22,
+      "span_days": 41,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "warrant",
+          20
+        ],
+        [
+          "warrants",
+          1
+        ],
+        [
+          "investigation",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 8,
+        "search": 14
+      },
+      "first": "2024-04-02T20:40:08",
+      "last": "2024-05-14T16:23:47"
+    },
+    {
+      "officer": "Skylar Sillivent",
+      "plate_last4": "7682",
+      "count": 24,
+      "span_days": 41,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "warrant",
+          22
+        ],
+        [
+          "warrants",
+          1
+        ],
+        [
+          "investigation",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 21,
+        "lookup": 2,
+        "lookup - Mobile": 1
+      },
+      "first": "2024-04-02T18:58:54",
+      "last": "2024-05-14T16:25:39"
+    },
+    {
+      "officer": "Stephanie Johnson",
+      "plate_last4": "2069",
+      "count": 10,
+      "span_days": 40,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "2024-10920",
+          8
+        ],
+        [
+          "2024-",
+          1
+        ],
+        [
+          "2024-10819",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 8,
+        "lookup": 2
+      },
+      "first": "2024-07-19T21:20:43",
+      "last": "2024-08-29T17:10:23"
+    },
+    {
+      "officer": "Timothy  Rogers",
+      "plate_last4": "6290",
+      "count": 4,
+      "span_days": 40,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.75,
+      "top_reasons": [
+        [
+          "2024-7025",
+          2
+        ],
+        [
+          "7025",
+          1
+        ],
+        [
+          "bmv",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 4
+      },
+      "first": "2024-05-10T19:49:24",
+      "last": "2024-06-20T15:38:56"
+    },
+    {
+      "officer": "Skylar Sillivent",
+      "plate_last4": "0951",
+      "count": 6,
+      "span_days": 38,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "warrant",
+          3
+        ],
+        [
+          "warrants",
+          1
+        ],
+        [
+          "in-progress",
+          1
+        ],
+        [
+          "investigation",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 4,
+        "search": 2
+      },
+      "first": "2024-04-05T17:31:43",
+      "last": "2024-05-14T16:23:22"
+    },
+    {
+      "officer": "Hector D Garcia",
+      "plate_last4": "7591",
+      "count": 12,
+      "span_days": 37,
+      "num_distinct_cases": 1,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "threats/harassment - wanted person",
+          8
+        ],
+        [
+          "animal offenses (cruelty/neglect) - wanted person",
+          2
+        ],
+        [
+          "protective/protection order - wanted person",
+          1
+        ],
+        [
+          "protective/protection order - suspect vehicle",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 12
+      },
+      "first": "2026-01-05T15:57:37",
+      "last": "2026-02-12T12:38:05"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "8227",
+      "count": 12,
+      "span_days": 37,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "traffic infraction",
+          10
+        ],
+        [
+          "stolen property offenses",
+          1
+        ],
+        [
+          "registration",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 10,
+        "lookup": 2
+      },
+      "first": "2026-01-02T22:40:41",
+      "last": "2026-02-09T01:35:53"
+    },
+    {
+      "officer": "Trevor  Robinson",
+      "plate_last4": "2177",
+      "count": 5,
+      "span_days": 36,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "wanted person (arrest warrant/fugitive) - warrant",
+          5
+        ]
+      ],
+      "search_types": {
+        "lookup": 5
+      },
+      "first": "2026-01-15T03:31:39",
+      "last": "2026-02-21T00:37:07"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "8494",
+      "count": 9,
+      "span_days": 34,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "motor vehicle theft/stolen",
+          5
+        ],
+        [
+          "traffic infraction",
+          2
+        ],
+        [
+          "stolen property offenses",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 4,
+        "lookup - Mobile": 5
+      },
+      "first": "2025-12-27T13:44:37",
+      "last": "2026-01-30T13:59:18"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "5J43",
+      "count": 10,
+      "span_days": 32,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "14541",
+          5
+        ],
+        [
+          "13898",
+          2
+        ],
+        [
+          "13899",
+          2
+        ],
+        [
+          "134",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 6,
+        "search": 4
+      },
+      "first": "2024-09-13T20:00:29",
+      "last": "2024-10-16T19:43:54"
+    },
+    {
+      "officer": "Austin Thompson",
+      "plate_last4": "6710",
+      "count": 7,
+      "span_days": 32,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "wanted person (arrest warrant/fugitive) - investigation",
+          7
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 7
+      },
+      "first": "2026-03-18T07:11:26",
+      "last": "2026-04-20T05:44:24"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "8157",
+      "count": 14,
+      "span_days": 31,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.86,
+      "top_reasons": [
+        [
+          ".",
+          12
+        ],
+        [
+          "evading lv",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 10,
+        "search": 4
+      },
+      "first": "2025-03-10T07:10:42",
+      "last": "2025-04-11T01:58:41"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "2619",
+      "count": 8,
+      "span_days": 31,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "bad vin",
+          7
+        ],
+        [
+          "ar dealer",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 8
+      },
+      "first": "2025-08-23T22:55:30",
+      "last": "2025-09-24T20:18:10"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "3434",
+      "count": 7,
+      "span_days": 30,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "20245204",
+          5
+        ],
+        [
+          "20245",
+          1
+        ],
+        [
+          "5204",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 3,
+        "lookup": 4
+      },
+      "first": "2024-04-10T13:02:14",
+      "last": "2024-05-10T16:54:29"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "3959",
+      "count": 9,
+      "span_days": 30,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "10615",
+          9
+        ]
+      ],
+      "search_types": {
+        "lookup": 3,
+        "search": 6
+      },
+      "first": "2024-07-16T15:59:49",
+      "last": "2024-08-16T15:22:22"
+    },
+    {
+      "officer": "Stephanie Johnson",
+      "plate_last4": "7759",
+      "count": 16,
+      "span_days": 30,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.81,
+      "top_reasons": [
+        [
+          "2024-2329",
+          13
+        ],
+        [
+          "sxs7759",
+          2
+        ],
+        [
+          "stolen veh",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 14,
+        "lookup": 2
+      },
+      "first": "2024-02-16T21:34:26",
+      "last": "2024-03-18T18:51:52"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "ASEM",
+      "count": 6,
+      "span_days": 30,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "epo",
+          5
+        ],
+        [
+          "warrant",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 5,
+        "lookup": 1
+      },
+      "first": "2025-04-01T20:56:02",
+      "last": "2025-05-02T14:40:02"
+    },
+    {
+      "officer": "Auldon  Barker",
+      "plate_last4": "1392",
+      "count": 8,
+      "span_days": 30,
+      "num_distinct_cases": 1,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "traffic infraction",
+          7
+        ],
+        [
+          "larceny/theft offenses",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 8
+      },
+      "first": "2026-02-11T08:32:05",
+      "last": "2026-03-13T20:28:00"
+    },
+    {
+      "officer": "Maria Mccracken",
+      "plate_last4": "5970",
+      "count": 9,
+      "span_days": 30,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "motor vehicle theft/stolen",
+          7
+        ],
+        [
+          "traffic infraction",
+          1
+        ],
+        [
+          "registration",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 7,
+        "lookup": 2
+      },
+      "first": "2026-01-02T22:43:02",
+      "last": "2026-02-02T15:48:55"
+    },
+    {
+      "officer": "Aaron Gillespie",
+      "plate_last4": "2690",
+      "count": 14,
+      "span_days": 28,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "narcotic",
+          12
+        ],
+        [
+          "nark",
+          1
+        ],
+        [
+          "pch2690",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 12,
+        "lookup": 2
+      },
+      "first": "2024-03-14T16:22:18",
+      "last": "2024-04-11T19:49:04"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "4193",
+      "count": 19,
+      "span_days": 28,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "wanted person (arrest warrant/fugitive) - career criminal - blevins",
+          12
+        ],
+        [
+          "drugs/narcotics",
+          4
+        ],
+        [
+          "drugs/narcotics - career criminal - blevins",
+          3
+        ]
+      ],
+      "search_types": {
+        "lookup": 19
+      },
+      "first": "2026-04-16T00:28:42",
+      "last": "2026-05-14T07:23:12"
+    },
+    {
+      "officer": "Skylar Sillivent",
+      "plate_last4": "4639",
+      "count": 7,
+      "span_days": 27,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.0,
+      "top_reasons": [
+        [
+          "investigation",
+          7
+        ]
+      ],
+      "search_types": {
+        "lookup": 5,
+        "search": 2
+      },
+      "first": "2024-04-16T17:13:56",
+      "last": "2024-05-14T16:22:26"
+    }
+  ],
+  "suspect": [
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "5118",
+      "count": 27,
+      "span_days": 88,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.59,
+      "top_reasons": [
+        [
+          ".",
+          16
+        ],
+        [
+          "ashton",
+          10
+        ],
+        [
+          "jase",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 22,
+        "search": 5
+      },
+      "first": "2025-04-29T05:25:51",
+      "last": "2025-07-27T01:38:57"
+    },
+    {
+      "officer": "Stephanie Johnson",
+      "plate_last4": "7759",
+      "count": 16,
+      "span_days": 30,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.81,
+      "top_reasons": [
+        [
+          "2024-2329",
+          13
+        ],
+        [
+          "sxs7759",
+          2
+        ],
+        [
+          "stolen veh",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 14,
+        "lookup": 2
+      },
+      "first": "2024-02-16T21:34:26",
+      "last": "2024-03-18T18:51:52"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "9617",
+      "count": 15,
+      "span_days": 150,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          ".",
+          13
+        ],
+        [
+          "n",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 4,
+        "lookup": 6,
+        "search": 5
+      },
+      "first": "2025-03-05T07:38:53",
+      "last": "2025-08-03T06:22:58"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "6570",
+      "count": 14,
+      "span_days": 47,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "13898",
+          14
+        ]
+      ],
+      "search_types": {
+        "search": 8,
+        "lookup": 6
+      },
+      "first": "2024-10-25T12:57:42",
+      "last": "2024-12-11T13:15:29"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "8157",
+      "count": 14,
+      "span_days": 31,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.86,
+      "top_reasons": [
+        [
+          ".",
+          12
+        ],
+        [
+          "evading lv",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 10,
+        "search": 4
+      },
+      "first": "2025-03-10T07:10:42",
+      "last": "2025-04-11T01:58:41"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "9004",
+      "count": 12,
+      "span_days": 129,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          ".",
+          12
+        ]
+      ],
+      "search_types": {
+        "lookup": 4,
+        "search": 8
+      },
+      "first": "2025-03-14T10:11:51",
+      "last": "2025-07-22T08:53:43"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "4710",
+      "count": 12,
+      "span_days": 64,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.58,
+      "top_reasons": [
+        [
+          ".",
+          7
+        ],
+        [
+          "overdose",
+          5
+        ]
+      ],
+      "search_types": {
+        "search": 6,
+        "lookup": 6
+      },
+      "first": "2024-12-01T23:18:15",
+      "last": "2025-02-04T00:19:58"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "6796",
+      "count": 10,
+      "span_days": 66,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          ".",
+          10
+        ]
+      ],
+      "search_types": {
+        "lookup": 4,
+        "search": 6
+      },
+      "first": "2025-06-14T05:31:38",
+      "last": "2025-08-19T07:45:25"
+    },
+    {
+      "officer": "Stephanie Johnson",
+      "plate_last4": "2069",
+      "count": 10,
+      "span_days": 40,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "2024-10920",
+          8
+        ],
+        [
+          "2024-",
+          1
+        ],
+        [
+          "2024-10819",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 8,
+        "lookup": 2
+      },
+      "first": "2024-07-19T21:20:43",
+      "last": "2024-08-29T17:10:23"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "5J43",
+      "count": 10,
+      "span_days": 32,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "14541",
+          5
+        ],
+        [
+          "13898",
+          2
+        ],
+        [
+          "13899",
+          2
+        ],
+        [
+          "134",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 6,
+        "search": 4
+      },
+      "first": "2024-09-13T20:00:29",
+      "last": "2024-10-16T19:43:54"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "6653",
+      "count": 9,
+      "span_days": 41,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.78,
+      "top_reasons": [
+        [
+          "4612",
+          7
+        ],
+        [
+          "theft",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup - Mobile": 1,
+        "lookup": 4,
+        "search": 4
+      },
+      "first": "2025-04-01T18:27:43",
+      "last": "2025-05-13T14:39:40"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "3959",
+      "count": 9,
+      "span_days": 30,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "10615",
+          9
+        ]
+      ],
+      "search_types": {
+        "lookup": 3,
+        "search": 6
+      },
+      "first": "2024-07-16T15:59:49",
+      "last": "2024-08-16T15:22:22"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "DEW2",
+      "count": 8,
+      "span_days": 26,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "test",
+          8
+        ]
+      ],
+      "search_types": {
+        "search": 8
+      },
+      "first": "2025-03-21T19:02:04",
+      "last": "2025-04-16T19:32:39"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "0151",
+      "count": 8,
+      "span_days": 14,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "7696",
+          8
+        ]
+      ],
+      "search_types": {
+        "lookup": 8
+      },
+      "first": "2024-05-21T20:41:57",
+      "last": "2024-06-05T15:51:19"
+    },
+    {
+      "officer": "James  Barfield",
+      "plate_last4": "8661",
+      "count": 7,
+      "span_days": 41,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "2024-6151",
+          7
+        ]
+      ],
+      "search_types": {
+        "search": 7
+      },
+      "first": "2024-04-25T22:22:58",
+      "last": "2024-06-06T16:39:44"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "3434",
+      "count": 7,
+      "span_days": 30,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "20245204",
+          5
+        ],
+        [
+          "20245",
+          1
+        ],
+        [
+          "5204",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 3,
+        "lookup": 4
+      },
+      "first": "2024-04-10T13:02:14",
+      "last": "2024-05-10T16:54:29"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "8405",
+      "count": 7,
+      "span_days": 21,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "18845",
+          4
+        ],
+        [
+          "18854",
+          3
+        ]
+      ],
+      "search_types": {
+        "lookup": 6,
+        "search": 1
+      },
+      "first": "2024-12-12T15:09:53",
+      "last": "2025-01-02T18:14:52"
+    },
+    {
+      "officer": "Christopher Keys",
+      "plate_last4": "6790",
+      "count": 6,
+      "span_days": 228,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.67,
+      "top_reasons": [
+        [
+          "test",
+          4
+        ],
+        [
+          "research on wanted subject.",
+          1
+        ],
+        [
+          "research on suspect veh",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 6
+      },
+      "first": "2024-04-28T21:56:51",
+      "last": "2024-12-13T05:08:22"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "2849",
+      "count": 6,
+      "span_days": 94,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "5617",
+          4
+        ],
+        [
+          "20245671",
+          1
+        ],
+        [
+          "test",
+          1
+        ]
+      ],
+      "search_types": {
+        "search": 5,
+        "lookup": 1
+      },
+      "first": "2024-04-17T12:48:05",
+      "last": "2024-07-20T16:21:22"
+    },
+    {
+      "officer": "Stephanie Johnson",
+      "plate_last4": "0324",
+      "count": 6,
+      "span_days": 46,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "2024-9942",
+          6
+        ]
+      ],
+      "search_types": {
+        "search": 6
+      },
+      "first": "2024-07-25T13:12:00",
+      "last": "2024-09-09T16:24:08"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "4730",
+      "count": 6,
+      "span_days": 14,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.83,
+      "top_reasons": [
+        [
+          "12836",
+          5
+        ],
+        [
+          "theft",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 5,
+        "search": 1
+      },
+      "first": "2024-08-20T12:44:59",
+      "last": "2024-09-03T16:00:25"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "0233",
+      "count": 5,
+      "span_days": 172,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          ".",
+          5
+        ]
+      ],
+      "search_types": {
+        "lookup": 3,
+        "search": 2
+      },
+      "first": "2024-10-01T20:36:35",
+      "last": "2025-03-23T02:56:15"
+    },
+    {
+      "officer": "Timothy  Rogers",
+      "plate_last4": "1347",
+      "count": 5,
+      "span_days": 163,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "25-4440",
+          4
+        ],
+        [
+          "2025-4440",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 5
+      },
+      "first": "2025-05-02T21:25:07",
+      "last": "2025-10-13T19:49:48"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "9458",
+      "count": 5,
+      "span_days": 70,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.6,
+      "top_reasons": [
+        [
+          ".",
+          3
+        ],
+        [
+          "other image search from alerts page associated with alert: nieman rush lsz9458 - 2025-07-26t07:20:01.715z",
+          1
+        ],
+        [
+          "nieman rush",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 3,
+        "search": 2
+      },
+      "first": "2025-05-16T23:44:13",
+      "last": "2025-07-26T07:20:02"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "1887",
+      "count": 4,
+      "span_days": 134,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.75,
+      "top_reasons": [
+        [
+          ".",
+          3
+        ],
+        [
+          "jase",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 3,
+        "search": 1
+      },
+      "first": "2024-12-15T08:10:14",
+      "last": "2025-04-29T00:32:21"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "9E81",
+      "count": 4,
+      "span_days": 76,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "13898",
+          4
+        ]
+      ],
+      "search_types": {
+        "lookup": 4
+      },
+      "first": "2024-09-26T16:50:48",
+      "last": "2024-12-11T21:03:03"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "5015",
+      "count": 4,
+      "span_days": 56,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.5,
+      "top_reasons": [
+        [
+          ".",
+          2
+        ],
+        [
+          "drugs - slay",
+          2
+        ]
+      ],
+      "search_types": {
+        "lookup": 4
+      },
+      "first": "2025-06-14T09:19:54",
+      "last": "2025-08-10T09:00:58"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "3922",
+      "count": 4,
+      "span_days": 50,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.5,
+      "top_reasons": [
+        [
+          ".",
+          2
+        ],
+        [
+          "warants - melquesedic",
+          2
+        ]
+      ],
+      "search_types": {
+        "search": 2,
+        "lookup": 2
+      },
+      "first": "2025-04-20T07:34:44",
+      "last": "2025-06-09T23:50:05"
+    },
+    {
+      "officer": "Timothy  Rogers",
+      "plate_last4": "6290",
+      "count": 4,
+      "span_days": 40,
+      "num_distinct_cases": 0,
+      "vague_frac": 0.75,
+      "top_reasons": [
+        [
+          "2024-7025",
+          2
+        ],
+        [
+          "7025",
+          1
+        ],
+        [
+          "bmv",
+          1
+        ]
+      ],
+      "search_types": {
+        "lookup": 4
+      },
+      "first": "2024-05-10T19:49:24",
+      "last": "2024-06-20T15:38:56"
+    },
+    {
+      "officer": "Joel  Galvin",
+      "plate_last4": "4151",
+      "count": 4,
+      "span_days": 14,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          ".",
+          4
+        ]
+      ],
+      "search_types": {
+        "lookup": 4
+      },
+      "first": "2025-04-15T01:15:52",
+      "last": "2025-04-29T08:52:36"
+    },
+    {
+      "officer": "John Downing",
+      "plate_last4": "755F",
+      "count": 4,
+      "span_days": 14,
+      "num_distinct_cases": 0,
+      "vague_frac": 1.0,
+      "top_reasons": [
+        [
+          "17055",
+          4
+        ]
+      ],
+      "search_types": {
+        "search": 3,
+        "lookup": 1
+      },
+      "first": "2024-11-07T13:35:52",
+      "last": "2024-11-22T13:16:11"
+    }
+  ]
+}

@@ -119,6 +119,9 @@
 
   code{ background:var(--grid); padding:1px 6px; border-radius:5px; font-size:12px; }
   .cite{ font-size:12px; color:var(--ink-dim); }
+  .doc-btn{ display:inline-block; margin-top:8px; padding:8px 14px; border-radius:8px; background:var(--accent); color:var(--accent-ink); text-decoration:none; font-size:13px; font-weight:600; }
+  .doc-btn:hover{ opacity:.88; }
+  .doc-meta{ font-size:12px; color:var(--ink-dim); margin:2px 0 0; }
   .legend{ display:flex; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--ink-dim); margin-top:10px; justify-content:center; }
   .legend .sw{ display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:5px; vertical-align:-1px; }
 
@@ -171,6 +174,7 @@
 <nav class="tabs">
   <div class="wrap">
     <button data-tab="overview" class="active">Overview</button>
+    <button data-tab="background">Background</button>
     <button data-tab="timeline">Timeline &amp; Trends</button>
     <button data-tab="justification">Justification</button>
     <button data-tab="volume">Volume</button>
@@ -179,6 +183,7 @@
     <button data-tab="geo">Out-of-Network</button>
     <button data-tab="questions">Open Questions</button>
     <button data-tab="method">Methodology</button>
+    <button data-tab="documents">Documents &amp; Policies</button>
   </div>
 </nav>
 
@@ -238,7 +243,115 @@
       </table>
     </div>
   </div>
-  <div class="insight"><b>Where to go next</b>Use the tabs above. <b>Timeline &amp; Trends</b> answers "how does 2024/2025/2026 compare." <b>Repeated-Target &amp; Stalking Risk</b> directly answers "is anyone following a plate that isn't tied to a real case." <b>Off-Hours</b> answers "are people accessing this at odd hours, and does it look different than daytime use." <b>Open Questions</b> is a running list of what this dataset can and can't answer, spelled out directly.</div>
+  <div class="insight"><b>Where to go next</b>Use the tabs above. <b>Background</b> covers how this project started and what's publicly known about the program outside the audit logs. <b>Timeline &amp; Trends</b> answers "how does 2024/2025/2026 compare." <b>Repeated-Target &amp; Stalking Risk</b> directly answers "is anyone following a plate that isn't tied to a real case." <b>Off-Hours</b> answers "are people accessing this at odd hours, and does it look different than daytime use." <b>Open Questions</b> is a running list of what this dataset can and can't answer, spelled out directly. <b>Documents &amp; Policies</b> links every primary source PDF this page draws from.</div>
+</section>
+</div>
+
+<!-- ============ BACKGROUND ============ -->
+<div class="tab-panel" data-panel="background" hidden>
+<section id="bg-purpose">
+  <div class="sec-head"><span class="sec-num">B1</span><h2>Purpose of this project</h2></div>
+  <p class="sec-intro">This page compiles publicly available information, records-request activity, the department's own public statements, and a full statistical analysis of the department's system access/audit logs, about the automated license plate reader (ALPR) program run by The Colony, TX Police Department (TCPD) through its vendor Flock Safety. It's intended as a neutral reference, not an argument for or against the technology — claims are attributed to their source, and unresolved points are labeled as such rather than presented as settled.</p>
+</section>
+
+<section id="bg-overview">
+  <div class="sec-head"><span class="sec-num">B2</span><h2>Program overview — what's known</h2></div>
+  <div class="panel">
+    <table>
+      <tr><td>Fixed ALPR cameras (TCPD-operated)</td><td><b>21</b>, mounted on poles at fixed public-roadway locations</td></tr>
+      <tr><td>Other camera assets</td><td>1 non-public-facing live-view camera (drone-dock clearance); Axon ALPR units in marked patrol vehicles</td></tr>
+      <tr><td>Private ALPR cameras nearby</td><td>Grandscape operates 17 fixed ALPRs on its own property; TCPD states it cannot access these directly</td></tr>
+      <tr><td>First cameras installed</td><td>2023 (first 10); expanded to 21 through 2024</td></tr>
+      <tr><td>Council approval history</td><td>First presented April 2023 (then-Chief Kulin); approved November 2023</td></tr>
+      <tr><td>Data retention (per signed contracts)</td><td><b>30 days</b> — confirmed directly in both the 2024 and 2026 Flock order forms</td></tr>
+      <tr><td>Public transparency portal</td><td><a href="https://transparency.flocksafety.com/the-colony-tx-pd" target="_blank" rel="noopener">transparency.flocksafety.com/the-colony-tx-pd</a> — aggregate stats only, no camera addresses or individual search records</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="bg-cost">
+  <div class="sec-head"><span class="sec-num">B3</span><h2>Procurement &amp; cost history</h2></div>
+  <p class="sec-intro">Figures below come directly from signed Flock order forms, City Council resolutions, and a City purchase-order report — see the <b>Documents &amp; Policies</b> tab for the source PDFs.</p>
+  <div class="panel">
+    <table>
+      <tr><th>Date</th><th>Item</th><th>Amount</th></tr>
+      <tr><td>Nov 8, 2023</td><td>Original ALPR purchase — 10 cameras (Resolution 2023-078)</td><td class="num">$63,500</td></tr>
+      <tr><td>Sep 19, 2024</td><td>ALPR service agreement — 11 additional cameras, signed by then-Interim Chief Jay Goodson</td><td class="num">$71,150</td></tr>
+      <tr><td>Sep 16, 2025</td><td>Drone-as-First-Responder (DFR) contract (Resolution 2025-100)</td><td class="num">$450,000</td></tr>
+      <tr><td>May 5, 2026</td><td>ALPR renewal — 2-year co-terminous agreement, all 21 cameras (Resolution 2026-027)</td><td class="num">$126,000</td></tr>
+      <tr><td>Aug 18, 2026</td><td>DFR "Year 1" payment (Resolution 2026-057 / PO26-00045)</td><td class="num">$150,000</td></tr>
+    </table>
+    <div class="insight"><b>Nominal total: ~$710,650</b>Sum of contract face values across every agreement signed to date. Not a net-cost figure — the 2026 ALPR agreement explicitly supersedes the 2023 and 2024 agreements and credits any overlap in prior invoices against the new term, so the real net amount paid is likely lower. The City's own Purchase Order Summary Report shows only one PO tied to Flock Group Inc. (the $150,000 DFR payment) — no PO was found for either ALPR camera contract despite both falling inside the report's date range.</div>
+  </div>
+</section>
+
+<section id="bg-timeline">
+  <div class="sec-head"><span class="sec-num">B4</span><h2>Timeline</h2></div>
+  <div class="panel">
+    <ul style="margin:0; padding-left:18px; font-size:13.5px; line-height:2; color:var(--ink);">
+      <li><b>Apr 2023</b> — ALPR program first presented to City Council by then-Chief Kulin.</li>
+      <li><b>Nov 2023</b> — Council approves the program; first 10 cameras installed shortly after ($63,500).</li>
+      <li><b>2024</b> — Expansion to 21 cameras; Sept 19, 2024, a second ALPR contract ($71,150) is signed by then-Interim Police Chief <b>Jay Goodson</b> — the same Jay Goodson later serving as Assistant Chief.</li>
+      <li><b>Jul 21, 2026</b> — Four residents speak during Citizen Input specifically about Flock/drone use; Mayor Richard Boyer requests the topic be added to the Aug 4 Work Session agenda.</li>
+      <li><b>Aug 2026</b> — Chief Foxall presents an extended ALPR/DFR briefing at a Council work session. Minutes record at least three residents speaking in opposition. <a href="https://thecolony.granicus.com/MediaPlayer.php?view_id=3&clip_id=1546" target="_blank" rel="noopener">Video</a>.</li>
+      <li><b>Aug 18, 2026</b> — A resident submits a Texas Public Information Act request covering camera locations, the contract, the access policy, audit logs, and arrest/citation linkage.</li>
+      <li><b>Aug 21, 2026</b> — The City's outside counsel responds with a $67,580 cost estimate for the arrest-linkage portion alone, citing manual review of ~9,200 records.</li>
+      <li><b>Sep 2026</b> — A narrower follow-up request is filed; the Assistant Chief agrees to provide the contract, policy, and audit logs, and the arrest-linkage item is withdrawn.</li>
+      <li><b>Sep 2026</b> — The department produces the contract, purchase-order records, and full system audit logs (24,333 local searches; 17.1M network searches). The full statistical analysis is presented in the other tabs of this page.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="bg-position">
+  <div class="sec-head"><span class="sec-num">B5</span><h2>The department's public position</h2></div>
+  <p class="sec-intro">Summarized from Chief Foxall's August 2026 Council presentation, cross-checked where possible against the audit-log analysis in the other tabs.</p>
+  <div class="two-col">
+    <div class="panel">
+      <h3>Legal basis</h3>
+      <p style="font-size:13px;color:var(--ink-dim);">Photographing a plate on a public road is not a Fourth Amendment search, per ~36 cited court decisions including a March 2026 Fifth Circuit case (not independently confirmed). Warrant not required because the City treats resulting data as city-owned.</p>
+    </div>
+    <div class="panel">
+      <h3>Scope</h3>
+      <p style="font-size:13px;color:var(--ink-dim);">21 cameras cover &lt;2% of ~450 lane-miles; fewer than 1.75% of reads are ever reviewed by a person (department estimate, not independently verified).</p>
+    </div>
+    <div class="panel">
+      <h3>Data sharing</h3>
+      <p style="font-size:13px;color:var(--ink-dim);">Described as limited to agencies in Texas or within 500 miles, each external request requiring individual written approval. <b>The audit data directly contradicts the scope of this claim</b> — see the Out-of-Network tab: ~40% of all network searches came from beyond 500 miles.</p>
+    </div>
+    <div class="panel">
+      <h3>Accountability</h3>
+      <p style="font-size:13px;color:var(--ink-dim);">Acknowledged officer misuse happens nationally (mostly tracking partners/exes); stated a monthly audit is conducted by the Assistant Chief. Did not state whether TCPD itself has had confirmed misuse incidents — see the Risk tab for what the data shows on this specific point.</p>
+    </div>
+  </div>
+</section>
+
+<section id="bg-open">
+  <div class="sec-head"><span class="sec-num">B6</span><h2>Open questions</h2></div>
+  <div class="panel">
+    <ul style="margin:0; padding-left:18px; font-size:13.5px; line-height:2;">
+      <li><b>Now answered by the data:</b> whether sharing is really limited to Texas/500 miles — see the Out-of-Network tab. It is not, at least not as a hard technical limit; ~40% of network searches originate beyond that radius.</li>
+      <li><b>Still open:</b> whether TCPD has had any confirmed internal misuse incidents. The Risk tab shows a data pattern consistent with the nationally-documented misuse signature, concentrated in a small number of officers — but the audit log alone can't establish intent. That requires the department's own explanation of the flagged rows.</li>
+      <li><b>Still open:</b> the true net cost of the ALPR program, given the 2026 agreement's pro-rata credit against prior contracts.</li>
+      <li><b>Still open:</b> why the City's own PO system shows only one PO for Flock despite multiple signed contracts.</li>
+      <li><b>Still open:</b> what direction, if any, Council gave staff after the July/August 2026 opposition testimony.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="bg-national">
+  <div class="sec-head"><span class="sec-num">B7</span><h2>Regional &amp; national context</h2></div>
+  <p class="sec-intro">Other jurisdictions' actions on Flock/ALPR, for context — not an implication that the same concerns apply to The Colony specifically.</p>
+  <div class="panel">
+    <ul style="margin:0; padding-left:18px; font-size:13.5px; line-height:1.9; color:var(--ink-dim);">
+      <li><b>Wylie, TX</b> (Collin County) — Council voted 7-0 (Aug 2026) to terminate its Flock contract over data-access concerns.</li>
+      <li><b>Pflugerville, TX</b> — cancelled after a resident's PIA request found the city's data had been accessed by numerous outside agencies; the school district followed.</li>
+      <li><b>Hood County, TX</b> — commissioners terminated their Flock agreement after resident concerns.</li>
+      <li><b>Denton, TX</b> — active resident petition (~500 signatures) to remove the city's 10 cameras.</li>
+      <li><b>Carrollton, TX</b> — residents have formally asked the city to end its contract; not yet done.</li>
+      <li><b>Statewide</b> — Gov. Abbott directed state agencies to halt Flock funding (Aug 2026), citing a Lufkin PD officer misuse case.</li>
+      <li><b>Nationally</b> — at least 56 cities/towns deactivated or cancelled Flock contracts in 2026; Florida became the first state to ban ALPR systems outright (Sept 2026).</li>
+    </ul>
+  </div>
 </section>
 </div>
 
@@ -534,6 +647,41 @@
     <li>All figures are reproducible from the source CSVs using the file + row-ID citations throughout this report.</li>
     <li>Raw plate numbers are intentionally omitted from this report; flagged entries are cited by source file and row ID so they can be pulled back up from the original export without re-publishing PII here.</li>
   </ul>
+</section>
+</div>
+
+<!-- ============ DOCUMENTS ============ -->
+<div class="tab-panel" data-panel="documents" hidden>
+<section id="docs">
+  <div class="sec-head"><span class="sec-num">D</span><h2>Source documents &amp; policies</h2></div>
+  <p class="sec-intro">Primary source documents obtained via Texas Public Information Act requests, referenced throughout this analysis. Click through for the original PDF.</p>
+  <div class="two-col">
+    <div class="panel">
+      <h3>Flock ALPR service agreement — 2024</h3>
+      <div class="doc-meta">Sept 19, 2024 · $71,150 · 11 cameras · signed by then-Interim Chief Jay Goodson</div>
+      <a class="doc-btn" href="documents/flock-alpr-service-agreement-2024.pdf" target="_blank" rel="noopener">View PDF</a>
+    </div>
+    <div class="panel">
+      <h3>Flock ALPR co-terminous agreement — 2026</h3>
+      <div class="doc-meta">Feb 15, 2026 – Feb 14, 2028 · $126,000 · all 21 cameras · Resolution 2026-027</div>
+      <a class="doc-btn" href="documents/flock-alpr-coterm-agreement-2026.pdf" target="_blank" rel="noopener">View PDF</a>
+    </div>
+    <div class="panel">
+      <h3>City Purchase Order Summary Report</h3>
+      <div class="doc-meta">Issued date range 1/1/2024 – 9/2/2026 · shows a single Flock-related PO</div>
+      <a class="doc-btn" href="documents/purchase-order-summary-2024-2026.pdf" target="_blank" rel="noopener">View PDF</a>
+    </div>
+    <div class="panel">
+      <h3>City cost-estimate letter (arrest-linkage request)</h3>
+      <div class="doc-meta">Aug 21, 2026 · Brown &amp; Hofmeister LLP · $67,580 estimate for manual review of ~9,200 records</div>
+      <a class="doc-btn" href="documents/city-cost-estimate-letter-2026-08-21.pdf" target="_blank" rel="noopener">View PDF</a>
+    </div>
+  </div>
+  <div class="insight"><b>Still pending</b>The department's written access/data-sharing policy has not yet been produced. This page will be updated with a link when it is.</div>
+  <div class="panel">
+    <h3>Underlying audit-log analysis</h3>
+    <p style="font-size:13px;color:var(--ink-dim);">The statistics throughout this page are computed from the raw Flock audit-log export (Org log: 24,333 rows; Network log: 17,135,439 rows) obtained via records request. Analysis scripts and cached intermediate results are in this repository's <code>/analysis/</code> folder for independent verification — see the Methodology tab for how each figure was computed.</p>
+  </div>
 </section>
 </div>
 
