@@ -1,0 +1,1117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Colony TX PD — Flock ALPR Audit Analysis</title>
+<style>
+  :root{
+    --bg:#f7f7f5; --panel:#ffffff; --ink:#1c1e21; --ink-dim:#5b6067; --border:#e4e4e0;
+    --accent:#b0413e; --accent-ink:#ffffff; --accent-soft:#f6e4e3;
+    --blue:#3a6ea5; --teal:#2f7d6e; --amber:#c9822a; --grey:#8a8f98; --purple:#7a5cb0;
+    --grid:#e9e9e6; --baseline:#9aa0a8; --navbg:#ffffffcc;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 16px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#16171a; --panel:#1e2024; --ink:#eceef0; --ink-dim:#9aa0a8; --border:#2c2f34;
+      --accent:#e0655f; --accent-ink:#1a1010; --accent-soft:#3a2422;
+      --blue:#6fa3d8; --teal:#5cbba7; --amber:#e0a75e; --grey:#8a8f98; --purple:#a68ddb;
+      --grid:#2a2c30; --baseline:#5c6168; --navbg:#1a1b1ecc;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#16171a; --panel:#1e2024; --ink:#eceef0; --ink-dim:#9aa0a8; --border:#2c2f34;
+    --accent:#e0655f; --accent-ink:#1a1010; --accent-soft:#3a2422;
+    --blue:#6fa3d8; --teal:#5cbba7; --amber:#e0a75e; --grey:#8a8f98; --purple:#a68ddb;
+    --grid:#2a2c30; --baseline:#5c6168; --navbg:#1a1b1ecc;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 24px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    padding-bottom: max(48px, env(safe-area-inset-bottom, 0px));
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 20px;}
+  header.top{
+    padding: 40px 20px 26px; border-bottom:1px solid var(--border);
+    background: linear-gradient(180deg, var(--accent-soft), transparent 140%);
+  }
+  header.top .wrap{max-width:1080px;}
+  .kicker{ text-transform:uppercase; letter-spacing:.08em; font-size:11.5px; color:var(--accent); font-weight:700; }
+  h1{ font-size: 27px; margin: 8px 0 6px; letter-spacing:-.01em; }
+  .subtitle{ color:var(--ink-dim); font-size:14.5px; max-width:700px; }
+  .meta-row{ display:flex; gap:22px; flex-wrap:wrap; margin-top:16px; font-size:13px; color:var(--ink-dim); }
+  .meta-row b{ color:var(--ink); }
+
+  .stat-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:20px; }
+  .stat-card{ background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); }
+  .stat-card .n{ font-size:21px; font-weight:700; letter-spacing:-.01em; }
+  .stat-card .l{ font-size:11.5px; color:var(--ink-dim); margin-top:2px; }
+
+  /* tab nav */
+  nav.tabs{ position:sticky; top:0; z-index:20; background:var(--navbg); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border); }
+  nav.tabs .wrap{ max-width:1080px; display:flex; gap:2px; overflow-x:auto; padding:0 20px; scrollbar-width:thin; }
+  nav.tabs button{ font:inherit; font-size:13px; font-weight:600; white-space:nowrap; background:none; border:none;
+    color:var(--ink-dim); padding:13px 13px; cursor:pointer; border-bottom:2.5px solid transparent; }
+  nav.tabs button:hover{ color:var(--ink); }
+  nav.tabs button.active{ color:var(--accent); border-bottom-color:var(--accent); }
+
+  .period-bar{ background:var(--accent-soft); border-bottom:1px solid var(--border); }
+  .period-bar .wrap{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:10px 20px; }
+  .period-label{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--accent); margin-right:2px; }
+  .period-btn{ font:inherit; font-size:12.5px; font-weight:600; background:var(--panel); border:1px solid var(--border);
+    color:var(--ink-dim); padding:5px 13px; border-radius:999px; cursor:pointer; }
+  .period-btn:hover{ color:var(--ink); }
+  .period-btn.active{ background:var(--accent); border-color:var(--accent); color:var(--accent-ink); }
+  .period-note{ font-size:11.5px; color:var(--ink-dim); margin-left:6px; }
+  .suppressed-msg{ font-size:13px; color:var(--ink-dim); padding:18px 4px; text-align:center; font-style:italic; }
+
+  .tab-panel[hidden]{ display:none; }
+
+  section{ padding: 34px 20px; border-bottom:1px solid var(--border); }
+  section:last-of-type{ border-bottom:none; }
+  .sec-head{ display:flex; align-items:baseline; gap:10px; margin-bottom:6px; }
+  .sec-num{ font-size:12px; font-weight:700; color:var(--accent); background:var(--accent-soft); border-radius:6px; padding:2px 7px; }
+  h2{ font-size:19px; margin:0; letter-spacing:-.01em; }
+  .sec-intro{ color:var(--ink-dim); max-width:780px; margin:10px 0 22px; font-size:14px; }
+
+  .panel{ background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:20px 22px; box-shadow:var(--shadow); margin-bottom:18px; }
+  .panel h3{ margin:0 0 4px; font-size:14.5px; }
+  .panel .note{ font-size:12.5px; color:var(--ink-dim); margin-bottom:14px; }
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media (max-width:720px){ .two-col{ grid-template-columns:1fr; } nav.tabs .wrap{padding:0 8px;} }
+
+  .insight{ border-left:3px solid var(--accent); background:var(--accent-soft); border-radius:0 10px 10px 0; padding:12px 16px; font-size:13.5px; margin: 14px 0; }
+  .insight b{ display:block; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--accent); margin-bottom:3px; }
+  .insight.good{ border-left-color:var(--teal); background:color-mix(in srgb, var(--teal) 14%, var(--panel)); }
+  .insight.good b{ color:var(--teal); }
+  .callout-list{ display:grid; gap:10px; }
+  .callout{ display:flex; gap:12px; background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); }
+  .callout .num{ flex:0 0 auto; width:26px; height:26px; border-radius:50%; background:var(--accent); color:var(--accent-ink); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; }
+  .callout .body b{ display:block; font-size:14px; margin-bottom:2px; }
+  .callout .body span{ font-size:13px; color:var(--ink-dim); }
+
+  svg text{ fill:var(--ink); font-family:inherit; }
+  .bar-label{ font-size:11.5px; fill:var(--ink-dim); }
+  .bar-value{ font-size:11.5px; fill:var(--ink); font-weight:600; }
+  .axis-line{ stroke:var(--grid); stroke-width:1; }
+  .baseline-line{ stroke:var(--baseline); stroke-width:1.4; stroke-dasharray:4 3; }
+  .marker-line{ stroke:var(--accent); stroke-width:1.2; stroke-dasharray:3 3; opacity:.8; }
+
+  table{ width:100%; border-collapse:collapse; font-size:13px; }
+  th,td{ text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); }
+  th{ color:var(--ink-dim); font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.03em; }
+  tr:last-child td{ border-bottom:none; }
+  td.num{ font-variant-numeric:tabular-nums; }
+  .badge{ display:inline-block; font-size:10.5px; font-weight:700; padding:2px 7px; border-radius:999px; letter-spacing:.02em; }
+  .badge.active{ background:#dff1e8; color:#1f7a53; }
+  .badge.inactive{ background:#f1e2e2; color:#a03d3d; }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .badge.active{ background:#173427; color:#6fd6a6; }
+    :root:not([data-theme="light"]) .badge.inactive{ background:#3a2422; color:#e79b9b; }
+  }
+  :root[data-theme="dark"] .badge.active{ background:#173427; color:#6fd6a6; }
+  :root[data-theme="dark"] .badge.inactive{ background:#3a2422; color:#e79b9b; }
+
+  code{ background:var(--grid); padding:1px 6px; border-radius:5px; font-size:12px; }
+  .cite{ font-size:12px; color:var(--ink-dim); }
+  .legend{ display:flex; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--ink-dim); margin-top:10px; justify-content:center; }
+  .legend .sw{ display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:5px; vertical-align:-1px; }
+
+  .qa{ background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow); margin-bottom:14px; }
+  .qa .q{ font-size:14.5px; font-weight:700; display:flex; gap:8px; }
+  .qa .q .qmark{ color:var(--accent); }
+  .qa .a{ font-size:13.5px; color:var(--ink-dim); margin-top:8px; line-height:1.6; }
+  .qa .a b{ color:var(--ink); font-weight:600; }
+  .tag{ display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:2px 8px; border-radius:6px; margin-left:8px; vertical-align:1px; }
+  .tag.yes{ background:#f1e2e2; color:#a03d3d; }
+  .tag.mixed{ background:#f7ecd8; color:#8a5f16; }
+  .tag.no{ background:#dff1e8; color:#1f7a53; }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .tag.yes{ background:#3a2422; color:#e79b9b; }
+    :root:not([data-theme="light"]) .tag.mixed{ background:#3a3020; color:#e0c27e; }
+    :root:not([data-theme="light"]) .tag.no{ background:#173427; color:#6fd6a6; }
+  }
+  :root[data-theme="dark"] .tag.yes{ background:#3a2422; color:#e79b9b; }
+  :root[data-theme="dark"] .tag.mixed{ background:#3a3020; color:#e0c27e; }
+  :root[data-theme="dark"] .tag.no{ background:#173427; color:#6fd6a6; }
+
+  footer{ padding: 30px 20px 10px; text-align:center; color:var(--ink-dim); font-size:12px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="kicker">Public records analysis · Texas PIA request</div>
+    <h1>The Colony, TX PD — Flock Safety ALPR Audit Log Analysis</h1>
+    <div class="subtitle">17.16 million logged camera-network search events, Jan 2024 – Aug 2026, split across the department's own officer log and the network-wide log of outside agencies searching Colony's cameras. Built to hand to the department directly: "did you know this is happening?"</div>
+    <div class="meta-row">
+      <span><b>Coverage:</b> Jan 1, 2024 – Aug 13, 2026 (32 months)</span>
+      <span><b>Org-log searches:</b> 24,333</span>
+      <span><b>Network-log searches:</b> 17,135,439</span>
+      <span><b>Officers:</b> 104</span>
+      <span><b>Partner agencies:</b> 5,363</span>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="n">66%</div><div class="l">of one officer's searches carry no real reason</div></div>
+      <div class="stat-card"><div class="n">3.4×</div><div class="l">more likely to lack a reason at 1–5am vs daytime</div></div>
+      <div class="stat-card"><div class="n">28</div><div class="l">plates repeatedly searched, no case, for weeks–months</div></div>
+      <div class="stat-card"><div class="n">−74%</div><div class="l">drop in distinct partner agencies/month since Jan 2026</div></div>
+      <div class="stat-card"><div class="n">18,417</div><div class="l">FBI searches in one single month (Jul 2026)</div></div>
+      <div class="stat-card"><div class="n">0</div><div class="l">active ICE / CBP entries found</div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <button data-tab="overview" class="active">Overview</button>
+    <button data-tab="timeline">Timeline &amp; Trends</button>
+    <button data-tab="justification">Justification</button>
+    <button data-tab="volume">Volume</button>
+    <button data-tab="risk">Repeated-Target &amp; Stalking Risk</button>
+    <button data-tab="offhours">Off-Hours</button>
+    <button data-tab="geo">Out-of-Network</button>
+    <button data-tab="questions">Open Questions</button>
+    <button data-tab="method">Methodology</button>
+  </div>
+</nav>
+
+<div class="period-bar" id="periodBar" hidden>
+  <div class="wrap">
+    <span class="period-label">Period:</span>
+    <button class="period-btn active" data-period="all">All Data</button>
+    <button class="period-btn" data-period="2024">2024</button>
+    <button class="period-btn" data-period="2025">2025</button>
+    <button class="period-btn" data-period="2026">2026</button>
+    <span class="period-note">Charts on this tab only. Written insight boxes describe all-time findings unless noted.</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ============ OVERVIEW ============ -->
+<div class="tab-panel" data-panel="overview">
+<section id="findings">
+  <div class="sec-head"><span class="sec-num">TL;DR</span><h2>Eight things worth asking the department about</h2></div>
+  <div class="callout-list">
+    <div class="callout"><div class="num">1</div><div class="body"><b>Officer-04's justification habit</b><span>749 of their 1,131 searches (66%) carry a vague or blank reason — mostly a literal "." — repeated across many different plates over more than a year, with no case number ever attached.</span></div></div>
+    <div class="callout"><div class="num">2</div><div class="body"><b>28 plates show the "no case, spread over time" repeat-search shape</b><span>The pattern most associated with personal/stalking misuse elsewhere: the same officer manually re-searching the same plate, weeks to months apart, with no case number ever recorded. Concentrated in 5 officers. See the Risk tab.</span></div></div>
+    <div class="callout"><div class="num">3</div><div class="body"><b>Odd-hour searches are 3.4× more likely to have no real reason</b><span>11.2% of 1–5am searches carry a blank/vague reason vs. 3.3% of daytime searches — a real, decomposed statistical signal, not just "officers work nights."</span></div></div>
+    <div class="callout"><div class="num">4</div><div class="body"><b>The number of partner agencies with camera access collapsed 74% in Jan 2026</b><span>From an average ~3,400 distinct agencies/month in late 2025 to under 900/month since — while total search volume kept climbing. Access is now far more concentrated. Cause unconfirmed — ask directly.</span></div></div>
+    <div class="callout"><div class="num">5</div><div class="body"><b>One month — July 2026 — saw 18,417 FBI searches alone</b><span>Dwarfing every other month (typically dozens to low hundreds). Federal agency access overall grew roughly 5× as a share of total traffic from 2024 to 2026.</span></div></div>
+    <div class="callout"><div class="num">6</div><div class="body"><b>~40% of network searches came from &gt;500 miles away</b><span>The plainest, most quantifiable gap between the department's public "Texas / 500 miles" description and what the logs show.</span></div></div>
+    <div class="callout"><div class="num">7</div><div class="body"><b>Flock's reason-entry UI silently changed in Jan 2026</b><span>Freeform text reasons were replaced with mandatory category dropdowns, department-wide — worth confirming this is what happened, since it makes pre/post-2026 justification quality impossible to compare directly.</span></div></div>
+    <div class="callout"><div class="num">8</div><div class="body"><b>A 964-search hit on one plate</b><span>Almost certainly an automated hotlist alert tied to one active narcotics case, not manual searching — but scale alone makes it worth the department confirming that reading.</span></div></div>
+  </div>
+</section>
+
+<section id="basics">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Basic stats — two logs, two questions</h2></div>
+  <p class="sec-intro">The department produced an <b>Org log</b> (searches run by Colony's own 104 officers — names &amp; plates unredacted) and a <b>Network log</b> (searches run by 5,363 outside agencies against Colony's cameras — names &amp; plates redacted, agency visible). Individual-level findings (repeated targets, off-hours behavior) are only possible in the Org log.</p>
+  <div class="two-col">
+    <div class="panel">
+      <h3>Org log</h3>
+      <div class="note">Colony's own officers</div>
+      <table>
+        <tr><td>Total searches</td><td><b>24,333</b></td></tr>
+        <tr><td>Unique officers</td><td><b>104</b></td></tr>
+        <tr><td>Date range</td><td>Jan 1 2024 – Aug 13 2026</td></tr>
+        <tr><td>Org name(s)</td><td>"The Colony TX PD" only</td></tr>
+        <tr><td>manual <code>search</code> vs auto-ish <code>lookup</code></td><td>12,384 / 11,949</td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h3>Network log</h3>
+      <div class="note">Outside agencies hitting Colony's cameras</div>
+      <table>
+        <tr><td>Total searches</td><td><b>17,135,439</b></td></tr>
+        <tr><td>Unique agencies</td><td><b>5,363</b></td></tr>
+        <tr><td>Date range</td><td>Jan 1 2024 – Aug 13 2026</td></tr>
+        <tr><td>Names / plates visible?</td><td>No — redacted in export</td></tr>
+        <tr><td><code>lookup</code>-type vs <code>search</code>-type</td><td>13.34M / 3.75M</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="insight"><b>Where to go next</b>Use the tabs above. <b>Timeline &amp; Trends</b> answers "how does 2024/2025/2026 compare." <b>Repeated-Target &amp; Stalking Risk</b> directly answers "is anyone following a plate that isn't tied to a real case." <b>Off-Hours</b> answers "are people accessing this at odd hours, and does it look different than daytime use." <b>Open Questions</b> is a running list of what this dataset can and can't answer, spelled out directly.</div>
+</section>
+</div>
+
+<!-- ============ TIMELINE ============ -->
+<div class="tab-panel" data-panel="timeline" hidden>
+<section id="timeline-vol">
+  <div class="sec-head"><span class="sec-num">T1</span><h2>Search volume over time</h2></div>
+  <p class="sec-intro">Monthly totals, Jan 2024 – Aug 2026 (last point is a partial month — data only through Aug 13, 2026, shown lighter/dashed). Both logs show sustained growth, with the network log nearly doubling from 2024 to 2025 before growth flattened into 2026.</p>
+  <div class="panel">
+    <h3>Network log — monthly search volume</h3>
+    <div class="note">Outside agencies searching Colony's cameras, by month</div>
+    <div id="chartNetVolume"></div>
+  </div>
+  <div class="panel">
+    <h3>Org log — monthly search volume</h3>
+    <div class="note">Colony's own officers, by month</div>
+    <div id="chartOrgVolume"></div>
+  </div>
+  <div class="insight"><b>Growth, then a plateau</b>Comparing the same Jan–Aug window each year: network-log volume went <b>2.18M (2024) → 4.97M (2025), +128%</b>, then <b>→ 5.39M (2026), +9%</b> — explosive growth followed by a near-flat 2026. Org-log volume shows the same shape: <b>3,771 → 6,883 (+83%) → 6,527 (−5%)</b>. Whatever drove the 2024→2025 surge (more cameras? more officers using the system? a policy push?) is worth asking about directly, as is why it leveled off.</div>
+</section>
+
+<section id="timeline-composition">
+  <div class="sec-head"><span class="sec-num">T2</span><h2>Where network access comes from, month by month</h2></div>
+  <p class="sec-intro">Same 17.1M network searches, broken into Texas / other in-radius states / out-of-radius (&gt;~500mi) / federal / unclassified, as a % of that month's total.</p>
+  <div class="panel">
+    <div id="chartGeoTimeline"></div>
+  </div>
+  <div class="insight"><b>Share of far-away access is shrinking — but not because far-away access is shrinking</b>Out-of-radius searches as a <i>share</i> of total network traffic fell from ~50% (early 2024) to ~32% (2026), simply because in-state Texas volume grew even faster. In absolute terms, out-of-radius search volume kept climbing the whole time (Jan–Aug: 1.10M → 2.04M → 1.72M). Both things are true at once — the mix looks better, the raw exposure hasn't shrunk.</div>
+</section>
+
+<section id="timeline-agencies">
+  <div class="sec-head"><span class="sec-num">T3</span><h2>Distinct partner agencies per month — a sudden cliff</h2></div>
+  <p class="sec-intro">Count of unique outside agencies that ran at least one search against Colony's cameras that month.</p>
+  <div class="panel">
+    <div id="chartAgencyCount"></div>
+    <div class="insight"><b>A 74% drop that lines up exactly with the reason-field change</b>Average distinct agencies/month: <b>2,456 (2024) → 3,385 (2025) → 891 (2026, Jan–Jul)</b>. The drop happens at the same January 2026 boundary as the reason-field format change below — consistent with a single platform-level change at Flock, not a Colony policy decision, but that's exactly the kind of thing worth confirming rather than assuming. Total search <i>volume</i> did not drop in 2026 — it kept climbing — so access became concentrated in far fewer, larger partner agencies rather than actually shrinking.</div>
+  </div>
+</section>
+
+<section id="timeline-federal">
+  <div class="sec-head"><span class="sec-num">T4</span><h2>Federal agency access over time</h2></div>
+  <div class="panel">
+    <div id="chartFederalTimeline"></div>
+    <div class="insight"><b>Two real spikes</b>Federal access jumps from double/triple digits per month to the thousands starting <b>April 2025</b> (mostly FBI and US Postal Inspection Service coming online), then spikes hard to <b>21,744 in July 2026</b> — 18,417 of that from the FBI alone in that single month, roughly 10–50× a typical month. Worth asking the department directly what happened in July 2026.</div>
+  </div>
+</section>
+
+<section id="timeline-reason">
+  <div class="sec-head"><span class="sec-num">T5</span><h2>Reason-field quality over time — and a platform change to know about</h2></div>
+  <p class="sec-intro">Vague + case-number-only reasons, as a share of that month's searches. The shaded region after Jan 2026 is <b>not directly comparable</b> — see below.</p>
+  <div class="two-col">
+    <div class="panel">
+      <h3>Org log</h3>
+      <div id="chartOrgReasonTimeline"></div>
+    </div>
+    <div class="panel">
+      <h3>Network log</h3>
+      <div id="chartNetReasonTimeline"></div>
+    </div>
+  </div>
+  <div class="insight"><b>What actually happened in January 2026</b>Starting that month, the <code>Reason</code> field stops containing freeform text almost entirely, in <i>both</i> logs simultaneously — reasons like <code>"Auto Theft / VCD Investigation - Auto Theft / VCD Investigation"</code> replace anything resembling "test", a bare case number, or a single letter. That's consistent with Flock switching the search UI to a mandatory category dropdown, not officers or agencies suddenly writing better narratives. It's arguably a good change — dropdowns are exactly the kind of guardrail that would have stopped East Tawakoni PD's single-letter pattern — but it means 2024/2025 justification-quality numbers can't be compared apples-to-apples against 2026. <b>Comparing only the two full freeform years:</b> Org-log vague+case-number rate fell from 39.2% (2024, Jan–Aug) to 26.2% (2025, Jan–Aug) even before the dropdown existed.</div>
+</section>
+
+<section id="timeline-offhours">
+  <div class="sec-head"><span class="sec-num">T6</span><h2>Off-hours share over time (Org log)</h2></div>
+  <div class="panel">
+    <div id="chartOffHoursTimeline"></div>
+    <div class="insight"><b>Off-hours use roughly doubled, then held</b>Late-night (1–5am local) share of Org-log searches: <b>4.5% (2024) → 10.2% (2025) → 9.7% (2026)</b>, Jan–Aug each year. Weekend share: <b>18.9% → 22.5% → 20.7%</b>. Whether this tracks a real shift-staffing change (more night patrol) or a change in who's using ALPR and when is a question only the department's own roster can answer — see the Off-Hours tab for what the data alone can and can't say.</div>
+  </div>
+</section>
+</div>
+
+<!-- ============ JUSTIFICATION ============ -->
+<div class="tab-panel" data-panel="justification" hidden>
+<section id="justification">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Missing or vague justification</h2></div>
+  <p class="sec-intro">The <code>Reason</code> field was classified as blank, a bare case-number, a short generic term ("test", "check", single letters, "."), or substantive free text. This is a pattern heuristic, not a legal judgment — but it surfaces real outliers. (2024–2025 data; see Timeline tab for the Jan 2026 platform change that affects comparability going forward.)</p>
+
+  <div class="panel">
+    <h3>Org log reason quality</h3>
+    <div class="note"><span id="capOrgReasonTotal">24,333</span> searches</div>
+    <div id="chartOrgReason"></div>
+  </div>
+  <div class="panel">
+    <h3>Network log reason quality</h3>
+    <div class="note"><span id="capNetReasonTotal">17,135,439</span> searches</div>
+    <div id="chartNetReason"></div>
+  </div>
+
+  <div class="insight"><b>Standout — Org log</b><b>Officer-04</b>: 66% of their 1,131 searches flagged, almost entirely a literal "." across dozens of distinct plates, spanning over a year. Runner-up Officer-01 (85 flagged) is mostly explained by their separate case-number habit below, not true vagueness.</div>
+
+  <div class="panel">
+    <h3>Vague/blank reason rate by officer (Org log, top offenders)</h3>
+    <div class="note">% of that officer's own total searches flagged as blank/vague/short</div>
+    <div id="chartOfficerVague"></div>
+  </div>
+
+  <div class="panel">
+    <h3>"Reason" filled with a bare case number instead of using the Case # field</h3>
+    <div class="note">% of that officer's own total searches — department-wide this is <span id="capNumericTotal">3,728 of 24,333 (15.3%)</span>, but individual rates run far higher</div>
+    <div id="chartOfficerNumeric"></div>
+    <div class="insight"><b>Sharper than the volume view</b>By raw count Officer-01 looks like the outlier (1,725 searches). By <i>rate</i>, two lower-volume officers are actually more consistent about it: <b>Officer-09</b> does this on 96.9% of their 621 searches, and <b>Officer-20</b> on 84.4% of their 96 — both higher than Officer-01's 59.7%. Same underlying habit (case # typed into Reason, Case # field left blank), just more consistently applied by officers with less overall volume.</div>
+  </div>
+
+  <div class="panel">
+    <h3>Vague-reason rate by requesting agency (Network log, worst offenders)</h3>
+    <div class="note">Two small-town Texas PDs stand out: reasons that are a single keystroke, not real text</div>
+    <div id="chartOrgVagueNet"></div>
+    <div class="insight"><b>Example row</b>East Tawakoni TX PD — <code>TheColonyTXPD_network_Apr_2024.csv</code>, row <code>1f6b4135-0b75-41ab-963a-751f162035ce</code>, entire stated reason: <code>"d"</code>.</div>
+  </div>
+</section>
+</div>
+
+<!-- ============ VOLUME ============ -->
+<div class="tab-panel" data-panel="volume" hidden>
+<section id="volume">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Volume outliers — top 10 by search count</h2></div>
+  <p class="sec-intro">Top 10 Org-log officers account for 53% of all 24,333 Colony searches despite being under 10% of the 104 officers who appear at all. Top 10 Network-log agencies account for 29% of all 17.1M network searches — Houston alone is nearly 1 in 10.</p>
+  <div class="panel">
+    <h3>Top 10 officers (Org log)</h3>
+    <div id="chartTopOfficers"></div>
+  </div>
+  <div class="panel">
+    <h3>Top 10 requesting agencies (Network log)</h3>
+    <div id="chartTopAgencies"></div>
+  </div>
+</section>
+</div>
+
+<!-- ============ RISK ============ -->
+<div class="tab-panel" data-panel="risk" hidden>
+<section id="repeated">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Repeated-target pattern — is anyone doing this without a real case?</h2></div>
+  <p class="sec-intro">Only possible in the Org log, since it's the only place plates and officer names are both unredacted. Grouped every (officer, plate) pair and scored each one on: is it manual (<code>search</code>) vs. likely-automated (<code>lookup</code>); does it ever have a case number attached; how vague is the stated reason; how concentrated at odd hours; and how long a span it's spread across. That combination — manual, no case, vague, spread over weeks or months — is the signature described nationally as associated with personal/stalking misuse, as distinct from a legitimate high-volume investigation.</p>
+
+  <div class="panel">
+    <h3>Direct answer: is anyone following a plate that isn't tied to a real case?</h3>
+    <div class="note">Composite scoring across all 1,785 (officer, plate) pairs with 3+ searches</div>
+    <p style="font-size:13.5px; color:var(--ink-dim); margin-top:0;">Yes, by this definition — but not at extreme volume. <b>28 (officer, plate) pairs</b> show manual, repeated searches spread over <b>14 days to 15 months</b>, with <b>no case number ever recorded</b> for that plate by that officer. They concentrate in five officers: <b>Officer-04</b> (6 of the 28), <b>Officer-01</b> (4), <b>Officer-09</b> (3), plus Officer-11, Officer-06, Officer-08, Officer-20, Officer-07, and Officer-10. None of these reach anywhere near the volume of the 964-search hotlist case below — they're 3 to 27 hits each — which is itself informative: the shape that looks most like sustained personal interest is <i>low-and-slow</i>, not high-volume.</p>
+    <table>
+      <tr><th>Officer</th><th>Hits</th><th>Span</th><th>Vague reason</th><th>Late-night</th><th>Weekend</th><th>Manual search</th><th>Row reference</th></tr>
+      <tr><td>Officer-01</td><td class="num">6</td><td class="num">94d</td><td class="num">100%</td><td class="num">0%</td><td class="num">67%</td><td class="num">83%</td><td class="cite">org_Apr_2024.csv / a670c370…</td></tr>
+      <tr><td>Officer-04</td><td class="num">12</td><td class="num">129d</td><td class="num">100%</td><td class="num">17%</td><td class="num">0%</td><td class="num">67%</td><td class="cite">org_Jul_2025.csv / 819ffb28…</td></tr>
+      <tr><td>Officer-04</td><td class="num">15</td><td class="num">150d</td><td class="num">100%</td><td class="num">53%</td><td class="num">73%</td><td class="num">33%</td><td class="cite">org_Aug_2025.csv / a519dd9e…</td></tr>
+      <tr><td>Officer-04</td><td class="num">5</td><td class="num">172d</td><td class="num">100%</td><td class="num">0%</td><td class="num">40%</td><td class="num">40%</td><td class="cite">org_Mar_2025.csv / 1b6d940e…</td></tr>
+      <tr><td>Officer-04</td><td class="num">10</td><td class="num">66d</td><td class="num">100%</td><td class="num">30%</td><td class="num">70%</td><td class="num">60%</td><td class="cite">org_Aug_2025.csv / be5cfb37…</td></tr>
+      <tr><td>Officer-08</td><td class="num">3</td><td class="num">296d</td><td class="num">0%</td><td class="num">0%</td><td class="num">67%</td><td class="num">100%</td><td class="cite">org_Jan_2025.csv / 301e4cd7…</td></tr>
+      <tr><td>Officer-09</td><td class="num">6</td><td class="num">46d</td><td class="num">100%</td><td class="num">0%</td><td class="num">0%</td><td class="num">100%</td><td class="cite">org_Jul_2024.csv / 4f9e070a…</td></tr>
+      <tr><td>Officer-10</td><td class="num">5</td><td class="num">139d</td><td class="num">20%</td><td class="num">0%</td><td class="num">0%</td><td class="num">100%</td><td class="cite">org_Feb_2024.csv / 097d64b1…</td></tr>
+      <tr><td>Officer-20</td><td class="num">7</td><td class="num">41d</td><td class="num">100%</td><td class="num">0%</td><td class="num">0%</td><td class="num">100%</td><td class="cite">org_Apr_2024.csv / f30827dc…</td></tr>
+      <tr><td>Officer-06</td><td class="num">7</td><td class="num">450d</td><td class="num">14%</td><td class="num">0%</td><td class="num">0%</td><td class="num">71%</td><td class="cite">org_Apr_2026.csv / f72c7228…</td></tr>
+      <tr><td>Officer-11</td><td class="num">4</td><td class="num">167d</td><td class="num">0%</td><td class="num">0%</td><td class="num">0%</td><td class="num">100%</td><td class="cite">org_Dec_2024.csv / 5dc01288…</td></tr>
+      <tr><td>Officer-07</td><td class="num">3</td><td class="num">58d</td><td class="num">100%</td><td class="num">0%</td><td class="num">0%</td><td class="num">67%</td><td class="cite">org_Apr_2024.csv / fe5579d2…</td></tr>
+      <tr><td>Officer-01</td><td class="num">8</td><td class="num">26d</td><td class="num">100%</td><td class="num">0%</td><td class="num">0%</td><td class="num">100%</td><td class="cite">org_Apr_2025.csv / 1875e6fc…</td></tr>
+      <tr><td>Officer-09</td><td class="num">10</td><td class="num">40d</td><td class="num">100%</td><td class="num">0%</td><td class="num">0%</td><td class="num">80%</td><td class="cite">org_Aug_2024.csv / 9767d7d0…</td></tr>
+      <tr><td>Officer-11</td><td class="num">7</td><td class="num">125d</td><td class="num">0%</td><td class="num">0%</td><td class="num">29%</td><td class="num">100%</td><td class="cite">org_Aug_2024.csv / 985d3223…</td></tr>
+    </table>
+    <div class="note" style="margin-top:10px; margin-bottom:0;">Top 15 of 28 qualifying pairs, ranked by composite score (manual-search weight × no-case weight × reason-vagueness × duration × off-hours concentration). Plate numbers are intentionally omitted — pull the specific row by file + ID if you need to identify the target.</div>
+  </div>
+
+  <div class="panel">
+    <h3>The single largest case: one plate, three officers, 1,308 combined hits</h3>
+    <div class="note">Oct 3 – Nov 11, 2025 · reason text consistently "investigation" / "narcotics" · case refs sc25-29 / sc25-31 (with typo variants)</div>
+    <div id="chartRepeatedTarget"></div>
+    <div class="insight"><b>Read this carefully</b>964 of Officer-03's hits are <code>lookup</code>/<code>lookup - Mobile</code> type, not manual <code>search</code> — consistent with a Flock "hotlist" alert firing automatically on every camera read of a flagged plate during an active case, not 964 manual queries. Worth confirming with the department before treating as a volume red flag on its own. <span class="cite">TheColonyTXPD_org_Oct_2025.csv, row f5d99307-a6dd-49f5-8627-52a70b843039</span></div>
+  </div>
+
+  <div class="insight good"><b>What this data can't tell you</b>Whether any of the 28 sustained, no-case pairs above reflect a personal relationship, a domestic situation, curiosity about a neighbor, or simply an officer who never bothered to log a case number for an otherwise legitimate reason. The audit log can tell you the pattern exists and exactly which searches to go pull up — it can't tell you intent. That determination requires the department to look at these specific rows and explain them.</div>
+</section>
+</div>
+
+<!-- ============ OFF-HOURS ============ -->
+<div class="tab-panel" data-panel="offhours" hidden>
+<section id="offhours">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Off-hours / unusual timing</h2></div>
+  <p class="sec-intro">Org-log timestamps converted from UTC to Central Time (DST-aware). Department baseline: <b><span id="capLateBaseline">7.9%</span></b> of searches fall 1–5am local, <b><span id="capWeekendBaseline">20.5%</span></b> fall on a weekend. Dashed line = department baseline in the charts below.</p>
+  <div class="panel">
+    <h3>Late-night search share by officer (1–5am local)</h3>
+    <div class="note">Min. 30 searches shown, to avoid small-sample noise</div>
+    <div id="chartLateNight"></div>
+  </div>
+  <div class="panel">
+    <h3>Weekend search share by officer</h3>
+    <div class="note">Min. 30 searches shown</div>
+    <div id="chartWeekend"></div>
+  </div>
+  <div class="insight"><b>Important caveat</b>This data cannot distinguish shift assignment from misuse. Police departments routinely staff night and weekend shifts; an officer clustering at 2am on Saturdays is far more likely on a night-shift rotation than doing anything improper. Without a duty roster (not in this export) to cross-reference, the honest conclusion is: these officers are statistically unusual vs. the department average, worth a five-minute roster check — nothing more.</div>
+
+  <div class="panel">
+    <h3>But: does off-hours activity correlate with worse documentation?</h3>
+    <div class="note">% of searches with a blank/vague reason, by time of day — case-number-only searches excluded from both sides, since that's a separate habit tied to specific officers rather than to timing</div>
+    <div id="chartOffHoursXtab"></div>
+    <div class="insight"><b>Yes — this is the more direct answer to "are odd-hour searches sketchier"</b>Isolating <i>true</i> blank/vague reasons (not the case-number-in-Reason habit, which is unrelated to timing): <b>11.2%</b> of 1–5am searches carry no real reason, vs. <b>3.3%</b> of daytime searches — a <b>3.4×</b> gap. Weekend searches show the same pattern: <b>7.0%</b> vague vs. <b>3.1%</b> on weekdays, a <b>2.2×</b> gap. (Note: if you don't exclude the case-number habit, the comparison flips — daytime looks "worse" — purely because that habit is a big-volume daytime administrative pattern, not because odd-hours searches are actually better documented. The decomposed version above is the one that answers the question you're actually asking.)</div>
+  </div>
+</section>
+</div>
+
+<!-- ============ GEO ============ -->
+<div class="tab-panel" data-panel="geo" hidden>
+<section id="geo">
+  <div class="sec-head"><span class="sec-num">6</span><h2>Out-of-network / out-of-state access</h2></div>
+  <p class="sec-intro">The department has publicly described sharing as limited to Texas or roughly 500 miles. Checked by requesting agency's home-state distance from The Colony, TX (state-centroid straight-line distance, spot-corrected for large border-state agencies — see methodology), and separately by an explicit federal-agency tag search.</p>
+
+  <div class="panel">
+    <h3>Where the 17.1M network searches come from</h3>
+    <div id="chartGeoDonut"></div>
+    <div class="legend" id="geoLegend"></div>
+  </div>
+  <div class="panel">
+    <h3>Largest agencies beyond ~500 miles</h3>
+    <div class="note">Distance = approx. straight-line miles from The Colony, TX</div>
+    <div id="chartOutOfRadius"></div>
+  </div>
+
+  <div class="insight"><b>Headline number</b>An estimated <b>6.87 million of 17.14 million network searches (~40%)</b> came from agencies whose home city sits more than ~500 miles from The Colony, TX — Georgia (1.03M) and Florida (1.00M) alone each out-search every in-radius state except Texas. Of 5,363 total partner agencies, roughly <b>75% are outside the 500-mile band</b>, even though the highest-<i>volume</i> agencies happen to be in-state. See the Timeline tab for how this has moved over time.</div>
+
+  <div class="panel">
+    <h3>Federal agencies (explicitly tagged <code>[Federal]</code> in the export)</h3>
+    <div class="note"><span id="capFederalTotal">91,400 searches total — 0.5% of all network searches, across 15 distinct federally-tagged agencies</span></div>
+    <table>
+      <tr><th>Agency</th><th>Searches</th><th>Status</th></tr>
+      <tbody id="federalTableBody"></tbody>
+    </table>
+    <div class="insight"><b>The headline-sensitive question, answered directly</b>No entry in this export is tagged ICE or CBP. The two closest categories — US Border Patrol and Homeland Security Investigations — total 3,864 searches combined and are both explicitly marked <b>inactive</b> in the export itself, meaning that access was later revoked. The only agencies with meaningful <i>active</i> federal access are the Postal Inspection Service and the FBI — though see the Timeline tab for the unexplained July 2026 FBI spike.</div>
+  </div>
+</section>
+</div>
+
+<!-- ============ QUESTIONS ============ -->
+<div class="tab-panel" data-panel="questions" hidden>
+<section id="questions">
+  <div class="sec-head"><span class="sec-num">?</span><h2>Questions this data can answer — asked, then answered</h2></div>
+  <p class="sec-intro">Framed the way you'd actually ask the department. Each tag is the short version; the paragraph is the honest, caveated version.</p>
+
+  <div class="qa">
+    <div class="q"><span class="qmark">Q.</span> Is anyone searching the same plate over and over without it being tied to a real case — the pattern linked to stalking/personal misuse elsewhere?<span class="tag yes">Yes, at low volume</span></div>
+    <div class="a">28 (officer, plate) pairs show manual, repeated searches spread 14 days to 15 months apart with no case number ever recorded, concentrated in 5 officers (Officer-04, Officer-01, Officer-09, and to a lesser extent Officer-11 and Officer-06). None reach high volume — 3 to 27 hits each — which is itself the point: the highest-<i>volume</i> repeat pattern (964 hits) looks automated and case-linked, while the pattern that looks most like sustained personal interest is quiet and low-volume. See <b>Repeated-Target &amp; Stalking Risk</b>.</div>
+  </div>
+
+  <div class="qa">
+    <div class="q"><span class="qmark">Q.</span> Are people accessing the system at odd hours, and does that look different from daytime use?<span class="tag yes">Yes, measurably</span></div>
+    <div class="a">Late-night (1–5am) search share roughly doubled from 2024 to 2025 (4.5% → 10.2%) and held into 2026. More importantly: once you isolate genuinely blank/vague reasons from the separate case-number-habit, late-night searches are <b>3.4×</b> more likely to carry no real justification than daytime searches, and weekend searches <b>2.2×</b> more likely than weekday. That's a real documented correlation, not just "police work nights." See <b>Off-Hours</b>.</div>
+  </div>
+
+  <div class="qa">
+    <div class="q"><span class="qmark">Q.</span> How does 2024 vs. 2025 vs. 2026 compare?<span class="tag mixed">Growth, then plateau</span></div>
+    <div class="a">Network search volume: <b>+128%</b> 2024→2025, then <b>+9%</b> 2025→2026 (Jan–Aug each year). Org log: <b>+83%</b> then <b>−5%</b>. Out-of-radius <i>share</i> of network traffic fell (50.5% → 40.9% → 31.8%) even as absolute out-of-radius volume grew. Federal share of traffic rose roughly <b>5×</b> (0.17% → 0.54% → 0.84%). Distinct partner agencies per month cratered <b>74%</b> starting Jan 2026. Full detail in <b>Timeline &amp; Trends</b>.</div>
+  </div>
+
+  <div class="qa">
+    <div class="q"><span class="qmark">Q.</span> Has justification quality gotten better or worse over time?<span class="tag mixed">Can't fully say — the measuring stick changed</span></div>
+    <div class="a">Comparing only the two years where the Reason field was still freeform text: it improved (Org log 39.2% → 26.2% vague/case-number-only, 2024 vs. 2025, Jan–Aug). Starting January 2026, Flock's search UI appears to have switched to mandatory category dropdowns — in both logs simultaneously — which makes the field nearly impossible to leave vague, but also makes 2026 numbers incomparable to prior years. Worth asking the department directly whether/why this changed and whether the new categories still capture a real narrative.</div>
+  </div>
+
+  <div class="qa">
+    <div class="q"><span class="qmark">Q.</span> Is the department's network exposure to outside agencies growing or shrinking?<span class="tag mixed">Both, depending what you measure</span></div>
+    <div class="a">Absolute out-of-radius search <i>volume</i> grew every year. Out-of-radius <i>share</i> of total traffic shrank, because in-state volume grew faster. The <i>number of distinct partner agencies</i> with any access collapsed 74% starting Jan 2026 while total volume kept climbing — meaning fewer, bigger partners rather than a genuinely smaller footprint. All three of these are real and worth presenting together, since any one alone tells a misleadingly simple story.</div>
+  </div>
+
+  <div class="qa">
+    <div class="q"><span class="qmark">Q.</span> Is ICE or CBP involved?<span class="tag no">No active tag found</span></div>
+    <div class="a">No entry across 17.1M network rows is tagged ICE or CBP. US Border Patrol and Homeland Security Investigations both appear but are explicitly marked <b>inactive</b> in the export, meaning access was later revoked. Federal access overall (mostly FBI and USPIS) grew substantially as a share of traffic, and July 2026 saw an unexplained 18,417-search FBI spike worth asking about directly.</div>
+  </div>
+
+  <div class="qa">
+    <div class="q"><span class="qmark">Q.</span> Can this data tell manual, curiosity-driven searches apart from automated hotlist hits?<span class="tag mixed">Partially</span></div>
+    <div class="a">The <code>Search Type</code> field distinguishes <code>search</code> (manual query) from <code>lookup</code> (more often tied to a standing hotlist alert firing automatically on every camera hit). That distinction is what separates the 964-hit case — mostly <code>lookup</code>, almost certainly automated — from the 28-pair "sustained, no case" list, which is mostly manual <code>search</code> type. It can't tell you what was in an officer's head, only which button they pressed.</div>
+  </div>
+
+  <div class="qa">
+    <div class="q"><span class="qmark">Q.</span> Is this bidirectional — do Colony's own officers reach into far-away out-of-state networks too, not just get searched by others?<span class="tag yes">Yes</span></div>
+    <div class="a">The Org log's <code>Filters</code> field shows Colony officers voluntarily narrowing or expanding searches to specific states — Texas most often (7,861 searches), but also Arkansas (138), Georgia (96), Florida (58), Oklahoma (55), and Illinois (55). The access relationship runs both directions; this report focuses on inbound access because that's where the "Texas / 500 miles" public claim was made, but it's worth asking whether Colony officers' own outbound reach is governed by the same policy.</div>
+  </div>
+
+  <div class="qa">
+    <div class="q"><span class="qmark">Q.</span> Is one officer or agency responsible for a disproportionate and growing share of activity?<span class="tag yes">Yes, and concentrated</span></div>
+    <div class="a">Top 10 of 104 officers account for 53% of all Colony searches; top 10 of 5,363 agencies account for 29% of all network searches, with Houston TX PD alone at nearly 1 in 10. See <b>Volume</b>.</div>
+  </div>
+</section>
+</div>
+
+<!-- ============ METHOD ============ -->
+<div class="tab-panel" data-panel="method" hidden>
+<section id="method">
+  <div class="sec-head"><span class="sec-num">·</span><h2>Methodology &amp; limitations</h2></div>
+  <ul style="color:var(--ink-dim); font-size:13.5px; line-height:1.8;">
+    <li>Vague/blank classification is a text-pattern heuristic (regex + fixed generic-term list), not a manual read of every row — see the Fort Worth PD caveat: its 15.7% flag rate is mostly terse-but-legible shorthand ("inv", "sus", radio codes), a lower-confidence flag than the Tawakoni single-character pattern.</li>
+    <li>The repeated-target risk score (Risk tab) is a transparent composite — manual-search fraction × (reduced weight if any case number is ever attached) × reason-vagueness × a duration factor × an off-hours concentration factor — shown with its component parts in the table rather than as a black-box number, specifically so it can be second-guessed.</li>
+    <li>Starting January 2026, Flock's <code>Reason</code> field appears to switch from freeform text to mandatory category dropdowns in both logs simultaneously. This is inferred from the data (reason text changes shape abruptly and uniformly at that boundary) and should be confirmed with the department/vendor, not treated as certain. It makes 2026 reason-quality and distinct-partner-agency figures not directly comparable to 2024–2025.</li>
+    <li>The August 2026 data point in every timeline chart is a <b>partial month</b> (through Aug 13 only, per the records request cutoff) and is shown dashed/lighter — don't read its lower totals as a real drop.</li>
+    <li>Off-hours analysis has no duty-roster data to compare against; elevated late-night/weekend shares should not be read as evidence of misconduct on their own. The reason-quality-by-time-of-day cross-tab is a stronger, decomposed signal than raw timing alone — see Off-Hours tab.</li>
+    <li>Out-of-state distance is computed from state population centroids with manual spot-corrections for large border-state agencies (e.g., Memphis/Shelby County TN reclassified from "outside" to "inside" the 500-mile line after checking actual city coordinates). It's a screening tool, not a survey-grade distance — agencies very near a state line may be misclassified individually even though the aggregate picture is robust.</li>
+    <li>All figures are reproducible from the source CSVs using the file + row-ID citations throughout this report.</li>
+    <li>Raw plate numbers are intentionally omitted from this report; flagged entries are cited by source file and row ID so they can be pulled back up from the original export without re-publishing PII here.</li>
+  </ul>
+</section>
+</div>
+
+</div>
+
+<footer>Prepared from Flock export #857 (The Colony, TX PD) · analysis performed locally · not for redistribution until reviewed</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---- tabs ----
+  var tabBtns = document.querySelectorAll('nav.tabs button');
+  var panels = document.querySelectorAll('.tab-panel');
+  var PERIOD_TABS = ['justification','volume','offhours','geo'];
+  var periodBarEl = document.getElementById('periodBar');
+  tabBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var target = btn.getAttribute('data-tab');
+      tabBtns.forEach(function(b){ b.classList.toggle('active', b===btn); });
+      panels.forEach(function(p){ p.hidden = (p.getAttribute('data-panel') !== target); });
+      periodBarEl.hidden = PERIOD_TABS.indexOf(target) === -1;
+      window.scrollTo({top:0, behavior:'instant'});
+    });
+  });
+
+  function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+  function fmtPct(n){ return (Math.round(n*10)/10) + '%'; }
+  function clearEl(id){ var el = document.getElementById(id); if(el) el.innerHTML = ''; }
+  function showMsg(id, text){ var el = document.getElementById(id); if(el) el.innerHTML = '<div class="suppressed-msg">'+text+'</div>'; }
+  function cleanFedName(org){ return org.replace(/\[[^\]]*\]/g,'').replace(/^[\s-]+|[\s-]+$/g,'').replace(/\s{2,}/g,' ').trim(); }
+  function svgEl(tag){ return document.createElementNS('http://www.w3.org/2000/svg', tag); }
+
+  // ---- horizontal bar chart ----
+  function hbar(containerId, data, opts){
+    opts = opts || {};
+    var el = document.getElementById(containerId);
+    var W = 900, rowH = opts.rowH || 30, gap = 8, leftPad = opts.leftPad || 190, rightPad = opts.rightPad || 70, topPad = 6;
+    var maxVal = Math.max.apply(null, data.map(function(d){return d.value;}));
+    var H = topPad*2 + data.length*(rowH+gap) - gap;
+    var svg = svgEl('svg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    svg.setAttribute('width','100%');
+    svg.setAttribute('style','max-width:100%; height:auto; display:block;');
+    var barMaxW = W - leftPad - rightPad;
+
+    data.forEach(function(d,i){
+      var y = topPad + i*(rowH+gap);
+      var w = Math.max(2, (d.value/maxVal)*barMaxW);
+
+      var label = svgEl('text');
+      label.setAttribute('x', leftPad-10); label.setAttribute('y', y+rowH*0.65);
+      label.setAttribute('text-anchor','end'); label.setAttribute('class','bar-label');
+      label.textContent = d.label;
+      svg.appendChild(label);
+
+      var track = svgEl('rect');
+      track.setAttribute('x', leftPad); track.setAttribute('y', y);
+      track.setAttribute('width', barMaxW); track.setAttribute('height', rowH*0.62);
+      track.setAttribute('rx', 5); track.setAttribute('fill', css('--grid'));
+      svg.appendChild(track);
+
+      var bar = svgEl('rect');
+      bar.setAttribute('x', leftPad); bar.setAttribute('y', y);
+      bar.setAttribute('width', 0); bar.setAttribute('height', rowH*0.62);
+      bar.setAttribute('rx', 5); bar.setAttribute('fill', d.color || css('--accent'));
+      svg.appendChild(bar);
+      requestAnimationFrame(function(){
+        bar.style.transition = 'width .6s cubic-bezier(.2,.7,.3,1)';
+        bar.setAttribute('width', w);
+      });
+
+      var val = svgEl('text');
+      val.setAttribute('x', leftPad + w + 8); val.setAttribute('y', y+rowH*0.65);
+      val.setAttribute('class','bar-value');
+      val.textContent = d.display != null ? d.display : (opts.valueFmt ? opts.valueFmt(d.value) : fmt(d.value));
+      svg.appendChild(val);
+    });
+    el.appendChild(svg);
+  }
+
+  // ---- horizontal bar chart with a baseline reference line ----
+  function hbarBaseline(containerId, data, baseline, opts){
+    opts = opts || {};
+    var el = document.getElementById(containerId);
+    var W = 900, rowH = 28, gap = 9, leftPad = 150, rightPad = 60, topPad = 10;
+    var maxVal = Math.max(baseline*1.15, Math.max.apply(null, data.map(function(d){return d.value;})));
+    var H = topPad*2 + data.length*(rowH+gap) - gap + 20;
+    var svg = svgEl('svg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    svg.setAttribute('width','100%');
+    svg.setAttribute('style','max-width:100%; height:auto; display:block;');
+    var barMaxW = W - leftPad - rightPad;
+    var bx = leftPad + (baseline/maxVal)*barMaxW;
+
+    data.forEach(function(d,i){
+      var y = topPad + i*(rowH+gap);
+      var w = Math.max(2, (d.value/maxVal)*barMaxW);
+
+      var label = svgEl('text');
+      label.setAttribute('x', leftPad-10); label.setAttribute('y', y+rowH*0.65);
+      label.setAttribute('text-anchor','end'); label.setAttribute('class','bar-label');
+      label.textContent = d.label + '  (n=' + d.n + ')';
+      svg.appendChild(label);
+
+      var track = svgEl('rect');
+      track.setAttribute('x', leftPad); track.setAttribute('y', y);
+      track.setAttribute('width', barMaxW); track.setAttribute('height', rowH*0.6);
+      track.setAttribute('rx', 5); track.setAttribute('fill', css('--grid'));
+      svg.appendChild(track);
+
+      var bar = svgEl('rect');
+      bar.setAttribute('x', leftPad); bar.setAttribute('y', y);
+      bar.setAttribute('width', 0); bar.setAttribute('height', rowH*0.6);
+      bar.setAttribute('rx', 5); bar.setAttribute('fill', css('--blue'));
+      svg.appendChild(bar);
+      requestAnimationFrame(function(){
+        bar.style.transition = 'width .6s cubic-bezier(.2,.7,.3,1)';
+        bar.setAttribute('width', w);
+      });
+
+      var val = svgEl('text');
+      val.setAttribute('x', leftPad + w + 8); val.setAttribute('y', y+rowH*0.65);
+      val.setAttribute('class','bar-value');
+      val.textContent = fmtPct(d.value);
+      svg.appendChild(val);
+    });
+
+    var bline = svgEl('line');
+    bline.setAttribute('x1', bx); bline.setAttribute('x2', bx);
+    bline.setAttribute('y1', topPad-4); bline.setAttribute('y2', H-16);
+    bline.setAttribute('class','baseline-line');
+    svg.appendChild(bline);
+    var blabel = svgEl('text');
+    blabel.setAttribute('x', bx); blabel.setAttribute('y', H-4);
+    blabel.setAttribute('text-anchor','middle'); blabel.setAttribute('class','bar-label');
+    blabel.textContent = 'dept. baseline ' + fmtPct(baseline);
+    svg.appendChild(blabel);
+
+    el.appendChild(svg);
+  }
+
+  // ---- donut chart ----
+  function donut(containerId, data){
+    var el = document.getElementById(containerId);
+    var size = 260, r = 92, cx = size/2, cy = size/2, sw = 34;
+    var total = data.reduce(function(s,d){return s+d.value;},0);
+    var svg = svgEl('svg');
+    svg.setAttribute('viewBox','0 0 '+size+' '+size);
+    svg.setAttribute('width','260'); svg.setAttribute('height','260');
+    svg.setAttribute('style','display:block; margin:0 auto;');
+    var circumf = 2*Math.PI*r;
+    var offset = 0;
+    data.forEach(function(d){
+      var frac = d.value/total;
+      var dash = frac*circumf;
+      var circle = svgEl('circle');
+      circle.setAttribute('cx', cx); circle.setAttribute('cy', cy); circle.setAttribute('r', r);
+      circle.setAttribute('fill','none'); circle.setAttribute('stroke', d.color);
+      circle.setAttribute('stroke-width', sw);
+      circle.setAttribute('stroke-dasharray', dash+' '+(circumf-dash));
+      circle.setAttribute('stroke-dashoffset', -offset);
+      circle.setAttribute('transform','rotate(-90 '+cx+' '+cy+')');
+      svg.appendChild(circle);
+      offset += dash;
+    });
+    var centerPct = svgEl('text');
+    centerPct.setAttribute('x', cx); centerPct.setAttribute('y', cy-2);
+    centerPct.setAttribute('text-anchor','middle'); centerPct.setAttribute('font-size','22'); centerPct.setAttribute('font-weight','700');
+    centerPct.textContent = fmt(total);
+    svg.appendChild(centerPct);
+    var centerLbl = svgEl('text');
+    centerLbl.setAttribute('x', cx); centerLbl.setAttribute('y', cy+16);
+    centerLbl.setAttribute('text-anchor','middle'); centerLbl.setAttribute('font-size','10.5'); centerLbl.setAttribute('fill', css('--ink-dim'));
+    centerLbl.textContent = 'total searches';
+    svg.appendChild(centerLbl);
+    el.appendChild(svg);
+  }
+
+  function legend(containerId, data){
+    var el = document.getElementById(containerId);
+    data.forEach(function(d){
+      var span = document.createElement('span');
+      var sw = document.createElement('span');
+      sw.className = 'sw'; sw.style.background = d.color;
+      span.appendChild(sw);
+      span.appendChild(document.createTextNode(d.label + ' — ' + fmt(d.value) + ' (' + fmtPct(d.value/d.total*100) + ')'));
+      el.appendChild(span);
+    });
+  }
+
+  // ---- month label helper ----
+  var MON3 = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function shortMonth(mk){ var p=mk.split('-'); return MON3[parseInt(p[1],10)-1] + "'" + p[0].slice(2); }
+
+  // ---- multi-series line chart with optional vertical markers & dashed partial-last-point ----
+  function lineChart(containerId, months, series, opts){
+    opts = opts || {};
+    var el = document.getElementById(containerId);
+    var W = 960, H = opts.h || 260, leftPad = 56, rightPad = 16, topPad = 16, botPad = 34;
+    var plotW = W - leftPad - rightPad, plotH = H - topPad - botPad;
+    var allVals = [];
+    series.forEach(function(s){ s.values.forEach(function(v){ allVals.push(v); }); });
+    var maxV = opts.yMax || Math.max.apply(null, allVals) * 1.12;
+    var minV = 0;
+    var n = months.length;
+    function X(i){ return leftPad + (i/(n-1))*plotW; }
+    function Y(v){ return topPad + plotH - ((v-minV)/(maxV-minV))*plotH; }
+
+    var svg = svgEl('svg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    svg.setAttribute('width','100%');
+    svg.setAttribute('style','max-width:100%; height:auto; display:block;');
+
+    // y gridlines
+    var ticks = opts.yTicks || 4;
+    for(var t=0;t<=ticks;t++){
+      var v = minV + (maxV-minV)*t/ticks;
+      var y = Y(v);
+      var gl = svgEl('line');
+      gl.setAttribute('x1',leftPad); gl.setAttribute('x2', W-rightPad);
+      gl.setAttribute('y1',y); gl.setAttribute('y2',y);
+      gl.setAttribute('class','axis-line');
+      svg.appendChild(gl);
+      var lab = svgEl('text');
+      lab.setAttribute('x', leftPad-8); lab.setAttribute('y', y+3);
+      lab.setAttribute('text-anchor','end'); lab.setAttribute('class','bar-label');
+      lab.textContent = opts.yFmt ? opts.yFmt(v) : fmt(v);
+      svg.appendChild(lab);
+    }
+
+    // x labels (sparse)
+    var everyN = opts.xEvery || 3;
+    for(var i=0;i<n;i++){
+      if(i % everyN !== 0 && i !== n-1) continue;
+      if(i !== n-1 && (n-1-i) < Math.max(2, Math.round(everyN/2))) continue;
+      var xl = svgEl('text');
+      xl.setAttribute('x', X(i)); xl.setAttribute('y', H-10);
+      xl.setAttribute('text-anchor','middle'); xl.setAttribute('class','bar-label');
+      xl.textContent = shortMonth(months[i]);
+      svg.appendChild(xl);
+    }
+
+    // vertical markers
+    (opts.markers||[]).forEach(function(m){
+      var x = X(m.index);
+      var ml = svgEl('line');
+      ml.setAttribute('x1',x); ml.setAttribute('x2',x);
+      ml.setAttribute('y1',topPad); ml.setAttribute('y2', topPad+plotH);
+      ml.setAttribute('class','marker-line');
+      svg.appendChild(ml);
+      var mt = svgEl('text');
+      mt.setAttribute('x', x+4); mt.setAttribute('y', topPad+11);
+      mt.setAttribute('class','bar-label'); mt.setAttribute('fill', css('--accent'));
+      mt.textContent = m.label;
+      svg.appendChild(mt);
+    });
+
+    // series lines
+    series.forEach(function(s){
+      var solidEnd = opts.partialLastIndex!=null ? opts.partialLastIndex : n-1;
+      var pts = s.values.map(function(v,i){ return [X(i),Y(v)]; });
+      var d1 = pts.slice(0, solidEnd+1).map(function(p,i){ return (i===0?'M':'L')+p[0]+' '+p[1]; }).join(' ');
+      var path1 = svgEl('path');
+      path1.setAttribute('d', d1); path1.setAttribute('fill','none');
+      path1.setAttribute('stroke', s.color); path1.setAttribute('stroke-width', 2.2);
+      path1.setAttribute('stroke-linejoin','round'); path1.setAttribute('stroke-linecap','round');
+      svg.appendChild(path1);
+      if(solidEnd < n-1){
+        var d2 = pts.slice(solidEnd).map(function(p,i){ return (i===0?'M':'L')+p[0]+' '+p[1]; }).join(' ');
+        var path2 = svgEl('path');
+        path2.setAttribute('d', d2); path2.setAttribute('fill','none');
+        path2.setAttribute('stroke', s.color); path2.setAttribute('stroke-width', 2.2);
+        path2.setAttribute('stroke-dasharray','4 3'); path2.setAttribute('opacity','0.55');
+        svg.appendChild(path2);
+      }
+      // end dot + value
+      var last = pts[n-1];
+      var dot = svgEl('circle');
+      dot.setAttribute('cx', last[0]); dot.setAttribute('cy', last[1]); dot.setAttribute('r', 3);
+      dot.setAttribute('fill', s.color);
+      svg.appendChild(dot);
+    });
+
+    el.appendChild(svg);
+
+    // legend
+    if(series.length > 1){
+      var leg = document.createElement('div');
+      leg.className = 'legend';
+      series.forEach(function(s){
+        var span = document.createElement('span');
+        var sw = document.createElement('span');
+        sw.className='sw'; sw.style.background = s.color;
+        span.appendChild(sw);
+        span.appendChild(document.createTextNode(s.label));
+        leg.appendChild(span);
+      });
+      el.appendChild(leg);
+    }
+  }
+
+  // ---- stacked % timeline (monthly composition) ----
+  function stackedTimeline(containerId, months, stack, opts){
+    opts = opts || {};
+    var el = document.getElementById(containerId);
+    var W = 960, H = 260, leftPad = 40, rightPad = 16, topPad = 14, botPad = 34;
+    var plotW = W - leftPad - rightPad, plotH = H - topPad - botPad;
+    var n = months.length;
+    var barW = plotW/n * 0.72;
+    var svg = svgEl('svg');
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    svg.setAttribute('width','100%');
+    svg.setAttribute('style','max-width:100%; height:auto; display:block;');
+
+    for(var i=0;i<n;i++){
+      var x = leftPad + (i+0.5)/n*plotW - barW/2;
+      var total = stack.reduce(function(s,ser){ return s+ser.values[i]; },0) || 1;
+      var yCursor = topPad+plotH;
+      stack.forEach(function(ser){
+        var frac = ser.values[i]/total;
+        var h = frac*plotH;
+        var rect = svgEl('rect');
+        rect.setAttribute('x', x); rect.setAttribute('width', barW);
+        rect.setAttribute('y', yCursor-h); rect.setAttribute('height', Math.max(0,h));
+        rect.setAttribute('fill', ser.color);
+        rect.setAttribute('opacity', (opts.partialLastIndex!=null && i>opts.partialLastIndex) ? 0.45 : 1);
+        svg.appendChild(rect);
+        yCursor -= h;
+      });
+      var everyN2 = opts.xEvery||3;
+      if((i % everyN2 === 0 && (n-1-i) >= Math.max(2, Math.round(everyN2/2))) || i===n-1){
+        var xl = svgEl('text');
+        xl.setAttribute('x', x+barW/2); xl.setAttribute('y', H-10);
+        xl.setAttribute('text-anchor','middle'); xl.setAttribute('class','bar-label');
+        xl.textContent = shortMonth(months[i]);
+        svg.appendChild(xl);
+      }
+    }
+    // 0/50/100 gridlabels
+    [0,50,100].forEach(function(p){
+      var y = topPad+plotH - (p/100)*plotH;
+      var lab = svgEl('text');
+      lab.setAttribute('x', leftPad-6); lab.setAttribute('y', y+3);
+      lab.setAttribute('text-anchor','end'); lab.setAttribute('class','bar-label');
+      lab.textContent = p+'%';
+      svg.appendChild(lab);
+      var gl = svgEl('line');
+      gl.setAttribute('x1',leftPad); gl.setAttribute('x2', W-rightPad);
+      gl.setAttribute('y1',y); gl.setAttribute('y2',y);
+      gl.setAttribute('class','axis-line');
+      svg.insertBefore(gl, svg.firstChild);
+    });
+
+    el.appendChild(svg);
+    var leg = document.createElement('div');
+    leg.className = 'legend';
+    stack.forEach(function(s){
+      var span = document.createElement('span');
+      var sw = document.createElement('span');
+      sw.className='sw'; sw.style.background = s.color;
+      span.appendChild(sw);
+      span.appendChild(document.createTextNode(s.label));
+      leg.appendChild(span);
+    });
+    el.appendChild(leg);
+  }
+
+  var BLUE = css('--blue') || '#3a6ea5', TEAL = css('--teal') || '#2f7d6e',
+      AMBER = css('--amber') || '#c9822a', ACCENT = css('--accent') || '#b0413e',
+      GREY = css('--grey') || '#8a8f98', PURPLE = css('--purple') || '#7a5cb0';
+
+  // =========================================================
+  // TIMELINE DATA
+  // =========================================================
+  var MONTHS = ["2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05","2026-06","2026-07","2026-08"];
+  var PARTIAL_IDX = MONTHS.length - 1; // Aug 2026 partial month
+  var JAN2026_IDX = MONTHS.indexOf('2026-01');
+
+  var ORG_TOTAL = [163,204,323,731,553,571,604,622,664,701,493,549,569,777,1080,922,584,1061,1134,756,958,2101,860,826,1036,715,1237,801,883,861,754,240];
+  var ORG_VAGUE = [0,8,1,8,9,5,19,10,45,49,19,51,39,78,109,78,36,59,114,18,61,41,69,22,0,0,0,0,0,0,0,0];
+  var ORG_NUMERIC = [74,75,115,228,259,225,257,184,236,356,111,82,91,140,263,275,81,77,184,164,92,123,35,1,0,0,0,0,0,0,0,0];
+  var ORG_LATE = [16,6,4,93,26,1,13,12,39,22,37,15,59,69,91,59,92,140,145,48,82,112,71,38,114,67,86,48,163,88,48,18];
+  var ORG_WEEKEND = [44,52,76,113,72,141,98,115,189,75,150,143,68,200,220,170,100,323,371,95,196,254,173,197,272,123,151,151,206,219,179,48];
+
+  var NET_TOTAL = [119825,151132,208507,243964,311384,340355,380152,423883,395788,459651,439285,485849,539161,554459,599345,629388,660739,653746,672354,661206,676616,793304,754295,586358,521019,595658,703299,726686,841961,890916,938260,176894];
+  var NET_TX = [26366,30749,82095,123331,142863,154072,152396,186381,188821,223471,209484,241165,269750,263213,255855,291314,323459,310007,315853,298723,279689,299584,282377,295781,314656,326770,352810,377183,429105,462513,470849,175555];
+  var NET_OUT = [83111,106905,109906,102112,144466,157576,191955,204447,175357,199821,194931,204929,226570,237430,278474,267318,254328,260609,256332,254178,293048,381809,361670,203544,126892,178470,248617,249616,289616,305107,318847,593];
+  var NET_FED = [567,298,382,305,266,365,631,924,434,543,439,648,595,663,803,4392,4697,5209,5393,5247,3144,3419,2470,4402,2715,3196,3511,4328,3390,6280,21744,0];
+  var NET_UNK = [1872,1584,1558,2096,2700,2731,2703,3000,2443,3193,3063,3234,3589,4505,4734,5512,6356,6606,7302,7739,9547,9512,10045,7907,8926,11415,9095,8735,10129,8967,8137,746];
+  var NET_VAGUE = [10308,13110,18070,23150,29204,31007,33366,52150,36318,42018,39409,42411,43369,48567,47448,50276,50068,49912,52256,43395,41423,52229,47518,25424,125,32,16,1,0,0,0,0];
+  var NET_NUMERIC = [11871,15061,18661,22584,29913,32495,39637,40382,42294,51608,47002,51412,59238,56128,54989,51471,56629,49052,48134,42602,47105,50902,45364,25491,129,47,13,5,0,0,0,0];
+  var NET_ORGS = [2086,2248,2329,2377,2466,2595,2698,2847,2869,2943,3036,3108,3186,3324,3488,3510,3385,3372,3364,3451,3440,3430,3381,2807,770,831,865,901,926,952,991,419];
+  var NET_OTHER_IN = NET_TOTAL.map(function(t,i){ return t - NET_TX[i] - NET_OUT[i] - NET_FED[i] - NET_UNK[i]; });
+
+  // === Timeline: volume ===
+  lineChart('chartNetVolume', MONTHS, [{label:'Network log searches', color:TEAL, values:NET_TOTAL}],
+    {yFmt:function(v){return (v/1000).toFixed(0)+'k';}, partialLastIndex:PARTIAL_IDX-1});
+  lineChart('chartOrgVolume', MONTHS, [{label:'Org log searches', color:BLUE, values:ORG_TOTAL}],
+    {partialLastIndex:PARTIAL_IDX-1});
+
+  // === Timeline: geo composition ===
+  stackedTimeline('chartGeoTimeline', MONTHS, [
+    {label:'Texas', color:TEAL, values:NET_TX},
+    {label:'Other in-radius', color:BLUE, values:NET_OTHER_IN},
+    {label:'Out-of-radius (>500mi)', color:ACCENT, values:NET_OUT},
+    {label:'Federal', color:AMBER, values:NET_FED},
+    {label:'Unclassified name', color:GREY, values:NET_UNK}
+  ], {partialLastIndex:PARTIAL_IDX-1});
+
+  // === Timeline: agency count ===
+  lineChart('chartAgencyCount', MONTHS, [{label:'Distinct partner agencies', color:PURPLE, values:NET_ORGS}],
+    {markers:[{index:JAN2026_IDX, label:'Jan 2026'}], partialLastIndex:PARTIAL_IDX-1});
+
+  // === Timeline: federal ===
+  lineChart('chartFederalTimeline', MONTHS, [{label:'Federal-tagged searches', color:AMBER, values:NET_FED}],
+    {markers:[{index:MONTHS.indexOf('2025-04'), label:'Apr 2025'},{index:MONTHS.indexOf('2026-07'), label:'Jul 2026: FBI spike'}], partialLastIndex:PARTIAL_IDX-1});
+
+  // === Timeline: reason quality ===
+  var ORG_BAD_RATE = ORG_TOTAL.map(function(t,i){ return t? (ORG_VAGUE[i]+ORG_NUMERIC[i])/t*100 : 0; });
+  var NET_BAD_RATE = NET_TOTAL.map(function(t,i){ return t? (NET_VAGUE[i]+NET_NUMERIC[i])/t*100 : 0; });
+  lineChart('chartOrgReasonTimeline', MONTHS, [{label:'Vague + case-number-only %', color:ACCENT, values:ORG_BAD_RATE}],
+    {yFmt:function(v){return v.toFixed(0)+'%';}, markers:[{index:JAN2026_IDX,label:'UI change'}], partialLastIndex:JAN2026_IDX-1, yMax:60});
+  lineChart('chartNetReasonTimeline', MONTHS, [{label:'Vague + case-number-only %', color:ACCENT, values:NET_BAD_RATE}],
+    {yFmt:function(v){return v.toFixed(0)+'%';}, markers:[{index:JAN2026_IDX,label:'UI change'}], partialLastIndex:JAN2026_IDX-1, yMax:20});
+
+  // === Timeline: off-hours ===
+  var ORG_LATE_RATE = ORG_TOTAL.map(function(t,i){ return t? ORG_LATE[i]/t*100 : 0; });
+  var ORG_WEEKEND_RATE = ORG_TOTAL.map(function(t,i){ return t? ORG_WEEKEND[i]/t*100 : 0; });
+  lineChart('chartOffHoursTimeline', MONTHS, [
+    {label:'Late-night % (1-5am)', color:ACCENT, values:ORG_LATE_RATE},
+    {label:'Weekend %', color:BLUE, values:ORG_WEEKEND_RATE}
+  ], {yFmt:function(v){return v.toFixed(0)+'%';}, partialLastIndex:PARTIAL_IDX-1});
+
+  hbar('chartRepeatedTarget', [
+    {label:'Officer-03', value:964, color:ACCENT},
+    {label:'Officer-07', value:253, color:AMBER},
+    {label:'Officer-12', value:91, color:BLUE}
+  ], {rowH:30});
+
+  // =========================================================
+  // PERIOD-FILTERED CHARTS (Justification, Volume, Off-Hours, Out-of-Network)
+  // =========================================================
+  var PERIOD_DATA = {"all":{"orgReason":{"substantive":19655,"caseNumber":3728,"vague":948,"blank":2,"total":24333},"netReason":{"substantive":15218406,"caseNumber":990219,"vague":922580,"blank":4234,"total":17135439},"reasonSuppressed":false,"officerVague":[{"officer":"Officer-04","rate":66.2,"n":1131},{"officer":"Officer-40","rate":13.4,"n":67},{"officer":"Officer-17","rate":6.5,"n":217},{"officer":"Officer-56","rate":4.7,"n":86},{"officer":"Officer-48","rate":4.0,"n":50},{"officer":"Officer-16","rate":3.5,"n":258}],"officerNumeric":[{"officer":"Officer-09","rate":96.9,"n":621},{"officer":"Officer-20","rate":84.4,"n":96},{"officer":"Officer-34","rate":65.1,"n":106},{"officer":"Officer-55","rate":61.2,"n":49},{"officer":"Officer-01","rate":59.7,"n":2891},{"officer":"Officer-07","rate":58.7,"n":881}],"lateTop":[{"officer":"Officer-25","rate":47.6,"n":42},{"officer":"Officer-23","rate":42.9,"n":56},{"officer":"Officer-26","rate":40.6,"n":32},{"officer":"Officer-16","rate":40.3,"n":258},{"officer":"Officer-13","rate":38.1,"n":507},{"officer":"Officer-21","rate":35.6,"n":90}],"weekendTop":[{"officer":"Officer-22","rate":86.9,"n":84},{"officer":"Officer-27","rate":62.5,"n":32},{"officer":"Officer-16","rate":60.5,"n":258},{"officer":"Officer-19","rate":60.2,"n":98},{"officer":"Officer-18","rate":58.8,"n":182},{"officer":"Officer-24","rate":58.5,"n":53}],"lateBaseline":7.9,"weekendBaseline":20.5,"xtab":{"lateBad":11.2,"dayBad":3.3,"weekendBad":7.0,"weekdayBad":3.1},"topOfficers":[{"officer":"Officer-01","count":2891,"pct":11.9},{"officer":"Officer-02","count":2095,"pct":8.6},{"officer":"Officer-03","count":1924,"pct":7.9},{"officer":"Officer-04","count":1131,"pct":4.6},{"officer":"Officer-05","count":1104,"pct":4.5},{"officer":"Officer-06","count":901,"pct":3.7},{"officer":"Officer-07","count":881,"pct":3.6},{"officer":"Officer-08","count":769,"pct":3.2},{"officer":"Officer-09","count":621,"pct":2.6},{"officer":"Officer-10","count":617,"pct":2.5}],"officerGrandTotal":24333,"topAgencies":[{"org":"Houston TX PD","count":1701176,"pct":9.9},{"org":"Dallas TX PD","count":1231255,"pct":7.2},{"org":"Texas Department of Public Safety","count":505399,"pct":2.9},{"org":"Fort Worth TX PD","count":458116,"pct":2.7},{"org":"Harris County TX SO","count":363631,"pct":2.1},{"org":"California Highway Patrol","count":263884,"pct":1.5},{"org":"Louisville Metro KY PD","count":150087,"pct":0.9},{"org":"Missouri State Highway Patrol","count":137887,"pct":0.8},{"org":"Hillsborough County FL SO","count":136954,"pct":0.8},{"org":"Grand Prairie TX PD","count":128442,"pct":0.7}],"agencyGrandTotal":17135439,"netVagueWorst":[{"org":"East Tawakoni TX PD","rate":97.7,"n":19803},{"org":"Blaine CO OK SO","rate":89.1,"n":5090},{"org":"Austell GA PD","rate":86.8,"n":2371},{"org":"West Tawakoni TX PD","rate":85.5,"n":9046},{"org":"Cape Girardeau County MO SO","rate":84.5,"n":4917},{"org":"Georgia Attorney General's Office  - GA","rate":84.3,"n":883},{"org":"Powder Springs GA PD","rate":80.6,"n":966},{"org":"Brooklyn OH PD","rate":79.7,"n":705}],"netVagueSuppressed":false,"geo":{"tx":8156240,"otherInRadius":1839534,"outOfRadius":6868584,"federal":91400,"unknown":179681,"total":17135439},"outOfRadiusTop":[{"org":"California Highway Patrol","count":263884,"dist":1309},{"org":"Louisville Metro KY PD","count":150087,"dist":758},{"org":"Hillsborough County FL SO","count":136954,"dist":977},{"org":"Palm Beach County FL SO","count":107814,"dist":977},{"org":"Cobb County GA PD","count":94904,"dist":767},{"org":"Fairfax County VA PD","count":78920,"dist":1101},{"org":"Arizona Department of Public Safety","count":63155,"dist":839},{"org":"Coweta County GA SO","count":56132,"dist":767}],"federalTop":[{"org":"[Federal] US Postal Inspection Service","count":56238,"status":"active"},{"org":"[Federal] Federal Bureau of Investigation (FBI)","count":21440,"status":"active"},{"org":"[Federal] ATF Nashville TN [inactive]","count":7143,"status":"inactive"},{"org":"[Federal] US Border Patrol [Inactive]","count":3703,"status":"inactive"},{"org":"[Federal] ATF Louisville KY [inactive]","count":1739,"status":"inactive"},{"org":"[Federal] Natchez Trace Parkway MS - National Park Service","count":272,"status":"active"},{"org":"[Federal] US GSA Office of Inspector General","count":237,"status":"active"},{"org":"[Federal] Langley VA Air Force Base","count":218,"status":"active"}],"federalTotal":91400,"federalDistinct":15},"2024":{"orgReason":{"substantive":3752,"caseNumber":2202,"vague":224,"blank":0,"total":6178},"netReason":{"substantive":3186333,"caseNumber":402920,"vague":370521,"blank":1,"total":3959775},"reasonSuppressed":false,"officerVague":[{"officer":"Officer-04","rate":67.8,"n":239},{"officer":"Officer-56","rate":21.1,"n":19},{"officer":"Officer-17","rate":14.7,"n":75},{"officer":"Officer-38","rate":6.6,"n":122},{"officer":"Officer-02","rate":2.4,"n":416},{"officer":"Officer-05","rate":1.8,"n":333}],"officerNumeric":[{"officer":"Officer-55","rate":100.0,"n":23},{"officer":"Officer-47","rate":100.0,"n":15},{"officer":"Officer-09","rate":96.9,"n":621},{"officer":"Officer-20","rate":94.2,"n":86},{"officer":"Officer-01","rate":86.9,"n":1252},{"officer":"Officer-07","rate":84.4,"n":154}],"lateTop":[{"officer":"Officer-56","rate":89.5,"n":19},{"officer":"Officer-53","rate":40.0,"n":170},{"officer":"Officer-54","rate":37.0,"n":46},{"officer":"Officer-08","rate":31.0,"n":84},{"officer":"Officer-21","rate":29.0,"n":69},{"officer":"Officer-36","rate":28.6,"n":28}],"weekendTop":[{"officer":"Officer-43","rate":100.0,"n":25},{"officer":"Officer-46","rate":83.0,"n":47},{"officer":"Officer-50","rate":80.8,"n":26},{"officer":"Officer-37","rate":74.3,"n":35},{"officer":"Officer-32","rate":71.6,"n":102},{"officer":"Officer-28","rate":71.4,"n":63}],"lateBaseline":4.6,"weekendBaseline":20.5,"xtab":{"lateBad":8.5,"dayBad":3.4,"weekendBad":7.0,"weekdayBad":2.7},"topOfficers":[{"officer":"Officer-01","count":1252,"pct":20.3},{"officer":"Officer-09","count":621,"pct":10.1},{"officer":"Officer-02","count":416,"pct":6.7},{"officer":"Officer-05","count":333,"pct":5.4},{"officer":"Officer-04","count":239,"pct":3.9},{"officer":"Officer-53","count":170,"pct":2.8},{"officer":"Officer-52","count":161,"pct":2.6},{"officer":"Officer-07","count":154,"pct":2.5},{"officer":"Officer-11","count":147,"pct":2.4},{"officer":"Officer-10","count":137,"pct":2.2}],"officerGrandTotal":6178,"topAgencies":[{"org":"Houston TX PD","count":448248,"pct":11.3},{"org":"Dallas TX PD","count":298686,"pct":7.5},{"org":"Fort Worth TX PD","count":128229,"pct":3.2},{"org":"Harris County TX SO","count":80755,"pct":2.0},{"org":"Texas Department of Public Safety","count":52576,"pct":1.3},{"org":"Riverside County CA SO","count":40753,"pct":1.0},{"org":"Harris County Const TX Pct 4","count":38929,"pct":1.0},{"org":"Grand Prairie TX PD","count":31176,"pct":0.8},{"org":"Plano TX PD","count":28814,"pct":0.7},{"org":"Cobb County GA SO","count":24600,"pct":0.6}],"agencyGrandTotal":3959775,"netVagueWorst":[{"org":"Priceville AL PD","rate":99.0,"n":5318},{"org":"East Tawakoni TX PD","rate":98.5,"n":19632},{"org":"West Tawakoni TX PD","rate":97.9,"n":6026},{"org":"Acworth GA PD","rate":97.0,"n":201},{"org":"Doral FL PD","rate":96.7,"n":214},{"org":"Buford City Schools GA","rate":96.3,"n":243},{"org":"North Little Rock AR PD","rate":95.1,"n":756},{"org":"Cape Girardeau County MO SO","rate":92.7,"n":2384}],"netVagueSuppressed":false,"geo":{"tx":1761194,"otherInRadius":287086,"outOfRadius":1875516,"federal":5802,"unknown":30177,"total":3959775},"outOfRadiusTop":[{"org":"Riverside County CA SO","count":40753,"dist":1309},{"org":"Cobb County GA SO","count":24600,"dist":767},{"org":"Fairfax County VA PD","count":24477,"dist":1101},{"org":"Mishawaka PD IN","count":23303,"dist":753},{"org":"Volusia County FL SO","count":17892,"dist":977},{"org":"Cobb County GA PD","count":16738,"dist":767},{"org":"Village of Lynwood IL PD","count":16071,"dist":666},{"org":"DeKalb County GA PD","count":16029,"dist":767}],"federalTop":[{"org":"[Federal] ATF Nashville TN [inactive]","count":4151,"status":"inactive"},{"org":"[Federal] ATF Louisville KY [inactive]","count":1227,"status":"inactive"},{"org":"[Federal] US GSA Office of Inspector General","count":180,"status":"active"},{"org":"[Federal] Langley VA Air Force Base","count":160,"status":"active"},{"org":"[Federal] National Park Service TN [Inactive]","count":61,"status":"inactive"},{"org":"[Federal] Wright Patterson OH Air Force Base","count":15,"status":"active"},{"org":"[Federal] Lake Mead NV NRA","count":5,"status":"active"},{"org":"[Federal] Roudebush Medical Center IN Veterans Affairs PD","count":3,"status":"active"}],"federalTotal":5802,"federalDistinct":8},"2025":{"orgReason":{"substantive":9376,"caseNumber":1526,"vague":724,"blank":2,"total":11628},"netReason":{"substantive":6637974,"caseNumber":587105,"vague":551885,"blank":4007,"total":7780971},"reasonSuppressed":false,"officerVague":[{"officer":"Officer-04","rate":78.3,"n":750},{"officer":"Officer-40","rate":18.8,"n":48},{"officer":"Officer-48","rate":8.0,"n":25},{"officer":"Officer-16","rate":7.0,"n":129},{"officer":"Officer-01","rate":5.6,"n":1177},{"officer":"Officer-42","rate":3.7,"n":27}],"officerNumeric":[{"officer":"Officer-15","rate":91.0,"n":166},{"officer":"Officer-23","rate":72.7,"n":11},{"officer":"Officer-55","rate":70.0,"n":10},{"officer":"Officer-14","rate":69.0,"n":187},{"officer":"Officer-35","rate":57.8,"n":64},{"officer":"Officer-07","rate":56.7,"n":683}],"lateTop":[{"officer":"Officer-21","rate":75.0,"n":16},{"officer":"Officer-25","rate":59.1,"n":22},{"officer":"Officer-19","rate":48.4,"n":31},{"officer":"Officer-37","rate":46.7,"n":92},{"officer":"Officer-13","rate":42.9,"n":91},{"officer":"Officer-33","rate":41.8,"n":146}],"weekendTop":[{"officer":"Officer-27","rate":94.1,"n":17},{"officer":"Officer-19","rate":90.3,"n":31},{"officer":"Officer-22","rate":87.7,"n":81},{"officer":"Officer-42","rate":70.4,"n":27},{"officer":"Officer-16","rate":69.8,"n":129},{"officer":"Officer-39","rate":63.9,"n":36}],"lateBaseline":8.7,"weekendBaseline":20.4,"xtab":{"lateBad":19.0,"dayBad":5.0,"weekendBad":10.9,"weekdayBad":5.1},"topOfficers":[{"officer":"Officer-03","count":1391,"pct":12.0},{"officer":"Officer-01","count":1177,"pct":10.1},{"officer":"Officer-02","count":1022,"pct":8.8},{"officer":"Officer-04","count":750,"pct":6.4},{"officer":"Officer-07","count":683,"pct":5.9},{"officer":"Officer-05","count":649,"pct":5.6},{"officer":"Officer-08","count":589,"pct":5.1},{"officer":"Officer-12","count":291,"pct":2.5},{"officer":"Officer-10","count":288,"pct":2.5},{"officer":"Officer-11","count":258,"pct":2.2}],"officerGrandTotal":11628,"topAgencies":[{"org":"Houston TX PD","count":716436,"pct":9.2},{"org":"Dallas TX PD","count":526545,"pct":6.8},{"org":"Fort Worth TX PD","count":190478,"pct":2.4},{"org":"Texas Department of Public Safety","count":176149,"pct":2.3},{"org":"Harris County TX SO","count":168005,"pct":2.2},{"org":"Missouri State Highway Patrol","count":78017,"pct":1.0},{"org":"Harris County Const TX Pct 4","count":57639,"pct":0.7},{"org":"Pasadena TX PD","count":56328,"pct":0.7},{"org":"Grand Prairie TX PD","count":55350,"pct":0.7},{"org":"Montgomery County TX SO","count":54844,"pct":0.7}],"agencyGrandTotal":7780971,"netVagueWorst":[{"org":"Thrall City PD TX","rate":100.0,"n":173},{"org":"Steele AL PD","rate":98.0,"n":452},{"org":"Elm Ridge TX PD","rate":91.6,"n":10266},{"org":"Blaine CO OK SO","rate":91.4,"n":4325},{"org":"Austell GA PD","rate":88.9,"n":960},{"org":"Thackerville OK PD","rate":87.4,"n":253},{"org":"Powder Springs GA PD","rate":86.6,"n":590},{"org":"Georgia Attorney General's Office  - GA","rate":85.7,"n":783}],"netVagueSuppressed":false,"geo":{"tx":3485605,"otherInRadius":896268,"outOfRadius":3275310,"federal":40434,"unknown":83354,"total":7780971},"outOfRadiusTop":[{"org":"Louisville Metro KY PD","count":51620,"dist":758},{"org":"Palm Beach County FL SO","count":48012,"dist":977},{"org":"Hillsborough County FL SO","count":47576,"dist":977},{"org":"Cobb County GA PD","count":36824,"dist":767},{"org":"Fairfax County VA PD","count":32506,"dist":1101},{"org":"Coweta County GA SO","count":28635,"dist":767},{"org":"Jacksonville FL SO","count":28227,"dist":977},{"org":"Columbus OH PD","count":27175,"dist":930}],"federalTop":[{"org":"[Federal] US Postal Inspection Service","count":32786,"status":"active"},{"org":"[Federal] US Border Patrol [Inactive]","count":3703,"status":"inactive"},{"org":"[Federal] ATF Nashville TN [inactive]","count":2992,"status":"inactive"},{"org":"[Federal] ATF Louisville KY [inactive]","count":512,"status":"inactive"},{"org":"[Federal] Homeland Security Investigations [Inactive]","count":161,"status":"inactive"},{"org":"[DEACTIVATED] - [Federal] Naval Criminal Investigative Service [Inactive]","count":145,"status":"inactive"},{"org":"[Federal] Langley VA Air Force Base","count":58,"status":"active"},{"org":"[Federal] US GSA Office of Inspector General","count":57,"status":"active"}],"federalTotal":40434,"federalDistinct":12},"2026":{"orgReason":{"substantive":6527,"caseNumber":0,"vague":0,"blank":0,"total":6527},"netReason":{"substantive":5394099,"caseNumber":194,"vague":174,"blank":226,"total":5394693},"reasonSuppressed":true,"officerVague":[{"officer":"Officer-44","rate":0.0,"n":23},{"officer":"Officer-02","rate":0.0,"n":657},{"officer":"Officer-03","rate":0.0,"n":449},{"officer":"Officer-41","rate":0.0,"n":19},{"officer":"Officer-12","rate":0.0,"n":201},{"officer":"Officer-38","rate":0.0,"n":62}],"officerNumeric":[{"officer":"Officer-44","rate":0.0,"n":23},{"officer":"Officer-02","rate":0.0,"n":657},{"officer":"Officer-03","rate":0.0,"n":449},{"officer":"Officer-41","rate":0.0,"n":19},{"officer":"Officer-12","rate":0.0,"n":201},{"officer":"Officer-38","rate":0.0,"n":62}],"lateTop":[{"officer":"Officer-30","rate":72.7,"n":11},{"officer":"Officer-45","rate":55.0,"n":20},{"officer":"Officer-23","rate":54.5,"n":44},{"officer":"Officer-16","rate":50.0,"n":110},{"officer":"Officer-13","rate":49.8,"n":305},{"officer":"Officer-49","rate":44.9,"n":49}],"weekendTop":[{"officer":"Officer-51","rate":100.0,"n":16},{"officer":"Officer-24","rate":73.0,"n":37},{"officer":"Officer-30","rate":72.7,"n":11},{"officer":"Officer-31","rate":63.6,"n":187},{"officer":"Officer-16","rate":59.1,"n":110},{"officer":"Officer-23","rate":54.5,"n":44}],"lateBaseline":9.7,"weekendBaseline":20.7,"xtab":{"lateBad":0.0,"dayBad":0.0,"weekendBad":0.0,"weekdayBad":0.0},"topOfficers":[{"officer":"Officer-02","count":657,"pct":10.1},{"officer":"Officer-06","count":650,"pct":10.0},{"officer":"Officer-01","count":462,"pct":7.1},{"officer":"Officer-03","count":449,"pct":6.9},{"officer":"Officer-13","count":305,"pct":4.7},{"officer":"Officer-35","count":213,"pct":3.3},{"officer":"Officer-12","count":201,"pct":3.1},{"officer":"Officer-10","count":192,"pct":2.9},{"officer":"Officer-31","count":187,"pct":2.9},{"officer":"Officer-29","count":163,"pct":2.5}],"officerGrandTotal":6527,"topAgencies":[{"org":"Houston TX PD","count":536492,"pct":9.9},{"org":"Dallas TX PD","count":406024,"pct":7.5},{"org":"Texas Department of Public Safety","count":276674,"pct":5.1},{"org":"California Highway Patrol","count":260935,"pct":4.8},{"org":"Fort Worth TX PD","count":139409,"pct":2.6},{"org":"Harris County TX SO","count":114871,"pct":2.1},{"org":"Louisville Metro KY PD","count":88652,"pct":1.6},{"org":"Hillsborough County FL SO","count":83602,"pct":1.5},{"org":"Palm Beach County FL SO","count":52713,"pct":1.0},{"org":"Montgomery County TX SO","count":48728,"pct":0.9}],"agencyGrandTotal":5394693,"netVagueWorst":[{"org":"Tomball TX PD","rate":1.1,"n":1244},{"org":"Edinburg TX PD","rate":0.6,"n":3591},{"org":"Crandall TX PD","rate":0.5,"n":215},{"org":"Lindale TX PD","rate":0.3,"n":351},{"org":"Thomas County KS SO","rate":0.2,"n":580},{"org":"Lea County NM SO","rate":0.2,"n":645},{"org":"La Vernia TX PD","rate":0.2,"n":548},{"org":"Clarksville IN PD","rate":0.1,"n":7855}],"netVagueSuppressed":true,"geo":{"tx":2909441,"otherInRadius":656180,"outOfRadius":1717758,"federal":45164,"unknown":66150,"total":5394693},"outOfRadiusTop":[{"org":"California Highway Patrol","count":260935,"dist":1309},{"org":"Louisville Metro KY PD","count":88652,"dist":758},{"org":"Hillsborough County FL SO","count":83602,"dist":977},{"org":"Palm Beach County FL SO","count":52713,"dist":977},{"org":"Cobb County GA PD","count":41342,"dist":767},{"org":"Lexington KY PD","count":38606,"dist":758},{"org":"Pinellas County FL SO","count":36123,"dist":977},{"org":"Arizona Department of Public Safety","count":31749,"dist":839}],"federalTop":[{"org":"[Federal] US Postal Inspection Service","count":23452,"status":"active"},{"org":"[Federal] Federal Bureau of Investigation (FBI)","count":21440,"status":"active"},{"org":"[Federal] Natchez Trace Parkway MS - National Park Service","count":272,"status":"active"}],"federalTotal":45164,"federalDistinct":3}};
+
+  function renderPeriod(period){
+    var d = PERIOD_DATA[period];
+
+    // --- Justification: reason-quality donuts-as-bars ---
+    clearEl('chartOrgReason');
+    if(d.reasonSuppressed){
+      showMsg('chartOrgReason', 'Flock switched the Reason field to mandatory categories starting Jan 2026 — this blank/vague/case-number breakdown isn\'t meaningful for this period. See the Timeline tab for what changed.');
+    } else {
+      hbar('chartOrgReason', [
+        {label:'Substantive text', value:d.orgReason.substantive, color:TEAL},
+        {label:'Case-number only', value:d.orgReason.caseNumber, color:AMBER},
+        {label:'Vague/short term', value:d.orgReason.vague, color:ACCENT},
+        {label:'Blank', value:d.orgReason.blank, color:GREY}
+      ], {rowH:26});
+    }
+    clearEl('chartNetReason');
+    if(d.reasonSuppressed){
+      showMsg('chartNetReason', 'Flock switched the Reason field to mandatory categories starting Jan 2026 — this blank/vague/case-number breakdown isn\'t meaningful for this period. See the Timeline tab for what changed.');
+    } else {
+      hbar('chartNetReason', [
+        {label:'Substantive text', value:d.netReason.substantive, color:TEAL},
+        {label:'Case-number only', value:d.netReason.caseNumber, color:AMBER},
+        {label:'Vague/short term', value:d.netReason.vague, color:ACCENT},
+        {label:'Blank', value:d.netReason.blank, color:GREY}
+      ], {rowH:26});
+    }
+    document.getElementById('capOrgReasonTotal').textContent = fmt(d.orgReason.total);
+    document.getElementById('capNetReasonTotal').textContent = fmt(d.netReason.total);
+    var numPct = d.orgReason.total ? (d.orgReason.caseNumber/d.orgReason.total*100).toFixed(1) : '0.0';
+    document.getElementById('capNumericTotal').textContent = fmt(d.orgReason.caseNumber)+' of '+fmt(d.orgReason.total)+' ('+numPct+'%)';
+
+    clearEl('chartOfficerVague');
+    if(d.reasonSuppressed){
+      showMsg('chartOfficerVague', 'Not meaningful for this period — see note above.');
+    } else {
+      hbar('chartOfficerVague', d.officerVague.map(function(r){return {label:r.officer, value:r.rate, color: r.rate>=40?ACCENT:BLUE};}),
+        {rowH:26, valueFmt: fmtPct, leftPad:120});
+    }
+    clearEl('chartOfficerNumeric');
+    if(d.reasonSuppressed){
+      showMsg('chartOfficerNumeric', 'Not meaningful for this period — see note above.');
+    } else {
+      hbar('chartOfficerNumeric', d.officerNumeric.map(function(r){return {label:r.officer, value:r.rate, color: r.rate>=70?ACCENT:AMBER};}),
+        {rowH:26, valueFmt: fmtPct, leftPad:120});
+    }
+    clearEl('chartOrgVagueNet');
+    if(d.netVagueSuppressed){
+      showMsg('chartOrgVagueNet', 'Not meaningful for this period — reason field is now a mandatory category dropdown, so almost nothing qualifies as blank/vague. See the Timeline tab.');
+    } else {
+      hbar('chartOrgVagueNet', d.netVagueWorst.map(function(r){return {label:r.org, value:r.rate, color: r.rate>=80?ACCENT:AMBER};}),
+        {rowH:26, valueFmt: fmtPct, leftPad:230});
+    }
+
+    // --- Volume: top10 with % of period total ---
+    clearEl('chartTopOfficers');
+    hbar('chartTopOfficers', d.topOfficers.map(function(r){
+      return {label:r.officer, value:r.count, color:BLUE, display: fmt(r.count)+' ('+r.pct.toFixed(1)+'%)'};
+    }), {rowH:26, leftPad:120, rightPad:110});
+    clearEl('chartTopAgencies');
+    hbar('chartTopAgencies', d.topAgencies.map(function(r){
+      return {label:r.org, value:r.count, color:TEAL, display: fmt(r.count)+' ('+r.pct.toFixed(1)+'%)'};
+    }), {rowH:26, leftPad:230, rightPad:110});
+
+    // --- Off-hours ---
+    clearEl('chartLateNight');
+    hbarBaseline('chartLateNight', d.lateTop.map(function(r){return {label:r.officer, value:r.rate, n:r.n};}), d.lateBaseline);
+    clearEl('chartWeekend');
+    hbarBaseline('chartWeekend', d.weekendTop.map(function(r){return {label:r.officer, value:r.rate, n:r.n};}), d.weekendBaseline);
+    document.getElementById('capLateBaseline').textContent = fmtPct(d.lateBaseline);
+    document.getElementById('capWeekendBaseline').textContent = fmtPct(d.weekendBaseline);
+
+    clearEl('chartOffHoursXtab');
+    hbar('chartOffHoursXtab', [
+      {label:'1–5am (late night)', value:d.xtab.lateBad, color:ACCENT},
+      {label:'Daytime', value:d.xtab.dayBad, color:BLUE},
+      {label:'Weekend', value:d.xtab.weekendBad, color:ACCENT},
+      {label:'Weekday', value:d.xtab.weekdayBad, color:BLUE}
+    ], {rowH:28, valueFmt: fmtPct, leftPad:150});
+
+    // --- Out-of-network ---
+    clearEl('chartGeoDonut'); clearEl('geoLegend');
+    var geoData = [
+      {label:'Texas (in-radius)', value:d.geo.tx, color:TEAL},
+      {label:'Other in-radius states', value:d.geo.otherInRadius, color:BLUE},
+      {label:'Outside ~500mi', value:d.geo.outOfRadius, color:ACCENT},
+      {label:'Federal agencies', value:d.geo.federal, color:AMBER},
+      {label:'Unclassified agency name', value:d.geo.unknown, color:GREY}
+    ];
+    donut('chartGeoDonut', geoData);
+    geoData.forEach(function(g){ g.total = d.geo.total; });
+    legend('geoLegend', geoData);
+
+    clearEl('chartOutOfRadius');
+    hbar('chartOutOfRadius', d.outOfRadiusTop.map(function(r){
+      return {label:r.org+' (~'+r.dist+'mi)', value:r.count, color:ACCENT};
+    }), {rowH:26, leftPad:230});
+
+    var tbody = document.getElementById('federalTableBody');
+    tbody.innerHTML = '';
+    d.federalTop.forEach(function(r){
+      var tr = document.createElement('tr');
+      var tdName = document.createElement('td'); tdName.textContent = cleanFedName(r.org);
+      var tdCount = document.createElement('td'); tdCount.textContent = fmt(r.count);
+      var tdStatus = document.createElement('td');
+      tdStatus.innerHTML = '<span class="badge '+r.status+'">'+r.status+'</span>';
+      tr.appendChild(tdName); tr.appendChild(tdCount); tr.appendChild(tdStatus);
+      tbody.appendChild(tr);
+    });
+    if(d.federalDistinct > d.federalTop.length){
+      var tr2 = document.createElement('tr');
+      var td1 = document.createElement('td'); td1.textContent = (d.federalDistinct-d.federalTop.length)+' more (smaller federally-tagged agencies)';
+      var td2 = document.createElement('td'); td2.textContent = '—';
+      var td3 = document.createElement('td'); td3.textContent = 'mixed';
+      tr2.appendChild(td1); tr2.appendChild(td2); tr2.appendChild(td3);
+      tbody.appendChild(tr2);
+    }
+    var fedPct = d.agencyGrandTotal ? (d.federalTotal/d.agencyGrandTotal*100).toFixed(1) : '0.0';
+    document.getElementById('capFederalTotal').textContent =
+      fmt(d.federalTotal)+' searches total — '+fedPct+'% of all network searches, across '+d.federalDistinct+' distinct federally-tagged agencies';
+  }
+
+  var periodBtns = document.querySelectorAll('.period-btn');
+  periodBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      periodBtns.forEach(function(b){ b.classList.toggle('active', b===btn); });
+      renderPeriod(btn.getAttribute('data-period'));
+    });
+  });
+
+  renderPeriod('all');
+
+})();
+</script>
+</body>
+</html>
