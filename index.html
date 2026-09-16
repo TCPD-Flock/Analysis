@@ -203,7 +203,7 @@
 <!-- ============ OVERVIEW ============ -->
 <div class="tab-panel" data-panel="overview">
 <section id="findings">
-  <div class="sec-head"><span class="sec-num">TL;DR</span><h2>Eight things worth asking the department about</h2></div>
+  <div class="sec-head"><span class="sec-num">TL;DR</span><h2>Nine things worth asking the department about</h2></div>
   <div class="callout-list">
     <div class="callout"><div class="num">1</div><div class="body"><b>Officer-04's justification habit</b><span>749 of their 1,131 searches (66%) carry a vague or blank reason — mostly a literal "." — repeated across many different plates over more than a year, with no case number ever attached.</span></div></div>
     <div class="callout"><div class="num">2</div><div class="body"><b>28 plates show the "no case, spread over time" repeat-search shape</b><span>The pattern most associated with personal/stalking misuse elsewhere: the same officer manually re-searching the same plate, weeks to months apart, with no case number ever recorded. Concentrated in 5 officers. See the Risk tab.</span></div></div>
@@ -213,6 +213,7 @@
     <div class="callout"><div class="num">6</div><div class="body"><b>~40% of network searches came from &gt;500 miles away</b><span>The plainest, most quantifiable gap between the department's public "Texas / 500 miles" description and what the logs show.</span></div></div>
     <div class="callout"><div class="num">7</div><div class="body"><b>Flock's reason-entry UI silently changed in Jan 2026</b><span>Freeform text reasons were replaced with mandatory category dropdowns, department-wide — worth confirming this is what happened, since it makes pre/post-2026 justification quality impossible to compare directly.</span></div></div>
     <div class="callout"><div class="num">8</div><div class="body"><b>A 964-search hit on one plate</b><span>Almost certainly an automated hotlist alert tied to one active narcotics case, not manual searching — but scale alone makes it worth the department confirming that reading.</span></div></div>
+    <div class="callout"><div class="num">9</div><div class="body"><b>Outside agencies use Flock's advanced search types far more than TCPD itself does</b><span>Colony's own officers never used <code>Convoy</code> (multi-vehicle pattern tracking), <code>visual</code>, or <code>freeform</code> (appearance-based, no-plate) search types in this export — but outside agencies ran <b>Convoy searches 35,403 times</b> against Colony's own cameras. See the Volume tab.</span></div></div>
   </div>
 </section>
 
@@ -478,6 +479,23 @@
     <h3>Top 10 requesting agencies (Network log)</h3>
     <div id="chartTopAgencies"></div>
   </div>
+
+  <div class="panel">
+    <h3>Beyond plate lookups — description-based and group-vehicle searches</h3>
+    <div class="note">What kind of query is actually being run, not just how many</div>
+    <p style="font-size:13px;color:var(--ink-dim);">Org log: at least <b>790 of TCPD's 24,333 searches</b> (a floor — counted from the top 20 logged filter combinations; the true figure is likely higher given a long tail of one-off combinations not captured here) used a pure vehicle-description filter — make, color, or body style (e.g. "SUV, Toyota, white" or "Jeep, black") — with <b>no specific plate</b>. That's a materially broader query than "did this known plate pass by": it returns every vehicle matching a general description across all 21 cameras.</p>
+    <p style="font-size:13px;color:var(--ink-dim); margin-bottom:14px;">Network log: TCPD's own officers never used Flock's <code>Convoy</code>, <code>visual</code>, or <code>freeform</code> search types anywhere in this export — but outside agencies used <b>Convoy</b> (multi-vehicle, travel-pattern detection) <b>35,403 times</b> against Colony's own cameras, plus 996 combined <code>visual</code>/<code>freeform</code> (appearance-based, no-plate) searches. The platform's more advanced surveillance capabilities are used against The Colony's camera data by outside agencies far more than by the department itself.</p>
+    <table>
+      <tr><th>Search type (network log)</th><th>Count</th></tr>
+      <tr><td>lookup</td><td class="num">10,261,104</td></tr>
+      <tr><td>search</td><td class="num">3,181,444</td></tr>
+      <tr><td>lookup - Mobile</td><td class="num">3,080,305</td></tr>
+      <tr><td>search - Mobile</td><td class="num">572,389</td></tr>
+      <tr><td>convoy</td><td class="num">35,403</td></tr>
+      <tr><td>freeform / visual (combined)</td><td class="num">996</td></tr>
+      <tr><td>multiGeo</td><td class="num">263</td></tr>
+    </table>
+  </div>
 </section>
 </div>
 
@@ -576,6 +594,7 @@
       <tbody id="federalTableBody"></tbody>
     </table>
     <div class="insight"><b>The headline-sensitive question, answered directly</b>No entry in this export is tagged ICE or CBP. The two closest categories — US Border Patrol and Homeland Security Investigations — total 3,864 searches combined and are both explicitly marked <b>inactive</b> in the export itself, meaning that access was later revoked. The only agencies with meaningful <i>active</i> federal access are the Postal Inspection Service and the FBI — though see the Timeline tab for the unexplained July 2026 FBI spike.</div>
+    <div class="insight"><b>Not just a one-month spike</b>Federal search volume shows a distinct step change in <b>April 2025</b> — jumping roughly 10× almost overnight, from a few hundred searches/month to 4,000–5,000/month, and staying there through the rest of 2025 before the much larger July 2026 spike on top of it. That's nearly a year of sustained, elevated federal access that predates both the July 2026 spike and the January 2026 partner-agency collapse — worth asking about as its own event, separate from July.</div>
   </div>
 </section>
 </div>
