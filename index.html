@@ -59,6 +59,12 @@
     color:var(--ink-dim); padding:13px 13px; cursor:pointer; border-bottom:2.5px solid transparent; }
   nav.tabs button:hover{ color:var(--ink); }
   nav.tabs button.active{ color:var(--accent); border-bottom-color:var(--accent); }
+  .nav-group-label{ display:flex; align-items:center; white-space:nowrap; font-size:10.5px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; padding:0 10px; color:var(--ink-dim); }
+  .nav-group-label.inv1{ color:#8a5a1f; }
+  .nav-group-label.inv2{ color:#1f6b8a; }
+  .nav-divider{ width:1px; align-self:stretch; margin:8px 2px; background:var(--border); flex:0 0 auto; }
+  nav.tabs button.inv1tab.active{ border-bottom-color:#c07a2b; color:#8a5a1f; }
+  nav.tabs button.inv2tab.active{ border-bottom-color:#2b86ab; color:#1f6b8a; }
 
   .period-bar{ background:var(--accent-soft); border-bottom:1px solid var(--border); }
   .period-bar .wrap{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:10px 20px; }
@@ -176,11 +182,18 @@
     <button data-tab="overview" class="active">Overview</button>
     <button data-tab="background">Background</button>
     <button data-tab="timeline">Timeline &amp; Trends</button>
-    <button data-tab="justification">Justification</button>
-    <button data-tab="volume">Volume</button>
-    <button data-tab="risk">Repeated-Target &amp; Stalking Risk</button>
-    <button data-tab="offhours">Off-Hours</button>
-    <button data-tab="geo">Out-of-Network</button>
+    <div class="nav-divider"></div>
+    <div class="nav-group-label inv1">Investigation 1 &middot; TCPD's Own Use</div>
+    <button data-tab="justification-tcpd" class="inv1tab">Justification</button>
+    <button data-tab="volume-tcpd" class="inv1tab">Volume</button>
+    <button data-tab="risk" class="inv1tab">Repeated-Target &amp; Stalking Risk</button>
+    <button data-tab="offhours" class="inv1tab">Off-Hours</button>
+    <div class="nav-divider"></div>
+    <div class="nav-group-label inv2">Investigation 2 &middot; Outside Agency Access</div>
+    <button data-tab="justification-network" class="inv2tab">Justification</button>
+    <button data-tab="volume-network" class="inv2tab">Volume</button>
+    <button data-tab="geo" class="inv2tab">Geography &amp; Federal</button>
+    <div class="nav-divider"></div>
     <button data-tab="questions">Open Questions</button>
     <button data-tab="method">Methodology</button>
     <button data-tab="documents">Documents &amp; Policies</button>
@@ -211,7 +224,7 @@
     <div class="callout"><div class="num">4</div><div class="body"><b>The number of partner agencies with camera access collapsed 74% in Jan 2026</b><span>From an average ~3,400 distinct agencies/month in late 2025 to under 900/month since — while total search volume kept climbing. Access is now far more concentrated. Cause unconfirmed — ask directly.</span></div></div>
     <div class="callout"><div class="num">5</div><div class="body"><b>One month — July 2026 — saw 18,417 FBI searches alone</b><span>Dwarfing every other month (typically dozens to low hundreds). Federal agency access overall grew roughly 5× as a share of total traffic from 2024 to 2026.</span></div></div>
     <div class="callout"><div class="num">6</div><div class="body"><b>~40% of network searches came from &gt;500 miles away</b><span>The plainest, most quantifiable gap between the department's public "Texas / 500 miles" description and what the logs show.</span></div></div>
-    <div class="callout"><div class="num">7</div><div class="body"><b>Flock's reason-entry UI silently changed in Jan 2026</b><span>Freeform text reasons were replaced with mandatory category dropdowns, department-wide — worth confirming this is what happened, since it makes pre/post-2026 justification quality impossible to compare directly.</span></div></div>
+    <div class="callout"><div class="num">7</div><div class="body"><b>Flock's reason-entry UI switched to mandatory dropdowns in Jan 2026 &mdash; confirmed, and it's a real taxonomy, not a rubber stamp</b><span>Directly investigated: 48 real fixed categories for TCPD, ~1,715 (agency-configured) network-wide. Single-value concentration <i>fell</i> after the switch in both logs &mdash; the opposite of default-clicking. See the Justification tabs in each investigation.</span></div></div>
     <div class="callout"><div class="num">8</div><div class="body"><b>A 964-search hit on one plate</b><span>Almost certainly an automated hotlist alert tied to one active narcotics case, not manual searching — but scale alone makes it worth the department confirming that reading.</span></div></div>
     <div class="callout"><div class="num">9</div><div class="body"><b>Outside agencies use Flock's advanced search types far more than TCPD itself does</b><span>Colony's own officers never used <code>Convoy</code> (multi-vehicle pattern tracking), <code>visual</code>, or <code>freeform</code> (appearance-based, no-plate) search types in this export — but outside agencies ran <b>Convoy searches 35,403 times</b> against Colony's own cameras. See the Volume tab.</span></div></div>
   </div>
@@ -244,7 +257,7 @@
       </table>
     </div>
   </div>
-  <div class="insight"><b>Where to go next</b>Use the tabs above. <b>Background</b> covers how this project started and what's publicly known about the program outside the audit logs. <b>Timeline &amp; Trends</b> answers "how does 2024/2025/2026 compare." <b>Repeated-Target &amp; Stalking Risk</b> directly answers "is anyone following a plate that isn't tied to a real case." <b>Off-Hours</b> answers "are people accessing this at odd hours, and does it look different than daytime use." <b>Open Questions</b> is a running list of what this dataset can and can't answer, spelled out directly. <b>Documents &amp; Policies</b> links every primary source PDF this page draws from.</div>
+  <div class="insight"><b>Where to go next</b>Use the tabs above. <b>Background</b> covers how this project started and what's publicly known about the program outside the audit logs. <b>Timeline &amp; Trends</b> answers "how does 2024/2025/2026 compare." This is organized as two separate investigations: <b>Investigation 1</b> covers TCPD's own use of the system (justification quality, volume by officer, repeated-target risk, off-hours patterns). <b>Investigation 2</b> covers how outside agencies use TCPD's cameras (their justification quality, volume, geography, and federal access). <b>Open Questions</b> is a running list of what this dataset can and can't answer, spelled out directly. <b>Documents &amp; Policies</b> links every primary source PDF this page draws from.</div>
 </section>
 </div>
 
@@ -413,7 +426,7 @@
       <div id="chartNetReasonTimeline"></div>
     </div>
   </div>
-  <div class="insight"><b>What actually happened in January 2026</b>Starting that month, the <code>Reason</code> field stops containing freeform text almost entirely, in <i>both</i> logs simultaneously — reasons like <code>"Auto Theft / VCD Investigation - Auto Theft / VCD Investigation"</code> replace anything resembling "test", a bare case number, or a single letter. That's consistent with Flock switching the search UI to a mandatory category dropdown, not officers or agencies suddenly writing better narratives. It's arguably a good change — dropdowns are exactly the kind of guardrail that would have stopped East Tawakoni PD's single-letter pattern — but it means 2024/2025 justification-quality numbers can't be compared apples-to-apples against 2026. <b>Comparing only the two full freeform years:</b> Org-log vague+case-number rate fell from 39.2% (2024, Jan–Aug) to 26.2% (2025, Jan–Aug) even before the dropdown existed.</div>
+  <div class="insight"><b>What actually happened in January 2026 — now confirmed directly against the raw text</b>Starting that month, the <code>Reason</code> field stops containing freeform text almost entirely, in <i>both</i> logs simultaneously, replaced by a mandatory category dropdown (48 fixed categories for TCPD, ~1,715 agency-configured categories network-wide). This is a genuine taxonomy, not a rubber stamp: concentration in the single most-used category <i>fell</i> after the switch in both logs (Org 16.2%→10.3%, Network 7.2%→4.3%), and 41-63% of post-cutover rows still carry a free-text suffix with real detail. It's arguably a good change — dropdowns are exactly the kind of guardrail that would have stopped East Tawakoni PD's single-letter pattern — but it does mean 2024/2025 justification-quality numbers can't be compared apples-to-apples against 2026 using the same blank/vague heuristic. <b>Comparing only the two full freeform years:</b> Org-log vague+case-number rate fell from 39.2% (2024, Jan–Aug) to 26.2% (2025, Jan–Aug) even before the dropdown existed. Full category-level breakdown is in each investigation's Justification tab.</div>
 </section>
 
 <section id="timeline-offhours">
@@ -425,27 +438,22 @@
 </section>
 </div>
 
-<!-- ============ JUSTIFICATION ============ -->
-<div class="tab-panel" data-panel="justification" hidden>
-<section id="justification">
-  <div class="sec-head"><span class="sec-num">2</span><h2>Missing or vague justification</h2></div>
-  <p class="sec-intro">The <code>Reason</code> field was classified as blank, a bare case-number, a short generic term ("test", "check", single letters, "."), or substantive free text. This is a pattern heuristic, not a legal judgment — but it surfaces real outliers. (2024–2025 data; see Timeline tab for the Jan 2026 platform change that affects comparability going forward.)</p>
+<!-- ============ JUSTIFICATION — TCPD ============ -->
+<div class="tab-panel" data-panel="justification-tcpd" hidden>
+<section id="justification-tcpd">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Investigation 1 &middot; Missing or vague justification (TCPD's own searches)</h2></div>
+  <p class="sec-intro">Covers the Org log only — TCPD's own officers. The <code>Reason</code> field was classified as blank, a bare case-number, a short generic term ("test", "check", single letters, "."), or substantive free text, for the freeform-text period (2024 – Dec 2025). <b>The Jan 2026 platform change has now been directly investigated</b> — see the confirmed findings below rather than treating post-2026 data as simply unreadable.</p>
 
   <div class="panel">
-    <h3>Org log reason quality</h3>
+    <h3>Org log reason quality (2024 &ndash; Dec 2025, freeform text period)</h3>
     <div class="note"><span id="capOrgReasonTotal">24,333</span> searches</div>
     <div id="chartOrgReason"></div>
   </div>
-  <div class="panel">
-    <h3>Network log reason quality</h3>
-    <div class="note"><span id="capNetReasonTotal">17,135,439</span> searches</div>
-    <div id="chartNetReason"></div>
-  </div>
 
-  <div class="insight"><b>Standout — Org log</b><b>Officer-04</b>: 66% of their 1,131 searches flagged, almost entirely a literal "." across dozens of distinct plates, spanning over a year. Runner-up Officer-01 (85 flagged) is mostly explained by their separate case-number habit below, not true vagueness.</div>
+  <div class="insight"><b>Standout</b><b>Officer-04</b>: 66% of their 1,131 searches flagged, almost entirely a literal "." across dozens of distinct plates, spanning over a year. Runner-up Officer-01 (85 flagged) is mostly explained by their separate case-number habit below, not true vagueness.</div>
 
   <div class="panel">
-    <h3>Vague/blank reason rate by officer (Org log, top offenders)</h3>
+    <h3>Vague/blank reason rate by officer (top offenders)</h3>
     <div class="note">% of that officer's own total searches flagged as blank/vague/short</div>
     <div id="chartOfficerVague"></div>
   </div>
@@ -458,33 +466,92 @@
   </div>
 
   <div class="panel">
-    <h3>Vague-reason rate by requesting agency (Network log, worst offenders)</h3>
-    <div class="note">Two small-town Texas PDs stand out: reasons that are a single keystroke, not real text</div>
-    <div id="chartOrgVagueNet"></div>
-    <div class="insight"><b>Example row</b>East Tawakoni TX PD — <code>TheColonyTXPD_network_Apr_2024.csv</code>, row <code>1f6b4135-0b75-41ab-963a-751f162035ce</code>, entire stated reason: <code>"d"</code>.</div>
+    <h3>January 2026: the dropdown theory, tested directly against the raw text</h3>
+    <div class="note">Cutover month: <b>January 2026</b> &middot; pre-cutover 17,806 searches (1,485 distinct reason strings) &middot; post-cutover 6,527 searches (405 distinct strings)</div>
+    <p style="font-size:13.5px;color:var(--ink-dim);"><b>Confirmed: this is a real, closed category taxonomy, not a fig-leaf default.</b> Post-cutover text decomposes into <b>48 fixed primary categories</b> (top 30 cover 98.5% of volume) — real offense types like "traffic infraction," "hit and run/car accident," "wanted person (arrest warrant/fugitive)." Critically, <b>concentration in the single most-used category actually fell</b> after the change (16.2% &rarr; 10.3% for the top value) — the opposite of what pure default-clicking would produce. Average distinct values used per officer dropped from 21.1 to 9.6, which reflects a smaller fixed menu to choose from, not officers disengaging.</p>
+    <table>
+      <tr><th>Top post-cutover category</th><th>Count</th><th>% of post-cutover volume</th></tr>
+      <tr><td>traffic infraction</td><td class="num">675</td><td class="num">10.3%</td></tr>
+      <tr><td>hit and run/car accident</td><td class="num">572</td><td class="num">8.8%</td></tr>
+      <tr><td>larceny/theft offenses</td><td class="num">470</td><td class="num">7.2%</td></tr>
+      <tr><td>wanted person (arrest warrant/fugitive)</td><td class="num">438</td><td class="num">6.7%</td></tr>
+      <tr><td>motor vehicle theft/stolen</td><td class="num">413</td><td class="num">6.3%</td></tr>
+    </table>
+    <div class="insight good"><b>The one genuine finding worth flagging</b>41.2% of post-cutover rows still carry a free-text suffix appended after the category (e.g. "wanted person (arrest warrant/fugitive) &ndash; investigation") — 255 distinct suffixes seen, confirming it's real typed detail, not a second picklist. The narrative didn't disappear; it moved into a structured <code>category &ndash; detail</code> format. <b>9 of 104 officers</b> hit &ge;90% single-value usage post-cutover, but 8 of those 9 had 10 or fewer post-cutover searches total (small-sample noise) — the one officer with real volume, <b>Officer-104</b> (26 searches, 96.2% "drugs/narcotics &ndash; search warrant"), reads as a specialized role (warrant service), not disengagement. The alphabetically-first category ("alcohol offenses (non-dui)") does <b>not</b> match the most-used one — no evidence of literal first-item default-clicking.</div>
   </div>
 </section>
 </div>
 
-<!-- ============ VOLUME ============ -->
-<div class="tab-panel" data-panel="volume" hidden>
-<section id="volume">
-  <div class="sec-head"><span class="sec-num">3</span><h2>Volume outliers — top 10 by search count</h2></div>
-  <p class="sec-intro">Top 10 Org-log officers account for 53% of all 24,333 Colony searches despite being under 10% of the 104 officers who appear at all. Top 10 Network-log agencies account for 29% of all 17.1M network searches — Houston alone is nearly 1 in 10.</p>
+<!-- ============ JUSTIFICATION — NETWORK ============ -->
+<div class="tab-panel" data-panel="justification-network" hidden>
+<section id="justification-network">
+  <div class="sec-head"><span class="sec-num">2b</span><h2>Investigation 2 &middot; Missing or vague justification (outside agencies)</h2></div>
+  <p class="sec-intro">Covers the Network log only — the 5,363 outside agencies that have searched The Colony's cameras. Same classification method as the TCPD tab; freeform-text period is 2024 &ndash; Dec 2025.</p>
+
+  <div class="panel">
+    <h3>Network log reason quality (2024 &ndash; Dec 2025, freeform text period)</h3>
+    <div class="note"><span id="capNetReasonTotal">17,135,439</span> searches</div>
+    <div id="chartNetReason"></div>
+  </div>
+
+  <div class="panel">
+    <h3>Vague-reason rate by requesting agency (worst offenders)</h3>
+    <div class="note">Two small-town Texas PDs stand out: reasons that are a single keystroke, not real text</div>
+    <div id="chartOrgVagueNet"></div>
+    <div class="insight"><b>Example row</b>East Tawakoni TX PD — <code>TheColonyTXPD_network_Apr_2024.csv</code>, row <code>1f6b4135-0b75-41ab-963a-751f162035ce</code>, entire stated reason: <code>"d"</code>.</div>
+  </div>
+
+  <div class="panel">
+    <h3>January 2026: same platform change, network-wide &mdash; a messier picture, for a specific reason</h3>
+    <div class="note">Cutover month: <b>January 2026</b> &middot; pre-cutover 11,740,746 searches (363,908 distinct reason strings) &middot; post-cutover 5,394,693 searches (98,800 distinct strings)</div>
+    <p style="font-size:13.5px;color:var(--ink-dim);">The same dropdown taxonomy exists here — 1,715 primary categories, and the top 30 still cover 94.6% of volume — but that's a much larger, messier set than TCPD's 48, because each of the 5,363 agencies appears to configure its own category list rather than sharing one global one. As with the Org log, concentration in the single top value <b>fell</b> after the cutover (7.2% &rarr; 4.3%), and 63.0% of post-cutover rows still carry a free-text suffix. <b>Zero of the top 100 agencies by volume hit &ge;90% single-value usage.</b></p>
+    <table>
+      <tr><th>Top post-cutover category (network-wide)</th><th>Count</th><th>% of post-cutover volume</th></tr>
+      <tr><td>motor vehicle theft/stolen</td><td class="num">231,191</td><td class="num">4.3%</td></tr>
+      <tr><td>wanted person (arrest warrant/fugitive)</td><td class="num">217,600</td><td class="num">4.0%</td></tr>
+      <tr><td>drugs/narcotics</td><td class="num">199,291</td><td class="num">3.7%</td></tr>
+      <tr><td>auto theft / vcd investigation</td><td class="num">184,069</td><td class="num">3.4%</td></tr>
+      <tr><td>larceny/theft offenses</td><td class="num">128,091</td><td class="num">2.4%</td></tr>
+    </table>
+    <div class="insight"><b>The one real near-miss, department-by-department</b><b>Coweta County GA SO</b> sits at <b>88.4%</b> concentration on a single value post-cutover — "other &ndash; 37" — across 15,502 searches. That's a real outlier worth asking Coweta County about directly: a generic "other" catch-all used on nearly 9 in 10 of over 15,000 searches against Colony's cameras is a materially different pattern than the department-wide norm, even though it falls short of the &ge;90% flag threshold.</div>
+    <div class="insight good"><b>What shrank was raw vocabulary at the high end, not accountability</b>Houston TX PD's distinct reason-string count fell from 9,203 (pre-cutover) to 610 (post) and Dallas from 12,543 to 513 &mdash; a real narrowing of free-text variety for the very highest-volume agencies specifically, consistent with a genuine UI change rather than a policy of vagueness. This is the honest headline: the reason field got more structured, not more empty.</div>
+  </div>
+</section>
+</div>
+
+<!-- ============ VOLUME — TCPD ============ -->
+<div class="tab-panel" data-panel="volume-tcpd" hidden>
+<section id="volume-tcpd">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Investigation 1 &middot; Volume outliers (TCPD's own searches)</h2></div>
+  <p class="sec-intro">Top 10 Org-log officers account for 53% of all 24,333 Colony searches despite being under 10% of the 104 officers who appear at all.</p>
   <div class="panel">
     <h3>Top 10 officers (Org log)</h3>
     <div id="chartTopOfficers"></div>
   </div>
+
+  <div class="panel">
+    <h3>Beyond plate lookups &mdash; description-based searches</h3>
+    <div class="note">What kind of query is actually being run, not just how many</div>
+    <p style="font-size:13px;color:var(--ink-dim);">At least <b>790 of TCPD's 24,333 searches</b> (a floor &mdash; counted from the top 20 logged filter combinations; the true figure is likely higher given a long tail of one-off combinations not captured here) used a pure vehicle-description filter &mdash; make, color, or body style (e.g. "SUV, Toyota, white" or "Jeep, black") &mdash; with <b>no specific plate</b>. That's a materially broader query than "did this known plate pass by": it returns every vehicle matching a general description across all 21 cameras.</p>
+    <p style="font-size:13px;color:var(--ink-dim);">TCPD's own officers never used Flock's <code>Convoy</code>, <code>visual</code>, or <code>freeform</code> search types anywhere in this export &mdash; those more advanced capabilities are used only by outside agencies against Colony's cameras. See Investigation 2's Volume tab.</p>
+  </div>
+</section>
+</div>
+
+<!-- ============ VOLUME — NETWORK ============ -->
+<div class="tab-panel" data-panel="volume-network" hidden>
+<section id="volume-network">
+  <div class="sec-head"><span class="sec-num">3b</span><h2>Investigation 2 &middot; Volume outliers (outside agency access)</h2></div>
+  <p class="sec-intro">Top 10 Network-log agencies account for 29% of all 17.1M network searches &mdash; Houston alone is nearly 1 in 10.</p>
   <div class="panel">
     <h3>Top 10 requesting agencies (Network log)</h3>
     <div id="chartTopAgencies"></div>
   </div>
 
   <div class="panel">
-    <h3>Beyond plate lookups — description-based and group-vehicle searches</h3>
+    <h3>Group-vehicle and appearance-based searches &mdash; capabilities TCPD itself never uses</h3>
     <div class="note">What kind of query is actually being run, not just how many</div>
-    <p style="font-size:13px;color:var(--ink-dim);">Org log: at least <b>790 of TCPD's 24,333 searches</b> (a floor — counted from the top 20 logged filter combinations; the true figure is likely higher given a long tail of one-off combinations not captured here) used a pure vehicle-description filter — make, color, or body style (e.g. "SUV, Toyota, white" or "Jeep, black") — with <b>no specific plate</b>. That's a materially broader query than "did this known plate pass by": it returns every vehicle matching a general description across all 21 cameras.</p>
-    <p style="font-size:13px;color:var(--ink-dim); margin-bottom:14px;">Network log: TCPD's own officers never used Flock's <code>Convoy</code>, <code>visual</code>, or <code>freeform</code> search types anywhere in this export — but outside agencies used <b>Convoy</b> (multi-vehicle, travel-pattern detection) <b>35,403 times</b> against Colony's own cameras, plus 996 combined <code>visual</code>/<code>freeform</code> (appearance-based, no-plate) searches. The platform's more advanced surveillance capabilities are used against The Colony's camera data by outside agencies far more than by the department itself.</p>
+    <p style="font-size:13px;color:var(--ink-dim); margin-bottom:14px;">Outside agencies used <b>Convoy</b> (multi-vehicle, travel-pattern detection) <b>35,403 times</b> against Colony's own cameras, plus 996 combined <code>visual</code>/<code>freeform</code> (appearance-based, no-plate) searches. TCPD's own officers used none of these three search types anywhere in this export (see Investigation 1's Volume tab) &mdash; the platform's more advanced surveillance capabilities are used against The Colony's camera data by outside agencies far more than by the department itself.</p>
     <table>
       <tr><th>Search type (network log)</th><th>Count</th></tr>
       <tr><td>lookup</td><td class="num">10,261,104</td></tr>
@@ -502,7 +569,7 @@
 <!-- ============ RISK ============ -->
 <div class="tab-panel" data-panel="risk" hidden>
 <section id="repeated">
-  <div class="sec-head"><span class="sec-num">4</span><h2>Repeated-target pattern — is anyone doing this without a real case?</h2></div>
+  <div class="sec-head"><span class="sec-num">4</span><h2>Investigation 1 &middot; Repeated-target pattern — is anyone doing this without a real case?</h2></div>
   <p class="sec-intro">Only possible in the Org log, since it's the only place plates and officer names are both unredacted. Grouped every (officer, plate) pair and scored each one on: is it manual (<code>search</code>) vs. likely-automated (<code>lookup</code>); does it ever have a case number attached; how vague is the stated reason; how concentrated at odd hours; and how long a span it's spread across. That combination — manual, no case, vague, spread over weeks or months — is the signature described nationally as associated with personal/stalking misuse, as distinct from a legitimate high-volume investigation.</p>
 
   <div class="panel">
@@ -544,7 +611,7 @@
 <!-- ============ OFF-HOURS ============ -->
 <div class="tab-panel" data-panel="offhours" hidden>
 <section id="offhours">
-  <div class="sec-head"><span class="sec-num">5</span><h2>Off-hours / unusual timing</h2></div>
+  <div class="sec-head"><span class="sec-num">5</span><h2>Investigation 1 &middot; Off-hours / unusual timing</h2></div>
   <p class="sec-intro">Org-log timestamps converted from UTC to Central Time (DST-aware). Department baseline: <b><span id="capLateBaseline">7.9%</span></b> of searches fall 1–5am local, <b><span id="capWeekendBaseline">20.5%</span></b> fall on a weekend. Dashed line = department baseline in the charts below.</p>
   <div class="panel">
     <h3>Late-night search share by officer (1–5am local)</h3>
@@ -570,7 +637,7 @@
 <!-- ============ GEO ============ -->
 <div class="tab-panel" data-panel="geo" hidden>
 <section id="geo">
-  <div class="sec-head"><span class="sec-num">6</span><h2>Out-of-network / out-of-state access</h2></div>
+  <div class="sec-head"><span class="sec-num">4b</span><h2>Investigation 2 &middot; Geography &amp; federal access (outside agencies)</h2></div>
   <p class="sec-intro">The department has publicly described sharing as limited to Texas or roughly 500 miles. Checked by requesting agency's home-state distance from The Colony, TX (state-centroid straight-line distance, spot-corrected for large border-state agencies — see methodology), and separately by an explicit federal-agency tag search.</p>
 
   <div class="panel">
@@ -622,7 +689,7 @@
 
   <div class="qa">
     <div class="q"><span class="qmark">Q.</span> Has justification quality gotten better or worse over time?<span class="tag mixed">Can't fully say — the measuring stick changed</span></div>
-    <div class="a">Comparing only the two years where the Reason field was still freeform text: it improved (Org log 39.2% → 26.2% vague/case-number-only, 2024 vs. 2025, Jan–Aug). Starting January 2026, Flock's search UI appears to have switched to mandatory category dropdowns — in both logs simultaneously — which makes the field nearly impossible to leave vague, but also makes 2026 numbers incomparable to prior years. Worth asking the department directly whether/why this changed and whether the new categories still capture a real narrative.</div>
+    <div class="a"><b>Resolved by direct investigation:</b> the Reason field switched to mandatory category dropdowns in January 2026 in both logs — confirmed as a real 48-category (TCPD) / ~1,715-category (network-wide, agency-configured) taxonomy, not a rubber stamp; single-value concentration fell after the switch rather than spiking. Comparing only the two years where the field was still freeform text: it improved (Org log 39.2% → 26.2% vague/case-number-only, 2024 vs. 2025, Jan–Aug). See each investigation's Justification tab for the full breakdown.</div>
   </div>
 
   <div class="qa">
@@ -659,7 +726,7 @@
   <ul style="color:var(--ink-dim); font-size:13.5px; line-height:1.8;">
     <li>Vague/blank classification is a text-pattern heuristic (regex + fixed generic-term list), not a manual read of every row — see the Fort Worth PD caveat: its 15.7% flag rate is mostly terse-but-legible shorthand ("inv", "sus", radio codes), a lower-confidence flag than the Tawakoni single-character pattern.</li>
     <li>The repeated-target risk score (Risk tab) is a transparent composite — manual-search fraction × (reduced weight if any case number is ever attached) × reason-vagueness × a duration factor × an off-hours concentration factor — shown with its component parts in the table rather than as a black-box number, specifically so it can be second-guessed.</li>
-    <li>Starting January 2026, Flock's <code>Reason</code> field appears to switch from freeform text to mandatory category dropdowns in both logs simultaneously. This is inferred from the data (reason text changes shape abruptly and uniformly at that boundary) and should be confirmed with the department/vendor, not treated as certain. It makes 2026 reason-quality and distinct-partner-agency figures not directly comparable to 2024–2025.</li>
+    <li><b>Resolved:</b> Starting January 2026, Flock's <code>Reason</code> field switched from freeform text to mandatory category dropdowns in both logs simultaneously. Directly investigated against the raw reason strings: it's a genuine closed taxonomy (48 categories for TCPD, ~1,715 agency-configured network-wide), and single-value concentration fell rather than spiked after the switch — not evidence of rubber-stamping. It still means 2026 reason-quality figures aren't directly comparable to 2024–2025 using the same blank/vague heuristic; category-level analysis is used instead for 2026 onward.</li>
     <li>The August 2026 data point in every timeline chart is a <b>partial month</b> (through Aug 13 only, per the records request cutoff) and is shown dashed/lighter — don't read its lower totals as a real drop.</li>
     <li>Off-hours analysis has no duty-roster data to compare against; elevated late-night/weekend shares should not be read as evidence of misconduct on their own. The reason-quality-by-time-of-day cross-tab is a stronger, decomposed signal than raw timing alone — see Off-Hours tab.</li>
     <li>Out-of-state distance is computed from state population centroids with manual spot-corrections for large border-state agencies (e.g., Memphis/Shelby County TN reclassified from "outside" to "inside" the 500-mile line after checking actual city coordinates). It's a screening tool, not a survey-grade distance — agencies very near a state line may be misclassified individually even though the aggregate picture is robust.</li>
@@ -715,7 +782,7 @@
   // ---- tabs ----
   var tabBtns = document.querySelectorAll('nav.tabs button');
   var panels = document.querySelectorAll('.tab-panel');
-  var PERIOD_TABS = ['justification','volume','offhours','geo'];
+  var PERIOD_TABS = ['justification-tcpd','justification-network','volume-tcpd','volume-network','offhours','geo'];
   var periodBarEl = document.getElementById('periodBar');
   tabBtns.forEach(function(btn){
     btn.addEventListener('click', function(){
@@ -1153,7 +1220,7 @@
     // --- Justification: reason-quality donuts-as-bars ---
     clearEl('chartOrgReason');
     if(d.reasonSuppressed){
-      showMsg('chartOrgReason', 'Flock switched the Reason field to mandatory categories starting Jan 2026 — this blank/vague/case-number breakdown isn\'t meaningful for this period. See the Timeline tab for what changed.');
+      showMsg('chartOrgReason', 'Flock switched to mandatory category dropdowns starting Jan 2026 — this blank/vague/case-number breakdown does not apply to this period. See the category-taxonomy panel below on this tab for the confirmed 2026 breakdown.');
     } else {
       hbar('chartOrgReason', [
         {label:'Substantive text', value:d.orgReason.substantive, color:TEAL},
@@ -1164,7 +1231,7 @@
     }
     clearEl('chartNetReason');
     if(d.reasonSuppressed){
-      showMsg('chartNetReason', 'Flock switched the Reason field to mandatory categories starting Jan 2026 — this blank/vague/case-number breakdown isn\'t meaningful for this period. See the Timeline tab for what changed.');
+      showMsg('chartNetReason', 'Flock switched to mandatory category dropdowns starting Jan 2026 — this blank/vague/case-number breakdown does not apply to this period. See the category-taxonomy panel below on this tab for the confirmed 2026 breakdown.');
     } else {
       hbar('chartNetReason', [
         {label:'Substantive text', value:d.netReason.substantive, color:TEAL},
@@ -1194,7 +1261,7 @@
     }
     clearEl('chartOrgVagueNet');
     if(d.netVagueSuppressed){
-      showMsg('chartOrgVagueNet', 'Not meaningful for this period — reason field is now a mandatory category dropdown, so almost nothing qualifies as blank/vague. See the Timeline tab.');
+      showMsg('chartOrgVagueNet', 'Not meaningful for this period — reason field is now a mandatory category dropdown. See the category-taxonomy panel below on this tab for the confirmed 2026 breakdown.');
     } else {
       hbar('chartOrgVagueNet', d.netVagueWorst.map(function(r){return {label:r.org, value:r.rate, color: r.rate>=80?ACCENT:AMBER};}),
         {rowH:26, valueFmt: fmtPct, leftPad:230});
