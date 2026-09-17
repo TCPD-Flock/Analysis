@@ -59,12 +59,26 @@
     color:var(--ink-dim); padding:13px 13px; cursor:pointer; border-bottom:2.5px solid transparent; }
   nav.tabs button:hover{ color:var(--ink); }
   nav.tabs button.active{ color:var(--accent); border-bottom-color:var(--accent); }
-  .nav-group-label{ display:flex; align-items:center; white-space:nowrap; font-size:10.5px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; padding:0 10px; color:var(--ink-dim); }
-  .nav-group-label.inv1{ color:#8a5a1f; }
-  .nav-group-label.inv2{ color:#1f6b8a; }
-  .nav-divider{ width:1px; align-self:stretch; margin:8px 2px; background:var(--border); flex:0 0 auto; }
-  nav.tabs button.inv1tab.active{ border-bottom-color:#c07a2b; color:#8a5a1f; }
-  nav.tabs button.inv2tab.active{ border-bottom-color:#2b86ab; color:#1f6b8a; }
+  nav.tabs .wrap{ flex-wrap:wrap; overflow-x:visible; }
+  nav.tabs button.grouptab{ display:flex; flex-direction:column; align-items:flex-start; line-height:1.35; padding:10px 14px 8px; }
+  nav.tabs button.grouptab .grouptab-sub{ font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; opacity:.7; }
+  nav.tabs button.inv1tab.active, nav.tabs button.inv1tab.grouptab-active{ border-bottom-color:#c07a2b; color:#8a5a1f; }
+  nav.tabs button.inv2tab.active, nav.tabs button.inv2tab.grouptab-active{ border-bottom-color:#2b86ab; color:#1f6b8a; }
+  nav.subtabs{ position:sticky; top:42px; z-index:19; background:var(--panel); border-bottom:1px solid var(--border); }
+  nav.subtabs .wrap{ max-width:1080px; display:flex; align-items:center; gap:4px; overflow-x:auto; padding:6px 20px; scrollbar-width:thin; }
+  nav.subtabs.hidden{ display:none; }
+  nav.subtabs button{ font:inherit; font-size:12.5px; font-weight:600; white-space:nowrap; background:none; border:1px solid transparent; border-radius:7px;
+    padding:6px 11px; color:var(--ink-dim); cursor:pointer; }
+  nav.subtabs button:hover{ color:var(--ink); }
+  nav.subtabs.inv1 button.active{ background:#f6ead9; color:#8a5a1f; border-color:#e3c393; }
+  nav.subtabs.inv2 button.active{ background:#dcedf4; color:#1f6b8a; border-color:#a9d3e3; }
+  .subtabs-label{ font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.03em; margin-right:6px; white-space:nowrap; }
+  .subtabs-label.inv1{ color:#8a5a1f; }
+  .subtabs-label.inv2{ color:#1f6b8a; }
+  @media (prefers-color-scheme: dark){
+    nav.subtabs.inv1 button.active{ background:#3a2c14; color:#e0af5f; border-color:#5c4620; }
+    nav.subtabs.inv2 button.active{ background:#12313d; color:#7fc4de; border-color:#1f5468; }
+  }
 
   .period-bar{ background:var(--accent-soft); border-bottom:1px solid var(--border); }
   .period-bar .wrap{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:10px 20px; }
@@ -178,25 +192,32 @@
 </header>
 
 <nav class="tabs">
+  <div class="wrap primary-wrap">
+    <button data-group="overview" data-tab="overview" class="active">Overview</button>
+    <button data-group="background" data-tab="background">Background</button>
+    <button data-group="timeline" data-tab="timeline">Timeline &amp; Trends</button>
+    <button data-group="inv1" data-tab="justification-tcpd" class="grouptab inv1tab">Investigation 1 <span class="grouptab-sub">TCPD's Own Use</span></button>
+    <button data-group="inv2" data-tab="justification-network" class="grouptab inv2tab">Investigation 2 <span class="grouptab-sub">Outside Agency Access</span></button>
+    <button data-group="questions" data-tab="questions">Open Questions</button>
+    <button data-group="method" data-tab="method">Methodology</button>
+    <button data-group="documents" data-tab="documents">Documents &amp; Policies</button>
+  </div>
+</nav>
+<nav class="subtabs inv1 hidden" data-subnav="inv1">
   <div class="wrap">
-    <button data-tab="overview" class="active">Overview</button>
-    <button data-tab="background">Background</button>
-    <button data-tab="timeline">Timeline &amp; Trends</button>
-    <div class="nav-divider"></div>
-    <div class="nav-group-label inv1">Investigation 1 &middot; TCPD's Own Use</div>
-    <button data-tab="justification-tcpd" class="inv1tab">Justification</button>
+    <span class="subtabs-label inv1">Investigation 1 &middot; TCPD's Own Use:</span>
+    <button data-tab="justification-tcpd" class="inv1tab active">Justification</button>
     <button data-tab="volume-tcpd" class="inv1tab">Volume</button>
     <button data-tab="risk" class="inv1tab">Repeated-Target &amp; Stalking Risk</button>
     <button data-tab="offhours" class="inv1tab">Off-Hours</button>
-    <div class="nav-divider"></div>
-    <div class="nav-group-label inv2">Investigation 2 &middot; Outside Agency Access</div>
-    <button data-tab="justification-network" class="inv2tab">Justification</button>
+  </div>
+</nav>
+<nav class="subtabs inv2 hidden" data-subnav="inv2">
+  <div class="wrap">
+    <span class="subtabs-label inv2">Investigation 2 &middot; Outside Agency Access:</span>
+    <button data-tab="justification-network" class="inv2tab active">Justification</button>
     <button data-tab="volume-network" class="inv2tab">Volume</button>
     <button data-tab="geo" class="inv2tab">Geography &amp; Federal</button>
-    <div class="nav-divider"></div>
-    <button data-tab="questions">Open Questions</button>
-    <button data-tab="method">Methodology</button>
-    <button data-tab="documents">Documents &amp; Policies</button>
   </div>
 </nav>
 
@@ -779,20 +800,60 @@
 (function(){
   "use strict";
 
-  // ---- tabs ----
-  var tabBtns = document.querySelectorAll('nav.tabs button');
+  // ---- tabs (two-tier: primary sections + investigation sub-tabs) ----
+  var primaryBtns = document.querySelectorAll('nav.tabs button');
+  var subBtns = document.querySelectorAll('nav.subtabs button');
   var panels = document.querySelectorAll('.tab-panel');
+  var subnavInv1 = document.querySelector('nav.subtabs.inv1');
+  var subnavInv2 = document.querySelector('nav.subtabs.inv2');
   var PERIOD_TABS = ['justification-tcpd','justification-network','volume-tcpd','volume-network','offhours','geo'];
   var periodBarEl = document.getElementById('periodBar');
-  tabBtns.forEach(function(btn){
+  var PANEL_GROUP = {
+    'overview':'overview','background':'background','timeline':'timeline',
+    'justification-tcpd':'inv1','volume-tcpd':'inv1','risk':'inv1','offhours':'inv1',
+    'justification-network':'inv2','volume-network':'inv2','geo':'inv2',
+    'questions':'questions','method':'method','documents':'documents'
+  };
+  var lastPanelForGroup = {inv1:'justification-tcpd', inv2:'justification-network'};
+
+  function showPanel(target){
+    var group = PANEL_GROUP[target] || target;
+    if(group === 'inv1' || group === 'inv2'){ lastPanelForGroup[group] = target; }
+
+    panels.forEach(function(p){ p.hidden = (p.getAttribute('data-panel') !== target); });
+    periodBarEl.hidden = PERIOD_TABS.indexOf(target) === -1;
+
+    primaryBtns.forEach(function(b){
+      var isOwner = b.getAttribute('data-group') === group;
+      b.classList.toggle('active', isOwner && !b.classList.contains('grouptab'));
+      b.classList.toggle('grouptab-active', isOwner && b.classList.contains('grouptab'));
+    });
+
+    if(subnavInv1) subnavInv1.classList.toggle('hidden', group !== 'inv1');
+    if(subnavInv2) subnavInv2.classList.toggle('hidden', group !== 'inv2');
+    subBtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-tab') === target); });
+
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+
+  primaryBtns.forEach(function(btn){
     btn.addEventListener('click', function(){
-      var target = btn.getAttribute('data-tab');
-      tabBtns.forEach(function(b){ b.classList.toggle('active', b===btn); });
-      panels.forEach(function(p){ p.hidden = (p.getAttribute('data-panel') !== target); });
-      periodBarEl.hidden = PERIOD_TABS.indexOf(target) === -1;
-      window.scrollTo({top:0, behavior:'instant'});
+      var group = btn.getAttribute('data-group');
+      var target = (group === 'inv1' || group === 'inv2') ? lastPanelForGroup[group] : btn.getAttribute('data-tab');
+      showPanel(target);
     });
   });
+  subBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){ showPanel(btn.getAttribute('data-tab')); });
+  });
+
+  // keep the sub-nav bar pinned directly under the primary nav, whatever height it wraps to
+  function positionSubnav(){
+    var h = document.querySelector('nav.tabs').offsetHeight;
+    [subnavInv1, subnavInv2].forEach(function(el){ if(el) el.style.top = h + 'px'; });
+  }
+  positionSubnav();
+  window.addEventListener('resize', positionSubnav);
 
   function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
   function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
