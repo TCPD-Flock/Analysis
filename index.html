@@ -244,7 +244,7 @@
     <div class="callout"><div class="num">3</div><div class="body"><b>Odd-hour searches are 3.4× more likely to have no real reason</b><span>11.2% of 1–5am searches carry a blank/vague reason vs. 3.3% of daytime searches — a real, decomposed statistical signal, not just "officers work nights."</span></div></div>
     <div class="callout"><div class="num">4</div><div class="body"><b>The number of partner agencies with camera access collapsed 74% in Jan 2026</b><span>From an average ~3,400 distinct agencies/month in late 2025 to under 900/month since — while total search volume kept climbing. Access is now far more concentrated. Cause unconfirmed — ask directly.</span></div></div>
     <div class="callout"><div class="num">5</div><div class="body"><b>One month — July 2026 — saw 18,417 FBI searches alone</b><span>Dwarfing every other month (typically dozens to low hundreds). Federal agency access overall grew roughly 5× as a share of total traffic from 2024 to 2026.</span></div></div>
-    <div class="callout"><div class="num">6</div><div class="body"><b>~40% of network searches came from &gt;500 miles away</b><span>The plainest, most quantifiable gap between the department's public "Texas / 500 miles" description and what the logs show.</span></div></div>
+    <div class="callout"><div class="num">6</div><div class="body"><b>40.5% of network searches came from &gt;500 miles away for 31 straight months &mdash; until the month the Chief told Council it doesn't happen</b><span>Every single month from Jan 2024 through Jul 2026 ran 24&ndash;71% out-of-radius. That fell to 0.34% starting the same month as the August 2026 Council presentation. See the Out-of-Network tab.</span></div></div>
     <div class="callout"><div class="num">7</div><div class="body"><b>Flock's reason-entry UI switched to mandatory dropdowns in Jan 2026 &mdash; confirmed, and it's a real taxonomy, not a rubber stamp</b><span>Directly investigated: 48 real fixed categories for TCPD, ~1,715 (agency-configured) network-wide. Single-value concentration <i>fell</i> after the switch in both logs &mdash; the opposite of default-clicking. See the Justification tabs in each investigation.</span></div></div>
     <div class="callout"><div class="num">8</div><div class="body"><b>A 964-search hit on one plate</b><span>Almost certainly an automated hotlist alert tied to one active narcotics case, not manual searching — but scale alone makes it worth the department confirming that reading.</span></div></div>
     <div class="callout"><div class="num">9</div><div class="body"><b>Outside agencies use Flock's advanced search types far more than TCPD itself does</b><span>Colony's own officers never used <code>Convoy</code> (multi-vehicle pattern tracking), <code>visual</code>, or <code>freeform</code> (appearance-based, no-plate) search types in this export — but outside agencies ran <b>Convoy searches 35,403 times</b> against Colony's own cameras. See the Volume tab.</span></div></div>
@@ -351,7 +351,7 @@
     </div>
     <div class="panel">
       <h3>Data sharing</h3>
-      <p style="font-size:13px;color:var(--ink-dim);">Described as limited to agencies in Texas or within 500 miles, each external request requiring individual written approval. <b>The audit data directly contradicts the scope of this claim</b> — see the Out-of-Network tab: ~40% of all network searches came from beyond 500 miles.</p>
+      <p style="font-size:13px;color:var(--ink-dim);">Described as limited to agencies in Texas or within 500 miles, each external request requiring individual written approval. <b>The audit data directly contradicts the scope of this claim for the 31 months preceding it</b> — see the Out-of-Network tab: 40.5% of network searches from Jan 2024&ndash;Jul 2026 came from beyond 500 miles, falling to 0.34% only in the partial month this statement was made.</p>
     </div>
     <div class="panel">
       <h3>Accountability</h3>
@@ -364,7 +364,7 @@
   <div class="sec-head"><span class="sec-num">B6</span><h2>Open questions</h2></div>
   <div class="panel">
     <ul style="margin:0; padding-left:18px; font-size:13.5px; line-height:2;">
-      <li><b>Now answered by the data:</b> whether sharing is really limited to Texas/500 miles — see the Out-of-Network tab. It is not, at least not as a hard technical limit; ~40% of network searches originate beyond that radius.</li>
+      <li><b>Now answered by the data:</b> whether sharing is really limited to Texas/500 miles — see the Out-of-Network tab. It was not, at least not as a hard technical limit, for the 31 months before the claim was made: 40.5% of network searches (Jan 2024–Jul 2026) originated beyond that radius, every single month. That dropped to 0.34% starting the same month the claim was made to Council.</li>
       <li><b>Still open:</b> whether TCPD has had any confirmed internal misuse incidents. The Risk tab shows a data pattern consistent with the nationally-documented misuse signature, concentrated in a small number of officers — but the audit log alone can't establish intent. That requires the department's own explanation of the flagged rows.</li>
       <li><b>Still open:</b> the true net cost of the ALPR program, given the 2026 agreement's pro-rata credit against prior contracts.</li>
       <li><b>Still open:</b> why the City's own PO system shows only one PO for Flock despite multiple signed contracts.</li>
@@ -673,6 +673,21 @@
   </div>
 
   <div class="insight"><b>Headline number</b>An estimated <b>6.87 million of 17.14 million network searches (~40%)</b> came from agencies whose home city sits more than ~500 miles from The Colony, TX — Georgia (1.03M) and Florida (1.00M) alone each out-search every in-radius state except Texas. Of 5,363 total partner agencies, roughly <b>75% are outside the 500-mile band</b>, even though the highest-<i>volume</i> agencies happen to be in-state. See the Timeline tab for how this has moved over time.</div>
+
+  <div class="panel">
+    <h3>Before vs. after the Council presentation</h3>
+    <p class="sec-intro" style="margin-top:0;">Chief Foxall told Council in the <b>August 2026</b> work session that outside-agency access is limited to Texas or roughly 500 miles (see Background &rarr; The department's public position). The month-by-month data lets that claim be checked directly, not just as a current snapshot but as a before/after.</p>
+    <table>
+      <tr><th>Period</th><th>Network searches</th><th>From &gt;500 mi</th><th>Share out-of-radius</th></tr>
+      <tbody>
+        <tr><td><b>Jan 2024 &ndash; Jul 2026</b><br><span style="color:var(--ink-dim);font-size:12px;">31 consecutive months, before the presentation</span></td><td>16,958,545</td><td>6,867,991</td><td><b>40.5%</b></td></tr>
+        <tr><td><b>Aug 1&ndash;13, 2026</b><br><span style="color:var(--ink-dim);font-size:12px;">partial month, through the records-request cutoff</span></td><td>176,894</td><td>593</td><td><b>0.34%</b></td></tr>
+      </tbody>
+    </table>
+    <div class="note">Every one of the 31 months before August 2026 falls between 24.4% and 70.7% out-of-radius &mdash; there is no month in the entire pre-August record anywhere close to the &lt;1% share seen once the claim was made on the record. See the monthly chart in Timeline &amp; Trends for the full series.</div>
+    <div class="insight"><b>Concerning reading</b>Out-of-radius access wasn't an occasional exception to a 500-mile rule &mdash; it was the routine condition of the network log for two and a half straight years, at a scale (40% of all outside-agency searches, every single month) that is hard to square with "was never going to happen." The near-total stop lines up with the same month the policy was stated publicly to Council, which raises the question of whether the limit was enforced <i>because</i> of that scrutiny rather than having been a standing technical control all along.</div>
+    <div class="insight"><b>Innocent reading</b>The 500-mile description may always have referred to a policy or contractual expectation rather than a hard technical block in the Flock platform, and August 2026 may simply be when TCPD configured or requested that technical enforcement, prompted by the Council presentation itself and the resident concerns that led to it &mdash; i.e., the system is now working as it was always <i>meant</i> to, even if it wasn't previously built that way. The partial-month data (13 days) is also a smaller sample than any other point on this table, though the gap here is too large for that alone to explain it.</div>
+  </div>
 
   <div class="panel">
     <h3>Federal agencies (explicitly tagged <code>[Federal]</code> in the export)</h3>
