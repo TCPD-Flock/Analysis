@@ -62,6 +62,9 @@
   nav.tabs .wrap{ flex-wrap:wrap; overflow-x:visible; }
   nav.tabs button.grouptab{ display:flex; flex-direction:column; align-items:flex-start; line-height:1.35; padding:10px 14px 8px; }
   nav.tabs button.grouptab .grouptab-sub{ font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; opacity:.7; }
+  nav.tabs a.entities-navlink{ font:inherit; font-size:13px; font-weight:700; white-space:nowrap; color:var(--accent);
+    padding:13px 13px; text-decoration:none; margin-left:auto; }
+  nav.tabs a.entities-navlink:hover{ text-decoration:underline; }
   nav.tabs button.inv1tab.active, nav.tabs button.inv1tab.grouptab-active{ border-bottom-color:#c07a2b; color:#8a5a1f; }
   nav.tabs button.inv2tab.active, nav.tabs button.inv2tab.grouptab-active{ border-bottom-color:#2b86ab; color:#1f6b8a; }
   nav.subtabs{ position:sticky; top:42px; z-index:19; background:var(--panel); border-bottom:1px solid var(--border); }
@@ -201,6 +204,7 @@
     <button data-group="questions" data-tab="questions">Open Questions</button>
     <button data-group="method" data-tab="method">Methodology</button>
     <button data-group="documents" data-tab="documents">Documents &amp; Policies</button>
+    <a href="entities.html" class="entities-navlink">Agency Explorer &rarr;</a>
   </div>
 </nav>
 <nav class="subtabs inv1 hidden" data-subnav="inv1">
