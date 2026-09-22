@@ -112,6 +112,12 @@
   .insight b{ display:block; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--accent); margin-bottom:3px; }
   .insight.good{ border-left-color:var(--teal); background:color-mix(in srgb, var(--teal) 14%, var(--panel)); }
   .insight.good b{ color:var(--teal); }
+  .quote-block{ border-left:3px solid var(--ink-dim); background:var(--grid); border-radius:0 10px 10px 0; padding:14px 18px; margin:12px 0; }
+  .quote-block p{ margin:0; font-size:14.5px; font-style:italic; line-height:1.6; }
+  .quote-block .src{ display:block; margin-top:8px; font-size:11.5px; font-style:normal; color:var(--ink-dim); }
+  .quote-block .src a{ color:var(--ink-dim); }
+  .quote-block.contradicted{ border-left-color:var(--accent); }
+  .quote-block.confirmed{ border-left-color:var(--teal); }
   .callout-list{ display:grid; gap:10px; }
   .callout{ display:flex; gap:12px; background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); }
   .callout .num{ flex:0 0 auto; width:26px; height:26px; border-radius:50%; background:var(--accent); color:var(--accent-ink); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; }
@@ -133,12 +139,15 @@
   .badge{ display:inline-block; font-size:10.5px; font-weight:700; padding:2px 7px; border-radius:999px; letter-spacing:.02em; }
   .badge.active{ background:#dff1e8; color:#1f7a53; }
   .badge.inactive{ background:#f1e2e2; color:#a03d3d; }
+  .badge.neutral{ background:#ececec; color:#5b6067; }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]) .badge.active{ background:#173427; color:#6fd6a6; }
     :root:not([data-theme="light"]) .badge.inactive{ background:#3a2422; color:#e79b9b; }
+    :root:not([data-theme="light"]) .badge.neutral{ background:#2c2f34; color:#9aa0a8; }
   }
   :root[data-theme="dark"] .badge.active{ background:#173427; color:#6fd6a6; }
   :root[data-theme="dark"] .badge.inactive{ background:#3a2422; color:#e79b9b; }
+  :root[data-theme="dark"] .badge.neutral{ background:#2c2f34; color:#9aa0a8; }
 
   code{ background:var(--grid); padding:1px 6px; border-radius:5px; font-size:12px; }
   .cite{ font-size:12px; color:var(--ink-dim); }
@@ -248,7 +257,7 @@
     <div class="callout"><div class="num">3</div><div class="body"><b>Odd-hour searches are 3.4× more likely to have no real reason</b><span>11.2% of 1–5am searches carry a blank/vague reason vs. 3.3% of daytime searches — a real, decomposed statistical signal, not just "officers work nights."</span></div></div>
     <div class="callout"><div class="num">4</div><div class="body"><b>The number of partner agencies with camera access collapsed 74% in Jan 2026</b><span>From an average ~3,400 distinct agencies/month in late 2025 to under 900/month since — while total search volume kept climbing. Access is now far more concentrated. Cause unconfirmed — ask directly.</span></div></div>
     <div class="callout"><div class="num">5</div><div class="body"><b>One month — July 2026 — saw 18,417 FBI searches alone</b><span>Dwarfing every other month (typically dozens to low hundreds). Federal agency access overall grew roughly 5× as a share of total traffic from 2024 to 2026.</span></div></div>
-    <div class="callout"><div class="num">6</div><div class="body"><b>40.5% of network searches came from &gt;500 miles away for 31 straight months &mdash; until the month the Chief told Council it doesn't happen</b><span>Every single month from Jan 2024 through Jul 2026 ran 24&ndash;71% out-of-radius. That fell to 0.34% starting the same month as the August 2026 Council presentation. See the Out-of-Network tab.</span></div></div>
+    <div class="callout"><div class="num">6</div><div class="body"><b>40.5% of network searches came from &gt;500 miles away for 31 straight months &mdash; directly contradicting what the Chief told Council on the record</b><span>Chief Foxall, Aug 2026 work session: <i>&ldquo;Every agency in here is one of two things, either inside the state of Texas or within a 500 mile radius of the colony&hellip; that is, again, set by us. We get to pick who we share our data with.&rdquo;</i> Every single month from Jan 2024 through Jul 2026 actually ran 24&ndash;71% out-of-radius &mdash; that fell to 0.34% starting the same month as this statement. See the Out-of-Network tab and Background &rarr; Direct quotes.</span></div></div>
     <div class="callout"><div class="num">7</div><div class="body"><b>Flock's reason-entry UI switched to mandatory dropdowns in Jan 2026 &mdash; confirmed, and it's a real taxonomy, not a rubber stamp</b><span>Directly investigated: 48 real fixed categories for TCPD, ~1,715 (agency-configured) network-wide. Single-value concentration <i>fell</i> after the switch in both logs &mdash; the opposite of default-clicking. See the Justification tabs in each investigation.</span></div></div>
     <div class="callout"><div class="num">8</div><div class="body"><b>A 964-search hit on one plate</b><span>Almost certainly an automated hotlist alert tied to one active narcotics case, not manual searching — but scale alone makes it worth the department confirming that reading.</span></div></div>
     <div class="callout"><div class="num">9</div><div class="body"><b>Outside agencies use Flock's advanced search types far more than TCPD itself does</b><span>Colony's own officers never used <code>Convoy</code> (multi-vehicle pattern tracking), <code>visual</code>, or <code>freeform</code> (appearance-based, no-plate) search types in this export — but outside agencies ran <b>Convoy searches 35,403 times</b> against Colony's own cameras. See the Volume tab.</span></div></div>
@@ -367,12 +376,49 @@
     </div>
     <div class="panel">
       <h3>Data sharing</h3>
-      <p style="font-size:13px;color:var(--ink-dim);">Described as limited to agencies in Texas or within 500 miles, each external request requiring individual written approval. <b>The audit data directly contradicts the scope of this claim for the 31 months preceding it</b> — see the Out-of-Network tab: 40.5% of network searches from Jan 2024&ndash;Jul 2026 came from beyond 500 miles, falling to 0.34% only in the partial month this statement was made.</p>
+      <p style="font-size:13px;color:var(--ink-dim);">Speaking on the record to Council, the Chief said outside-agency access is limited to Texas or within 500 miles, and that this is a limit the department itself controls (exact quote and video timestamp below). <b>The audit data directly contradicts the scope of this claim for the 31 months preceding it</b> — see the Out-of-Network tab: 40.5% of network searches from Jan 2024&ndash;Jul 2026 came from beyond 500 miles, falling to 0.34% only in the partial month this statement was made.</p>
     </div>
     <div class="panel">
       <h3>Accountability</h3>
-      <p style="font-size:13px;color:var(--ink-dim);">Acknowledged officer misuse happens nationally (mostly tracking partners/exes); stated a monthly audit is conducted by the Assistant Chief. Did not state whether TCPD itself has had confirmed misuse incidents — see the Risk tab for what the data shows on this specific point.</p>
+      <p style="font-size:13px;color:var(--ink-dim);">Acknowledged officer misuse happens nationally (mostly tracking partners/exes); said on the record that the Assistant Chief actively audits the system at least monthly, specifically looking for out-of-place activity (exact quote below). Did not state whether TCPD itself has had confirmed misuse incidents — see the Risk tab for what the data shows on this specific point, including the 28-pair/10-officer pattern this audit would need to have reviewed.</p>
     </div>
+  </div>
+</section>
+
+<section id="bg-quotes">
+  <div class="sec-head"><span class="sec-num">B5b</span><h2>Direct quotes, for the record</h2></div>
+  <p class="sec-intro">Transcribed directly from the video of the August 2026 Council work session (timestamps below). Quoted here in full so nothing is taken out of context &mdash; judge the framing yourself against the audit-log findings elsewhere on this page.</p>
+
+  <div class="panel">
+    <h3>On data-sharing scope <span class="badge inactive" style="font-size:10px;">Contradicted by the audit log</span></h3>
+    <div class="quote-block contradicted">
+      <p>&ldquo;Who we share our data with, every agency that has access to our data is right here. You can scroll through it and see who has our data. Every agency in here is one of two things, either inside the state of Texas or within a 500 mile radius of the colony. And that is, again, set by us. We get to pick who we share our data with.&rdquo;</p>
+      <span class="src">Chief Foxall, Council work session, Aug 2026 &middot; timestamp 16:07&ndash;16:31 &middot; <a href="https://thecolony.granicus.com/MediaPlayer.php?view_id=3&clip_id=1546" target="_blank" rel="noopener">video</a></span>
+    </div>
+    <p style="font-size:13px;color:var(--ink-dim);margin:10px 0 0;"><b>What the data shows:</b> for the 31 months preceding this statement (Jan 2024&ndash;Jul 2026), an average of 40.5% of network searches every single month came from agencies farther than 500 miles &mdash; California, Georgia, Florida, and federal agencies including the FBI and U.S. Postal Inspection Service among them. That fell to 0.34% starting the same month this statement was made. See the Out-of-Network tab for the month-by-month breakdown.</p>
+    <div class="quote-block" style="margin-top:14px;">
+      <p>&ldquo;The side door was if I have access to it from my city, you don't have access to it from your city, you come over and ask me for it. Our policy addresses that. It has to be in writing for another city to get that from us.&rdquo;</p>
+      <span class="src">Chief Foxall, same session &middot; timestamp 1:04:31&ndash;1:04:45 &middot; <a href="https://thecolony.granicus.com/MediaPlayer.php?view_id=3&clip_id=1546" target="_blank" rel="noopener">video</a></span>
+    </div>
+    <p style="font-size:13px;color:var(--ink-dim);margin:10px 0 0;">A separate, narrower claim (about one city informally viewing another's data via a person with access, not the sharing radius itself) &mdash; included here for completeness since it's part of the same exchange on data-sharing controls.</p>
+  </div>
+
+  <div class="panel">
+    <h3>On internal auditing <span class="badge neutral" style="font-size:10px;">Untested by this data</span></h3>
+    <div class="quote-block">
+      <p>&ldquo;Again, every search is logged. We have an audit process in place. So at least every month by policy, our assistant chief that's over our operations bureau conducts an audit. And so we're actively looking for anything that's out of place that the system was abused. So we're not just passively hoping that something is not happening, we're actively auditing that system. And again, any policy violations will be thoroughly investigated and people held accountable.&rdquo;</p>
+      <span class="src">Chief Foxall, same session &middot; timestamp 41:33&ndash;42:11 &middot; <a href="https://thecolony.granicus.com/MediaPlayer.php?view_id=3&clip_id=1546" target="_blank" rel="noopener">video</a></span>
+    </div>
+    <p style="font-size:13px;color:var(--ink-dim);margin:10px 0 0;"><b>What the data shows:</b> not a contradiction &mdash; this claim can't be checked from the audit log alone, only from the audit process's own records. But it's a directly testable one: does that monthly review's paper trail cover the 28 officer/plate pairs (10 officers) flagged on the Risk tab, and Officer-04's pattern of a blank or meaningless reason on 66% of searches for over a year? Worth asking for the audit's own records at the Sep 28 meeting.</p>
+  </div>
+
+  <div class="panel">
+    <h3>On federal / immigration access <span class="badge active" style="font-size:10px;">Confirmed by the audit log</span></h3>
+    <div class="quote-block confirmed">
+      <p>&ldquo;So we do not share our data with United States immigration, but other departments were.&rdquo;</p>
+      <span class="src">Chief Foxall, same session, discussing a separate national Flock/ICE story &middot; timestamp 1:04:12&ndash;1:04:18 &middot; <a href="https://thecolony.granicus.com/MediaPlayer.php?view_id=3&clip_id=1546" target="_blank" rel="noopener">video</a></span>
+    </div>
+    <p style="font-size:13px;color:var(--ink-dim);margin:10px 0 0;"><b>What the data shows:</b> consistent with this claim &mdash; zero active ICE or CBP entries were found in Colony's network log. Included here as a claim the data backs up, not just ones it contradicts.</p>
   </div>
 </section>
 
@@ -380,7 +426,7 @@
   <div class="sec-head"><span class="sec-num">B6</span><h2>Open questions</h2></div>
   <div class="panel">
     <ul style="margin:0; padding-left:18px; font-size:13.5px; line-height:2;">
-      <li><b>Now answered by the data:</b> whether sharing is really limited to Texas/500 miles — see the Out-of-Network tab. It was not, at least not as a hard technical limit, for the 31 months before the claim was made: 40.5% of network searches (Jan 2024–Jul 2026) originated beyond that radius, every single month. That dropped to 0.34% starting the same month the claim was made to Council.</li>
+      <li><b>Now answered by the data:</b> whether sharing is really limited to Texas/500 miles, as the Chief stated on the record ("every agency in here is one of two things, either inside the state of Texas or within a 500 mile radius&hellip; that is, again, set by us" — see Background &rarr; Direct quotes). It was not, at least not as a hard technical limit, for the 31 months before the claim was made: 40.5% of network searches (Jan 2024–Jul 2026) originated beyond that radius, every single month. That dropped to 0.34% starting the same month the claim was made to Council.</li>
       <li><b>Still open:</b> whether TCPD has had any confirmed internal misuse incidents. The Risk tab shows a data pattern consistent with the nationally-documented misuse signature, spanning 10 of the department's officers (4 of them account for most of the 28 flagged pairs) — but the audit log alone can't establish intent. That requires the department's own explanation of the flagged rows.</li>
       <li><b>Still open:</b> the true net cost of the ALPR program, given the 2026 agreement's pro-rata credit against prior contracts.</li>
       <li><b>Still open:</b> why the City's own PO system shows only one PO for Flock despite multiple signed contracts.</li>
@@ -705,7 +751,11 @@
 
   <div class="panel">
     <h3>Before vs. after the Council presentation</h3>
-    <p class="sec-intro" style="margin-top:0;">Chief Foxall told Council in the <b>August 2026</b> work session that outside-agency access is limited to Texas or roughly 500 miles (see Background &rarr; The department's public position). The month-by-month data lets that claim be checked directly, not just as a current snapshot but as a before/after.</p>
+    <div class="quote-block contradicted" style="margin-top:0;">
+      <p>&ldquo;Every agency in here is one of two things, either inside the state of Texas or within a 500 mile radius of the colony. And that is, again, set by us. We get to pick who we share our data with.&rdquo;</p>
+      <span class="src">Chief Foxall, Council work session, Aug 2026 &middot; timestamp 16:07&ndash;16:31 &middot; <a href="https://thecolony.granicus.com/MediaPlayer.php?view_id=3&clip_id=1546" target="_blank" rel="noopener">video</a> &middot; more quotes in Background &rarr; Direct quotes, for the record</span>
+    </div>
+    <p class="sec-intro" style="margin-top:0;">The month-by-month data lets that claim be checked directly, not just as a current snapshot but as a before/after.</p>
     <table>
       <tr><th>Period</th><th>Network searches</th><th>From &gt;500 mi</th><th>Share out-of-radius</th></tr>
       <tbody>
@@ -725,7 +775,7 @@
       <tr><th>Agency</th><th>Searches</th><th>Status</th></tr>
       <tbody id="federalTableBody"></tbody>
     </table>
-    <div class="insight"><b>The headline-sensitive question, answered directly</b>No entry in this export is tagged ICE or CBP. The two closest categories — US Border Patrol and Homeland Security Investigations — total 3,864 searches combined and are both explicitly marked <b>inactive</b> in the export itself, meaning that access was later revoked. The only agencies with meaningful <i>active</i> federal access are the Postal Inspection Service and the FBI — though see the Timeline tab for the unexplained July 2026 FBI spike.</div>
+    <div class="insight good"><b>The headline-sensitive question, answered directly</b>No entry in this export is tagged ICE or CBP. The two closest categories — US Border Patrol and Homeland Security Investigations — total 3,864 searches combined and are both explicitly marked <b>inactive</b> in the export itself, meaning that access was later revoked. The only agencies with meaningful <i>active</i> federal access are the Postal Inspection Service and the FBI — though see the Timeline tab for the unexplained July 2026 FBI spike. This is one place the Chief's on-the-record statement ("we do not share our data with United States immigration") matches what the log shows — see Background &rarr; Direct quotes, for the record.</div>
     <div class="insight"><b>Not just a one-month spike</b>Federal search volume shows a distinct step change in <b>April 2025</b> — jumping roughly 10× almost overnight, from a few hundred searches/month to 4,000–5,000/month, and staying there through the rest of 2025 before the much larger July 2026 spike on top of it. That's nearly a year of sustained, elevated federal access that predates both the July 2026 spike and the January 2026 partner-agency collapse — worth asking about as its own event, separate from July.</div>
   </div>
 </section>
