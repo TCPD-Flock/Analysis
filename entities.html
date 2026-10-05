@@ -53,11 +53,13 @@
   .badge.in_texas{ background:#dcedf4; color:#1f6b8a; }
   .badge.under_500{ background:#e6ecd9; color:#4c6b1f; }
   .badge.over_500{ background:#f6e4e3; color:#a0332f; }
+  .badge.federal{ background:#ece3f4; color:#5b3a86; }
   .badge.unknown{ background:#eee; color:#777; }
   @media (prefers-color-scheme: dark){
     .badge.in_texas{ background:#12313d; color:#7fc4de; }
     .badge.under_500{ background:#2a3a17; color:#a9cf6f; }
     .badge.over_500{ background:#3a2422; color:#e0938f; }
+    .badge.federal{ background:#2d2339; color:#c4a6e8; }
     .badge.unknown{ background:#2c2f34; color:#9aa0a8; }
   }
 
@@ -133,7 +135,7 @@
 <section>
   <div class="sec-head">
     <h2>Overview by distance band</h2>
-    <p class="sec-intro">Chief Foxall described outside-agency sharing as limited to Texas or roughly 500 miles. Distance is computed from each agency's home state (population-centroid, spot-corrected for large border-state agencies) — a screening tool, not a survey-grade distance. Click a card to filter the agency list below to that band.</p>
+    <p class="sec-intro">Chief Foxall described outside-agency sharing as limited to Texas or roughly 500 miles. Distance is computed from each agency's home state (population-centroid, spot-corrected for large border-state agencies) — a screening tool, not a survey-grade distance. Click a card to filter the agency list below to that band. <b>Data window: Jan 1, 2024 – Aug 13, 2026</b> (the original export). Federal agencies are shown as their own band; &ldquo;Unclassified&rdquo; is only agencies whose name carries no state (e.g. rail police). For Aug&ndash;Sep 2026 see the main page, 2026 tabs.</p>
   </div>
   <div class="bucket-grid" id="bucketGrid"></div>
 </section>
@@ -150,6 +152,7 @@
       <option value="in_texas">In-Texas</option>
       <option value="under_500">Under 500 miles</option>
       <option value="over_500">Over 500 miles</option>
+      <option value="federal">Federal</option>
       <option value="unknown">Unclassified</option>
     </select>
   </div>
@@ -163,8 +166,8 @@
 </div>
 
 <script>
-const BUCKET_LABEL = { in_texas: "In-Texas", under_500: "Under 500 mi", over_500: "Over 500 mi", unknown: "Unclassified" };
-const BUCKET_ORDER = ["in_texas", "under_500", "over_500", "unknown"];
+const BUCKET_LABEL = { in_texas: "In-Texas", under_500: "Under 500 mi", over_500: "Over 500 mi", federal: "Federal", unknown: "Unclassified" };
+const BUCKET_ORDER = ["in_texas", "under_500", "over_500", "federal", "unknown"];
 let DATA = null;
 let activeBucketFilter = "";
 
