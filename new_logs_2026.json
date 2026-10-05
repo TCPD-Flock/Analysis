@@ -1,0 +1,1983 @@
+{
+ "generated_from": "new_logs_analysis.py",
+ "period": "2026-08-01..2026-09-30",
+ "network": {
+  "2026-08": {
+   "total": 381309,
+   "bucket": {
+    "in_texas": 381275,
+    "unknown": 34
+   },
+   "types": {
+    "lookup - Mobile": 111491,
+    "lookup": 222189,
+    "search - Mobile": 12474,
+    "search": 33497,
+    "convoy": 1509,
+    "freeform": 51,
+    "searchSummary - Mobile": 45,
+    "visual": 29,
+    "visual - Mobile": 5,
+    "multiGeo": 19
+   },
+   "reason_class": {
+    "substantive": 378206,
+    "vague": 3103
+   },
+   "detail_vague": 7620,
+   "detail_present": 249759,
+   "case_blank": 99310,
+   "case_present": 281999,
+   "late_night": 27206,
+   "weekend": 77035,
+   "timed": 381309,
+   "federal": [],
+   "over500_states": [],
+   "text_prompt": 51,
+   "daily": {
+    "2026-08-01": 9422,
+    "2026-08-02": 8769,
+    "2026-08-03": 15773,
+    "2026-08-04": 17279,
+    "2026-08-05": 19160,
+    "2026-08-06": 16901,
+    "2026-08-07": 13942,
+    "2026-08-08": 10186,
+    "2026-08-09": 8056,
+    "2026-08-10": 14597,
+    "2026-08-11": 17334,
+    "2026-08-12": 17712,
+    "2026-08-13": 18449,
+    "2026-08-14": 14855,
+    "2026-08-15": 8331,
+    "2026-08-16": 6319,
+    "2026-08-17": 12528,
+    "2026-08-18": 14058,
+    "2026-08-19": 15944,
+    "2026-08-20": 16048,
+    "2026-08-21": 12438,
+    "2026-08-22": 7347,
+    "2026-08-23": 6811,
+    "2026-08-24": 13057,
+    "2026-08-25": 12119,
+    "2026-08-26": 14208,
+    "2026-08-27": 12803,
+    "2026-08-28": 9369,
+    "2026-08-29": 5525,
+    "2026-08-30": 6269,
+    "2026-08-31": 5700
+   },
+   "daily_over500": {},
+   "networks_searched_max": 0,
+   "distinct_agencies": 443,
+   "top_agencies": [
+    [
+     "Houston TX PD",
+     65801
+    ],
+    [
+     "Dallas TX PD",
+     56260
+    ],
+    [
+     "Texas Department of Public Safety",
+     33735
+    ],
+    [
+     "Fort Worth TX PD",
+     15595
+    ],
+    [
+     "Harris County TX SO",
+     14894
+    ],
+    [
+     "Beaumont TX PD",
+     6806
+    ],
+    [
+     "Montgomery County TX SO",
+     6258
+    ],
+    [
+     "Carrollton TX PD",
+     5873
+    ],
+    [
+     "Pasadena TX PD",
+     5712
+    ],
+    [
+     "San Antonio TX PD",
+     5506
+    ],
+    [
+     "Grand Prairie TX PD",
+     5504
+    ],
+    [
+     "Harris County Const TX Pct 4",
+     4471
+    ],
+    [
+     "Mesquite TX PD",
+     4449
+    ],
+    [
+     "Amarillo TX PD",
+     3683
+    ],
+    [
+     "Arlington TX PD",
+     3518
+    ]
+   ],
+   "over500_top": [],
+   "over500_distinct_agencies": 0,
+   "reason_cat_top": [
+    [
+     "Wanted Person (Arrest Warrant/Fugitive)",
+     52202
+    ],
+    [
+     "Motor Vehicle Theft/Stolen",
+     51398
+    ],
+    [
+     "Drugs/Narcotics",
+     41161
+    ],
+    [
+     "Larceny/Theft Offenses",
+     25746
+    ],
+    [
+     "Motor Vehicle Theft/Stolen, Hit and Run/Car Accident, Driving Under the Influence (DUI/DWI/OWI/OVI), Criminal Motor Vehicle Offense (incl. Road Rage/Reckless)",
+     21338
+    ],
+    [
+     "Burglary/Breaking & Entering",
+     15221
+    ],
+    [
+     "Assault/Battery Offenses",
+     14229
+    ],
+    [
+     "Traffic Infraction",
+     12434
+    ],
+    [
+     "Auto Theft / VCD Investigation",
+     11945
+    ],
+    [
+     "Robbery",
+     11387
+    ],
+    [
+     "Hit and Run/Car Accident",
+     10872
+    ],
+    [
+     "Stolen Property Offenses",
+     10074
+    ],
+    [
+     "Homicide/Death Investigation",
+     6865
+    ],
+    [
+     "Missing/Endangered Person/Runaway",
+     6480
+    ],
+    [
+     "Larceny/Theft Offenses, Robbery",
+     6285
+    ],
+    [
+     "Weapons Offense (Guns/Shots Fired)",
+     6266
+    ],
+    [
+     "Welfare Check",
+     5978
+    ],
+    [
+     "Assault/Battery Offenses (Domestic)",
+     5964
+    ],
+    [
+     "Assault/Battery Offenses (Domestic), Kidnapping/Abduction",
+     4890
+    ],
+    [
+     "Alcohol Offenses (Non-DUI)",
+     4828
+    ]
+   ],
+   "reason_cat_distinct": 252
+  },
+  "2026-09": {
+   "total": 267698,
+   "bucket": {
+    "in_texas": 256309,
+    "federal": 11228,
+    "under_500": 106,
+    "over_500": 39,
+    "unknown": 16
+   },
+   "types": {
+    "lookup - Mobile": 73251,
+    "lookup": 172115,
+    "search - Mobile": 5378,
+    "search": 15820,
+    "convoy": 1070,
+    "freeform": 10,
+    "searchSummary - Mobile": 28,
+    "freeform - Mobile": 5,
+    "visual": 21
+   },
+   "reason_class": {
+    "substantive": 257115,
+    "vague": 10583
+   },
+   "detail_vague": 4465,
+   "detail_present": 186867,
+   "case_blank": 49947,
+   "case_present": 217751,
+   "late_night": 18442,
+   "weekend": 42787,
+   "timed": 267698,
+   "federal": [
+    [
+     "[Federal] Federal Bureau of Investigation (FBI)",
+     9799
+    ],
+    [
+     "[Federal] US Postal Inspection Service",
+     1429
+    ]
+   ],
+   "over500_states": [
+    [
+     "TN",
+     39
+    ]
+   ],
+   "text_prompt": 15,
+   "daily": {
+    "2026-09-01": 11358,
+    "2026-09-02": 13689,
+    "2026-09-03": 12215,
+    "2026-09-04": 10801,
+    "2026-09-05": 7843,
+    "2026-09-06": 5197,
+    "2026-09-07": 6105,
+    "2026-09-08": 11985,
+    "2026-09-09": 11680,
+    "2026-09-10": 12172,
+    "2026-09-11": 11088,
+    "2026-09-12": 6334,
+    "2026-09-13": 4590,
+    "2026-09-14": 9873,
+    "2026-09-15": 10191,
+    "2026-09-16": 11266,
+    "2026-09-17": 12707,
+    "2026-09-18": 8413,
+    "2026-09-19": 5283,
+    "2026-09-20": 4393,
+    "2026-09-21": 7483,
+    "2026-09-22": 9593,
+    "2026-09-23": 10278,
+    "2026-09-24": 10769,
+    "2026-09-25": 8552,
+    "2026-09-26": 4701,
+    "2026-09-27": 4446,
+    "2026-09-28": 8386,
+    "2026-09-29": 10908,
+    "2026-09-30": 5399
+   },
+   "daily_over500": {
+    "2026-09-24": 21,
+    "2026-09-25": 3,
+    "2026-09-28": 7,
+    "2026-09-29": 3,
+    "2026-09-30": 5
+   },
+   "networks_searched_max": 0,
+   "distinct_agencies": 418,
+   "top_agencies": [
+    [
+     "Houston TX PD",
+     53290
+    ],
+    [
+     "Dallas TX PD",
+     37324
+    ],
+    [
+     "Texas Department of Public Safety",
+     14792
+    ],
+    [
+     "Harris County TX SO",
+     10421
+    ],
+    [
+     "Fort Worth TX PD",
+     10201
+    ],
+    [
+     "[Federal] Federal Bureau of Investigation (FBI)",
+     9799
+    ],
+    [
+     "Pasadena TX PD",
+     6532
+    ],
+    [
+     "Carrollton TX PD",
+     5392
+    ],
+    [
+     "Montgomery County TX SO",
+     4631
+    ],
+    [
+     "Harris County Const TX Pct 4",
+     4522
+    ],
+    [
+     "Grand Prairie TX PD",
+     4443
+    ],
+    [
+     "San Antonio TX PD",
+     3523
+    ],
+    [
+     "Mesquite TX PD",
+     3182
+    ],
+    [
+     "Beaumont TX PD",
+     3019
+    ],
+    [
+     "Lubbock TX PD",
+     2972
+    ]
+   ],
+   "over500_top": [
+    [
+     "TN ROCIC",
+     39
+    ]
+   ],
+   "over500_distinct_agencies": 1,
+   "reason_cat_top": [
+    [
+     "Motor Vehicle Theft/Stolen",
+     35636
+    ],
+    [
+     "Wanted Person (Arrest Warrant/Fugitive)",
+     33662
+    ],
+    [
+     "Drugs/Narcotics",
+     30212
+    ],
+    [
+     "Motor Vehicle Theft/Stolen, Hit and Run/Car Accident, Driving Under the Influence (DUI/DWI/OWI/OVI), Criminal Motor Vehicle Offense (incl. Road Rage/Reckless)",
+     19124
+    ],
+    [
+     "Larceny/Theft Offenses",
+     16605
+    ],
+    [
+     "Assault/Battery Offenses",
+     11363
+    ],
+    [
+     "Homicide/Death Investigation",
+     11049
+    ],
+    [
+     "Other",
+     10583
+    ],
+    [
+     "Burglary/Breaking & Entering",
+     8965
+    ],
+    [
+     "Larceny/Theft Offenses, Robbery",
+     7554
+    ],
+    [
+     "Bribery, Burglary/Breaking & Entering, Financial Crime (Embezzlement/Fraud)",
+     6966
+    ],
+    [
+     "Hit and Run/Car Accident",
+     6902
+    ],
+    [
+     "Assault/Battery Offenses (Domestic), Kidnapping/Abduction",
+     6885
+    ],
+    [
+     "Stolen Property Offenses",
+     6471
+    ],
+    [
+     "Weapons Offense (Guns/Shots Fired)",
+     5869
+    ],
+    [
+     "Traffic Infraction",
+     5701
+    ],
+    [
+     "Robbery",
+     5042
+    ],
+    [
+     "Assault/Battery Offenses (Domestic)",
+     4310
+    ],
+    [
+     "Missing/Endangered Person/Runaway",
+     3649
+    ],
+    [
+     "Financial Crime (Embezzlement/Fraud)",
+     3144
+    ]
+   ],
+   "reason_cat_distinct": 230
+  },
+  "weekly": {
+   "2026-07-27": {
+    "total": 18191,
+    "in_texas": 18191
+   },
+   "2026-08-03": {
+    "total": 101297,
+    "in_texas": 101296,
+    "unknown": 1
+   },
+   "2026-08-10": {
+    "total": 97597,
+    "in_texas": 97587,
+    "unknown": 10
+   },
+   "2026-08-17": {
+    "total": 85174,
+    "in_texas": 85166,
+    "unknown": 8
+   },
+   "2026-08-24": {
+    "total": 73350,
+    "in_texas": 73335,
+    "unknown": 15
+   },
+   "2026-08-31": {
+    "total": 66803,
+    "in_texas": 63213,
+    "federal": 3583,
+    "unknown": 7
+   },
+   "2026-09-07": {
+    "total": 63954,
+    "in_texas": 59996,
+    "federal": 3954,
+    "unknown": 4
+   },
+   "2026-09-14": {
+    "total": 62126,
+    "in_texas": 59229,
+    "federal": 2897
+   },
+   "2026-09-21": {
+    "total": 55822,
+    "in_texas": 55414,
+    "federal": 368,
+    "under_500": 16,
+    "over_500": 24
+   },
+   "2026-09-28": {
+    "total": 24693,
+    "in_texas": 24157,
+    "federal": 426,
+    "under_500": 90,
+    "over_500": 15,
+    "unknown": 5
+   }
+  },
+  "unknown_agencies_top": [
+   [
+    "Union Pacific Railroad PD",
+    50
+   ]
+  ],
+  "unknown_agency_count": 1
+ },
+ "org": {
+  "2026-08": {
+   "total": 840,
+   "types": {
+    "lookup": 459,
+    "lookup - Mobile": 189,
+    "search": 191,
+    "search - Mobile": 1
+   },
+   "manual": 192,
+   "auto": 648,
+   "case_blank": 228,
+   "case_blank_manual": 72,
+   "case_blank_auto": 156,
+   "reason_class": {
+    "substantive": 840
+   },
+   "detail_present": 326,
+   "detail_vague": 13,
+   "filter_none": 552,
+   "filter_texas_only": 275,
+   "filter_other_state": 13,
+   "filter_vehicle_only": 0,
+   "other_state_rows": [
+    {
+     "officer": "Officer-01",
+     "states": [
+      "CT"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "08/27/2026, 10:57:45 AM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-10",
+     "states": [
+      "GA"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "08/26/2026, 07:50:03 PM UTC",
+     "reason": "Hit and Run/Car Accident"
+    },
+    {
+     "officer": "Officer-01",
+     "states": [
+      "OK"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "08/25/2026, 06:32:31 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-79",
+     "states": [
+      "IL"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "08/24/2026, 08:06:53 PM UTC",
+     "reason": "Sex Offenses"
+    },
+    {
+     "officer": "Officer-79",
+     "states": [
+      "IL"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "08/24/2026, 08:06:27 PM UTC",
+     "reason": "Sex Offenses"
+    },
+    {
+     "officer": "Officer-24",
+     "states": [
+      "FL"
+     ],
+     "type": "search",
+     "has_case": false,
+     "time": "08/23/2026, 06:03:18 PM UTC",
+     "reason": "Welfare Check"
+    },
+    {
+     "officer": "Officer-24",
+     "states": [
+      "FL"
+     ],
+     "type": "search",
+     "has_case": false,
+     "time": "08/23/2026, 06:01:56 PM UTC",
+     "reason": "Welfare Check"
+    },
+    {
+     "officer": "Officer-24",
+     "states": [
+      "FL"
+     ],
+     "type": "search",
+     "has_case": false,
+     "time": "08/23/2026, 06:01:06 PM UTC",
+     "reason": "Welfare Check"
+    },
+    {
+     "officer": "Officer-16",
+     "states": [
+      "AK",
+      "AL",
+      "AR",
+      "AZ",
+      "CA",
+      "CO",
+      "CT",
+      "DE",
+      "FL",
+      "GA",
+      "HI",
+      "IA",
+      "ID",
+      "IL",
+      "IN",
+      "KS",
+      "KY",
+      "LA",
+      "MA",
+      "MD",
+      "ME",
+      "MI",
+      "MN",
+      "MO",
+      "MS",
+      "MT",
+      "NC",
+      "ND",
+      "NE",
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OH",
+      "OK",
+      "OR",
+      "PA",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VA",
+      "VT",
+      "WA",
+      "WI",
+      "WV",
+      "WY"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "08/20/2026, 07:36:11 PM UTC",
+     "reason": "Larceny/Theft Offenses"
+    },
+    {
+     "officer": "Officer-02",
+     "states": [
+      "AZ"
+     ],
+     "type": "lookup - Mobile",
+     "has_case": false,
+     "time": "08/17/2026, 09:34:34 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-01",
+     "states": [
+      "IL"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "08/13/2026, 06:11:35 PM UTC",
+     "reason": "Robbery"
+    },
+    {
+     "officer": "Officer-12",
+     "states": [
+      "PA"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "08/12/2026, 02:53:49 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-12",
+     "states": [
+      "PA"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "08/12/2026, 02:53:46 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    }
+   ],
+   "late_night": 122,
+   "weekend": 103,
+   "timed": 840,
+   "networks_by_filtercat": {
+    "texas_only": [
+     [
+      "1",
+      76
+     ],
+     [
+      "449",
+      48
+     ],
+     [
+      "451",
+      38
+     ],
+     [
+      "446",
+      16
+     ],
+     [
+      "452",
+      14
+     ],
+     [
+      "1117",
+      13
+     ]
+    ],
+    "no_state_filter": [
+     [
+      "936",
+      172
+     ],
+     [
+      "1",
+      131
+     ],
+     [
+      "449",
+      47
+     ],
+     [
+      "1112",
+      42
+     ],
+     [
+      "1117",
+      33
+     ],
+     [
+      "446",
+      25
+     ]
+    ],
+    "other_state": [
+     [
+      "447",
+      5
+     ],
+     [
+      "1",
+      3
+     ],
+     [
+      "1117",
+      2
+     ],
+     [
+      "1110",
+      1
+     ],
+     [
+      "434",
+      1
+     ],
+     [
+      "452",
+      1
+     ]
+    ]
+   },
+   "daily": {
+    "2026-08-01": 27,
+    "2026-08-02": 5,
+    "2026-08-03": 19,
+    "2026-08-04": 14,
+    "2026-08-05": 3,
+    "2026-08-06": 22,
+    "2026-08-07": 8,
+    "2026-08-08": 11,
+    "2026-08-09": 7,
+    "2026-08-10": 42,
+    "2026-08-11": 40,
+    "2026-08-12": 43,
+    "2026-08-13": 100,
+    "2026-08-14": 119,
+    "2026-08-15": 17,
+    "2026-08-16": 17,
+    "2026-08-17": 91,
+    "2026-08-18": 10,
+    "2026-08-19": 19,
+    "2026-08-20": 51,
+    "2026-08-21": 20,
+    "2026-08-22": 6,
+    "2026-08-23": 6,
+    "2026-08-24": 14,
+    "2026-08-25": 45,
+    "2026-08-26": 22,
+    "2026-08-27": 42,
+    "2026-08-28": 12,
+    "2026-08-29": 2,
+    "2026-08-30": 5,
+    "2026-08-31": 1
+   },
+   "case_blank_daily": {
+    "2026-08-01": 9,
+    "2026-08-02": 2,
+    "2026-08-03": 6,
+    "2026-08-05": 2,
+    "2026-08-06": 10,
+    "2026-08-07": 2,
+    "2026-08-10": 6,
+    "2026-08-11": 8,
+    "2026-08-12": 1,
+    "2026-08-13": 2,
+    "2026-08-14": 12,
+    "2026-08-15": 17,
+    "2026-08-16": 15,
+    "2026-08-17": 28,
+    "2026-08-18": 6,
+    "2026-08-19": 4,
+    "2026-08-20": 9,
+    "2026-08-21": 6,
+    "2026-08-22": 3,
+    "2026-08-23": 6,
+    "2026-08-24": 10,
+    "2026-08-25": 39,
+    "2026-08-26": 10,
+    "2026-08-27": 7,
+    "2026-08-28": 1,
+    "2026-08-29": 2,
+    "2026-08-30": 5
+   },
+   "nofilter_manual_daily": {
+    "2026-08-01": 9,
+    "2026-08-03": 2,
+    "2026-08-04": 8,
+    "2026-08-05": 2,
+    "2026-08-06": 7,
+    "2026-08-09": 3,
+    "2026-08-10": 12,
+    "2026-08-11": 3,
+    "2026-08-12": 4,
+    "2026-08-17": 33,
+    "2026-08-19": 2,
+    "2026-08-20": 3,
+    "2026-08-21": 4,
+    "2026-08-23": 1,
+    "2026-08-24": 3,
+    "2026-08-25": 21,
+    "2026-08-26": 4,
+    "2026-08-27": 12,
+    "2026-08-28": 2
+   },
+   "text_prompt": 0,
+   "case_values_junk": {
+    "1": 3,
+    "ct": 1
+   },
+   "distinct_officers": 48,
+   "top_officers": [
+    [
+     "Officer-03",
+     206
+    ],
+    [
+     "Officer-05",
+     76
+    ],
+    [
+     "Officer-06",
+     47
+    ],
+    [
+     "Officer-02",
+     43
+    ],
+    [
+     "Officer-15",
+     39
+    ],
+    [
+     "Officer-12",
+     38
+    ],
+    [
+     "Officer-01",
+     37
+    ],
+    [
+     "Officer-08",
+     28
+    ],
+    [
+     "Officer-11",
+     26
+    ],
+    [
+     "Officer-29",
+     24
+    ]
+   ],
+   "top_share_10": 67.1,
+   "reason_cat_top": [
+    [
+     "Traffic Infraction",
+     229
+    ],
+    [
+     "Larceny/Theft Offenses",
+     178
+    ],
+    [
+     "Motor Vehicle Theft/Stolen",
+     134
+    ],
+    [
+     "Hit and Run/Car Accident",
+     64
+    ],
+    [
+     "Wanted Person (Arrest Warrant/Fugitive)",
+     57
+    ],
+    [
+     "Missing/Endangered Person/Runaway",
+     41
+    ],
+    [
+     "Drugs/Narcotics",
+     21
+    ],
+    [
+     "Assault/Battery Offenses (Domestic)",
+     18
+    ],
+    [
+     "Welfare Check",
+     11
+    ],
+    [
+     "Terrorism/Terroristic Threats",
+     11
+    ],
+    [
+     "Disorderly Conduct/Disturbance",
+     10
+    ],
+    [
+     "Sex Offenses",
+     9
+    ],
+    [
+     "Alcohol Offenses (Non-DUI)",
+     7
+    ],
+    [
+     "Assault/Battery Offenses",
+     7
+    ],
+    [
+     "Protective/Protection Order",
+     7
+    ],
+    [
+     "Criminal Motor Vehicle Offense (incl. Road Rage/Reckless)",
+     5
+    ],
+    [
+     "Stolen Property Offenses",
+     4
+    ],
+    [
+     "Driving Under the Influence (DUI/DWI/OWI/OVI)",
+     4
+    ],
+    [
+     "Prostitution",
+     4
+    ],
+    [
+     "Trespass",
+     3
+    ],
+    [
+     "Burglary/Breaking & Entering",
+     3
+    ],
+    [
+     "Weapons Offense (Guns/Shots Fired)",
+     3
+    ],
+    [
+     "Counterfeiting/Forgery",
+     2
+    ],
+    [
+     "Assault/Battery Offenses (Domestic), Threats/Harassment",
+     2
+    ],
+    [
+     "Threats/Harassment, Assault/Battery Offenses (Domestic)",
+     2
+    ]
+   ],
+   "reason_cat_distinct": 27,
+   "plates_distinct": 0
+  },
+  "2026-09": {
+   "total": 622,
+   "types": {
+    "lookup": 409,
+    "lookup - Mobile": 10,
+    "search": 194,
+    "search - Mobile": 9
+   },
+   "manual": 203,
+   "auto": 419,
+   "case_blank": 64,
+   "case_blank_manual": 8,
+   "case_blank_auto": 56,
+   "reason_class": {
+    "substantive": 622
+   },
+   "detail_present": 423,
+   "detail_vague": 30,
+   "filter_none": 447,
+   "filter_texas_only": 149,
+   "filter_other_state": 26,
+   "filter_vehicle_only": 0,
+   "other_state_rows": [
+    {
+     "officer": "Officer-05",
+     "states": [
+      "GA"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/28/2026, 07:38:49 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-05",
+     "states": [
+      "OK"
+     ],
+     "type": "search",
+     "has_case": true,
+     "time": "09/26/2026, 10:45:12 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-05",
+     "states": [
+      "OK"
+     ],
+     "type": "search",
+     "has_case": true,
+     "time": "09/26/2026, 10:44:57 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-05",
+     "states": [
+      "OK"
+     ],
+     "type": "search",
+     "has_case": true,
+     "time": "09/26/2026, 10:43:26 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-05",
+     "states": [
+      "OK"
+     ],
+     "type": "search",
+     "has_case": true,
+     "time": "09/26/2026, 10:41:47 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-05",
+     "states": [
+      "OK"
+     ],
+     "type": "search",
+     "has_case": true,
+     "time": "09/26/2026, 10:41:13 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-03",
+     "states": [
+      "AK",
+      "AL",
+      "AR",
+      "AZ",
+      "CA",
+      "CO",
+      "CT",
+      "DE",
+      "FL",
+      "GA",
+      "HI",
+      "IA",
+      "ID",
+      "IL",
+      "IN",
+      "KS",
+      "KY",
+      "LA",
+      "MA",
+      "MD",
+      "ME",
+      "MI",
+      "MN",
+      "MO",
+      "MS",
+      "MT",
+      "NC",
+      "ND",
+      "NE",
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OH",
+      "OK",
+      "OR",
+      "PA",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VA",
+      "VT",
+      "WA",
+      "WI",
+      "WV",
+      "WY"
+     ],
+     "type": "search",
+     "has_case": true,
+     "time": "09/26/2026, 06:30:39 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-03",
+     "states": [
+      "AK",
+      "AL",
+      "AR",
+      "AZ",
+      "CA",
+      "CO",
+      "CT",
+      "DE",
+      "FL",
+      "GA",
+      "HI",
+      "IA",
+      "ID",
+      "IL",
+      "IN",
+      "KS",
+      "KY",
+      "LA",
+      "MA",
+      "MD",
+      "ME",
+      "MI",
+      "MN",
+      "MO",
+      "MS",
+      "MT",
+      "NC",
+      "ND",
+      "NE",
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OH",
+      "OK",
+      "OR",
+      "PA",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VA",
+      "VT",
+      "WA",
+      "WI",
+      "WV",
+      "WY"
+     ],
+     "type": "search",
+     "has_case": true,
+     "time": "09/26/2026, 06:28:50 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-03",
+     "states": [
+      "AK",
+      "AL",
+      "AR",
+      "AZ",
+      "CA",
+      "CO",
+      "CT",
+      "DE",
+      "FL",
+      "GA",
+      "HI",
+      "IA",
+      "ID",
+      "IL",
+      "IN",
+      "KS",
+      "KY",
+      "LA",
+      "MA",
+      "MD",
+      "ME",
+      "MI",
+      "MN",
+      "MO",
+      "MS",
+      "MT",
+      "NC",
+      "ND",
+      "NE",
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OH",
+      "OK",
+      "OR",
+      "PA",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VA",
+      "VT",
+      "WA",
+      "WI",
+      "WV",
+      "WY"
+     ],
+     "type": "search",
+     "has_case": true,
+     "time": "09/26/2026, 06:23:45 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-03",
+     "states": [
+      "AK",
+      "AL",
+      "AR",
+      "AZ",
+      "CA",
+      "CO",
+      "CT",
+      "DE",
+      "FL",
+      "GA",
+      "HI",
+      "IA",
+      "ID",
+      "IL",
+      "IN",
+      "KS",
+      "KY",
+      "LA",
+      "MA",
+      "MD",
+      "ME",
+      "MI",
+      "MN",
+      "MO",
+      "MS",
+      "MT",
+      "NC",
+      "ND",
+      "NE",
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OH",
+      "OK",
+      "OR",
+      "PA",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VA",
+      "VT",
+      "WA",
+      "WI",
+      "WV",
+      "WY"
+     ],
+     "type": "search",
+     "has_case": true,
+     "time": "09/26/2026, 05:44:52 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-03",
+     "states": [
+      "AK",
+      "AL",
+      "AR",
+      "AZ",
+      "CA",
+      "CO",
+      "CT",
+      "DE",
+      "FL",
+      "GA",
+      "HI",
+      "IA",
+      "ID",
+      "IL",
+      "IN",
+      "KS",
+      "KY",
+      "LA",
+      "MA",
+      "MD",
+      "ME",
+      "MI",
+      "MN",
+      "MO",
+      "MS",
+      "MT",
+      "NC",
+      "ND",
+      "NE",
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OH",
+      "OK",
+      "OR",
+      "PA",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VA",
+      "VT",
+      "WA",
+      "WI",
+      "WV",
+      "WY"
+     ],
+     "type": "search",
+     "has_case": true,
+     "time": "09/26/2026, 05:44:20 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-03",
+     "states": [
+      "AK",
+      "AL",
+      "AR",
+      "AZ",
+      "CA",
+      "CO",
+      "CT",
+      "DE",
+      "FL",
+      "GA",
+      "HI",
+      "IA",
+      "ID",
+      "IL",
+      "IN",
+      "KS",
+      "KY",
+      "LA",
+      "MA",
+      "MD",
+      "ME",
+      "MI",
+      "MN",
+      "MO",
+      "MS",
+      "MT",
+      "NC",
+      "ND",
+      "NE",
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OH",
+      "OK",
+      "OR",
+      "PA",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VA",
+      "VT",
+      "WA",
+      "WI",
+      "WV",
+      "WY"
+     ],
+     "type": "search",
+     "has_case": true,
+     "time": "09/26/2026, 05:41:04 PM UTC",
+     "reason": "Weapons Offense (Guns/Shots Fired)"
+    },
+    {
+     "officer": "Officer-02",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/26/2026, 04:25:51 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-02",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/26/2026, 04:25:45 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-01",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/23/2026, 10:40:08 AM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-01",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/23/2026, 10:39:51 AM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-104",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/20/2026, 08:29:04 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-104",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/20/2026, 08:28:58 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-104",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/20/2026, 08:28:45 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-104",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/20/2026, 08:27:55 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-104",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/20/2026, 08:27:49 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-104",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/20/2026, 08:27:31 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-104",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/20/2026, 08:27:18 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-14",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/20/2026, 07:43:28 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-14",
+     "states": [
+      "MD"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/20/2026, 07:42:36 PM UTC",
+     "reason": "Motor Vehicle Theft/Stolen"
+    },
+    {
+     "officer": "Officer-26",
+     "states": [
+      "CO"
+     ],
+     "type": "lookup",
+     "has_case": true,
+     "time": "09/19/2026, 12:15:32 AM UTC",
+     "reason": "Bribery"
+    }
+   ],
+   "late_night": 62,
+   "weekend": 180,
+   "timed": 622,
+   "networks_by_filtercat": {
+    "texas_only": [
+     [
+      "1",
+      15
+     ],
+     [
+      "422",
+      15
+     ],
+     [
+      "2",
+      11
+     ],
+     [
+      "1142",
+      8
+     ],
+     [
+      "1240",
+      8
+     ],
+     [
+      "420",
+      7
+     ]
+    ],
+    "no_state_filter": [
+     [
+      "1",
+      87
+     ],
+     [
+      "2",
+      79
+     ],
+     [
+      "1143",
+      54
+     ],
+     [
+      "1231",
+      18
+     ],
+     [
+      "1187",
+      18
+     ],
+     [
+      "1262",
+      15
+     ]
+    ],
+    "other_state": [
+     [
+      "1152",
+      6
+     ],
+     [
+      "2",
+      5
+     ],
+     [
+      "1",
+      3
+     ],
+     [
+      "14",
+      3
+     ],
+     [
+      "140",
+      2
+     ],
+     [
+      "381",
+      2
+     ]
+    ]
+   },
+   "daily": {
+    "2026-09-01": 7,
+    "2026-09-02": 20,
+    "2026-09-03": 85,
+    "2026-09-04": 15,
+    "2026-09-05": 27,
+    "2026-09-06": 11,
+    "2026-09-07": 4,
+    "2026-09-08": 30,
+    "2026-09-09": 4,
+    "2026-09-10": 15,
+    "2026-09-11": 45,
+    "2026-09-12": 19,
+    "2026-09-13": 3,
+    "2026-09-14": 10,
+    "2026-09-15": 15,
+    "2026-09-16": 20,
+    "2026-09-17": 5,
+    "2026-09-18": 5,
+    "2026-09-20": 18,
+    "2026-09-21": 12,
+    "2026-09-22": 15,
+    "2026-09-23": 17,
+    "2026-09-24": 5,
+    "2026-09-25": 62,
+    "2026-09-26": 98,
+    "2026-09-27": 4,
+    "2026-09-28": 32,
+    "2026-09-29": 19
+   },
+   "case_blank_daily": {
+    "2026-09-01": 1,
+    "2026-09-03": 25,
+    "2026-09-04": 7,
+    "2026-09-05": 3,
+    "2026-09-06": 1,
+    "2026-09-07": 4,
+    "2026-09-08": 1,
+    "2026-09-12": 15,
+    "2026-09-13": 3,
+    "2026-09-14": 2,
+    "2026-09-17": 2
+   },
+   "nofilter_manual_daily": {
+    "2026-09-01": 5,
+    "2026-09-02": 5,
+    "2026-09-03": 20,
+    "2026-09-04": 13,
+    "2026-09-08": 2,
+    "2026-09-09": 4,
+    "2026-09-10": 2,
+    "2026-09-11": 8,
+    "2026-09-15": 2,
+    "2026-09-16": 11,
+    "2026-09-18": 3,
+    "2026-09-20": 1,
+    "2026-09-21": 2,
+    "2026-09-22": 8,
+    "2026-09-23": 10,
+    "2026-09-25": 2,
+    "2026-09-26": 44,
+    "2026-09-28": 19,
+    "2026-09-29": 3
+   },
+   "text_prompt": 0,
+   "case_values_junk": {
+    "0": 3
+   },
+   "distinct_officers": 44,
+   "top_officers": [
+    [
+     "Officer-01",
+     121
+    ],
+    [
+     "Officer-06",
+     79
+    ],
+    [
+     "Officer-05",
+     68
+    ],
+    [
+     "Officer-86",
+     34
+    ],
+    [
+     "Officer-07",
+     28
+    ],
+    [
+     "Officer-45",
+     24
+    ],
+    [
+     "Officer-11",
+     22
+    ],
+    [
+     "Officer-29",
+     22
+    ],
+    [
+     "Officer-27",
+     18
+    ],
+    [
+     "Officer-33",
+     18
+    ]
+   ],
+   "top_share_10": 69.8,
+   "reason_cat_top": [
+    [
+     "Hit and Run/Car Accident",
+     143
+    ],
+    [
+     "Weapons Offense (Guns/Shots Fired)",
+     97
+    ],
+    [
+     "Missing/Endangered Person/Runaway",
+     79
+    ],
+    [
+     "Motor Vehicle Theft/Stolen",
+     79
+    ],
+    [
+     "Assault/Battery Offenses",
+     54
+    ],
+    [
+     "Wanted Person (Arrest Warrant/Fugitive)",
+     38
+    ],
+    [
+     "Assault/Battery Offenses (Domestic)",
+     23
+    ],
+    [
+     "Traffic Infraction",
+     22
+    ],
+    [
+     "Larceny/Theft Offenses",
+     14
+    ],
+    [
+     "Human Trafficking",
+     13
+    ],
+    [
+     "Pornography/Obscene Material",
+     13
+    ],
+    [
+     "Drugs/Narcotics",
+     12
+    ],
+    [
+     "Burglary/Breaking & Entering",
+     9
+    ],
+    [
+     "Welfare Check",
+     8
+    ],
+    [
+     "Stolen Property Offenses",
+     5
+    ],
+    [
+     "Disorderly Conduct/Disturbance",
+     4
+    ],
+    [
+     "Homicide/Death Investigation",
+     3
+    ],
+    [
+     "Robbery",
+     3
+    ],
+    [
+     "Bribery",
+     1
+    ],
+    [
+     "Protective/Protection Order",
+     1
+    ],
+    [
+     "City Planning/Traffic Analysis",
+     1
+    ]
+   ],
+   "reason_cat_distinct": 21,
+   "plates_distinct": 0
+  },
+  "officer_no_case_top": [
+   [
+    "Officer-86",
+    40,
+    40,
+    100.0
+   ],
+   [
+    "Officer-24",
+    16,
+    16,
+    100.0
+   ],
+   [
+    "Officer-15",
+    48,
+    43,
+    89.6
+   ],
+   [
+    "Officer-02",
+    51,
+    44,
+    86.3
+   ],
+   [
+    "Officer-33",
+    24,
+    20,
+    83.3
+   ],
+   [
+    "Officer-06",
+    126,
+    44,
+    34.9
+   ],
+   [
+    "Officer-88",
+    17,
+    5,
+    29.4
+   ],
+   [
+    "Officer-19",
+    15,
+    3,
+    20.0
+   ],
+   [
+    "Officer-29",
+    46,
+    7,
+    15.2
+   ],
+   [
+    "Officer-05",
+    144,
+    21,
+    14.6
+   ]
+  ],
+  "repeat_manual_pairs_3plus": [],
+  "repeat_manual_pairs_3plus_nocase": [],
+  "new_officer_codes": [
+   "Officer-NEW-1"
+  ]
+ }
+}
